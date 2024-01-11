@@ -10,11 +10,11 @@
        <span class="logo">Blog<span class="brand-accent">Sphere<span></span>
     </div><nav >    
     <ul class="nav">
-       {% comment %} {% for link in nav_links %}
+      {% for link in nav_links %}
        <li>
         <a href="{% url link.destination %}">{{ link.text | title }}</a>
        </li>
-       {% endfor %} {% endcomment %}
+       {% endfor %} 
        {% comment %} <li>
          {% if user %} 
 

@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import Post,Tag
+from .forms import PostForm
 # Create your views here.
 posts = Post.objects
 
@@ -49,3 +50,26 @@ def all_posts(request):
 
 
 
+def newPost(request):
+   if request.method == 'POST':
+      form = PostForm(request.POST)
+      if form.is_valid():
+         post = form.save(commit=False)
+         post.author = request.user
+         post.save()
+         render(request, 'blog/sucess.html')
+   else:
+         form = PostForm()
+   context = {
+      'form': form
+   }
+   return render(request, 'blog/new.html', context)
+
+
+
+def detailsPost(request,slug):
+   post = posts.get(slug = slug)
+   context = {
+     'post': post
+   }
+   return render(request, 'blog/post.html', context)

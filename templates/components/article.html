@@ -21,7 +21,7 @@
                     <span class="author-post__details-name">{{post.author.username}}</span> </a>
                     <span class="author-post__details-date">{{post.created_at|date:"d/F/Y"}}</span></div>
                 </header>
-                {% comment %} <a href="{% url 'post' post.slug %}"> {% endcomment %}
+                <a href="{% url 'post' post.slug %}">
         <div class="title-container">
             <h3 class="post-title">{{ post.title }}</h3>
            
@@ -30,8 +30,8 @@
             
             <p class="post-content">
                 {{ post.body|slice:":175" }}
-                {% if post.content|length > 175 %}
-                ... <a class="read_more" href="#">Read More</a>
+                {% if post.body|length > 175 %}
+                ... <a class="read_more" href="{% url 'post' post.slug %}">Read More</a>
                 {% endif %}
             </p>
         

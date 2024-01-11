@@ -11,6 +11,6 @@
     <a href="{% url "posts" %}">See all posts</a>
     <article>
     <h1>{{post.title}}</h1>
-      <p>{{post.content | linebreaks}}</p>
+      <p>{{post.body | linebreaks}}</p>
     </article></div>
     {% endblock content %}
