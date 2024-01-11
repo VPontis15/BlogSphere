@@ -19,6 +19,28 @@
     
 }
 
+.delete {
+    width:40px;
+    fill: rgb(1, 4, 68);
+    position: absolute;
+    right: -28px;
+    
+    color: rgb(1, 4, 68);
+    top: 0;
+  
+}
+
+
+.edit {
+    
+    fill: #fff;
+    position: absolute;
+    right: 15px;
+    color: rgb(1, 4, 68);
+    top: 5px;
+    z-index: 100;
+}
+
 
 
 .author-post__details   {
@@ -70,6 +92,8 @@
    flex: 1;
   
 }
+
+
 
 
 
@@ -133,3 +157,16 @@
     padding-block: .75em;
     padding-inline:.5em;
 }
+
+
+
+
+
+a.delete {
+    position: absolute;
+    right: 0;
+    top: -20px;
+    margin-left: auto;
+}
+
+

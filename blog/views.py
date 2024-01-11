@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import redirect, render, get_object_or_404
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import Post,Tag
@@ -49,27 +49,59 @@ def all_posts(request):
    return render(request, 'blog/posts.html', context)
 
 
+def detail_post(request, slug):
+   post = posts.get(slug = slug)
+   context = {
+      'post': post
+   }
+   return render(request, 'blog/post.html', context  )
+
+
 
 def newPost(request):
    if request.method == 'POST':
       form = PostForm(request.POST)
       if form.is_valid():
-         post = form.save(commit=False)
-         post.author = request.user
-         post.save()
-         render(request, 'blog/sucess.html')
+        post = form.save(commit=False)
+        post.author = request.user
+        post.save()
+        return redirect('home')
+      
    else:
-         form = PostForm()
-   context = {
+      form = PostForm()
+   return render(request, 'blog/new.html', {
       'form': form
-   }
-   return render(request, 'blog/new.html', context)
+   })
 
+@login_required(login_url= 'login')
+def deletePost(request, id):
+   post = posts.get(pk = id)
 
-
-def detailsPost(request,slug):
-   post = posts.get(slug = slug)
+   if request.method == "POST":
+      post.delete()
+      return redirect('home')
    context = {
-     'post': post
+      'post': post,
+      'id': id
    }
-   return render(request, 'blog/post.html', context)
+   return render(request, 'components/delete.html', context )
+
+
+
+def editPost(request, id):
+   post = posts.get(pk = id)
+
+   if request.method == "POST":
+      form = PostForm(request.POST,instance= post)
+      if form.is_valid():
+         form.save()
+         return redirect('home')
+   else:
+      form = PostForm(instance=post)
+
+   context = {
+      "form": form,
+      "id": id
+   }
+
+   return render(request, 'blog/new.html', context)

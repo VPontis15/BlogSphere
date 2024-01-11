@@ -55,3 +55,6 @@ def register(request):
         form = UserCreationForm()
     return render(request, 'account/register.html', {"form": form})
                                                   
+def success(request):
+
+    return render(request, 'components/success')
