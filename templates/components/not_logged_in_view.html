@@ -1,0 +1,11 @@
+<section>
+ 
+<h2>Recent posts for you to read:</h2>
+
+
+<ul class="latest_blogs blogs">
+    {% for post in all_posts  %}
+    {% include "./article.html" %}
+    {% endfor %}
+</ul>
+</section>

@@ -1,0 +1,49 @@
+{% load static %}
+
+{% block style %}{% endblock %}
+
+<li class="post container">
+    <header class="author">
+        
+        {% comment %} <a href="{% url 'user-profile' username=post.author.user.username tab='informations' %}"> {% endcomment %}
+       
+            {% if post.author.profile_pic %}
+    <img src="{{ post.author.profile_pic.url }}" alt="Profile Picture">
+{% else %}
+            <img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
+            {% endif%}
+
+        </a>
+            <div class="author-post__details">
+
+                {% comment %} <a href="{% url 'user-profile' username=post.author.user.username tab='informations' %}"> {% endcomment %}
+ 
+                    <span class="author-post__details-name">{{post.author.username}}</span> </a>
+                    <span class="author-post__details-date">{{post.created_at|date:"d/F/Y"}}</span></div>
+                </header>
+                {% comment %} <a href="{% url 'post' post.slug %}"> {% endcomment %}
+        <div class="title-container">
+            <h3 class="post-title">{{ post.title }}</h3>
+           
+        </div>
+        <div class="content">
+            
+            <p class="post-content">
+                {{ post.body|slice:":175" }}
+                {% if post.content|length > 175 %}
+                ... <a class="read_more" href="#">Read More</a>
+                {% endif %}
+            </p>
+        
+            <div class="row">
+                {% comment %} <div>
+                    <span class="date">{{ post.created_at|date:"d/m/y" }}</span>
+                </div> {% endcomment %}
+                <ul class="tags">
+                    {% for tag in post.tags.all %}
+                     <li>{{tag}}</li>   {% comment %} <li><a class="tag" href="{% url 'tags' tag %}">{{ tag }}</a></li> {% endcomment %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </li>

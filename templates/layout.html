@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Welcome {% endblock %}</title>
+
+
+    <link rel="stylesheet" href="{% static "global.css"%}">
+    {% block style%} {% endblock %}
+</head>
+<body>
+    {% include "./components/header.html" %}
+    <main class="container">
+    {% block content %}{% endblock content %}
+</main>
+{% include "./components/footer.html" %}
+</body>
+</html>

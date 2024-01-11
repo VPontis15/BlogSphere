@@ -1,0 +1,68 @@
+{% extends "../layout.html" %}
+{% load static%}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'index.css' %}">
+<link rel="stylesheet" href="{% static 'article.css' %}">
+{% endblock  %}
+
+{% block title  %}Homepage{% endblock  %}
+
+    {% block content%}
+    {% comment %} {% if messages %}
+    {% for message in messages %}
+        {% if 'registration' in message.tags %}
+            <h1 class="welcome-message">
+                {{ message }}
+            </h1>
+        {% elif 'login' in message.tags %}
+            <h1 class="welcome-message">
+                {{ message }}
+            </h1>
+        {% endif %}
+    {% endfor %}
+{% endif %} {% endcomment %}
+
+
+    
+   
+   <section  id="welcome">
+    {% if users_posts %}
+    <h2>These are your latest blogs</h2>
+    <ul class="latest_blogs blogs">
+        {% for post in users_posts %}
+        {% include "components/article.html" %}
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>You have no posts yet </p>
+        {% comment %} <a class="link" href="{% url 'new'%}">Write a new posts</a> {% endcomment %}
+    {% endif %}
+   </section>
+   <section>
+    {% if not_users_posts %}  {% comment "" %} follower_posts{% endcomment %}
+    <h2>Recent posts from people you follow for you to see: %NEED TO CHANGE%</h2>
+    <ul class=" blogs">
+        {% for post in not_users_posts %}
+        {% include "components/article.html" %}
+        {% endfor %}
+    </ul>
+   </section>
+
+   <section>
+    {% if user.username %}  
+        <h2>Recent posts for you to read:</h2>
+    {% else %}
+        <h2>Recent posts:</h2>
+    
+    {% endif %}
+    <ul class="latest_blogs blogs">
+        {% for post in not_users_posts  %}
+        {% include "components/article.html" %}
+        {% endfor %}
+    </ul>
+   </section>
+
+   {% endif %}
+
+    {% endblock %}

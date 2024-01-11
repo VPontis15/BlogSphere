@@ -1,0 +1,27 @@
+{% load static%}
+
+{% block style %}
+<link rel="stylesheet" href="{% static "header.css"%}">
+{% endblock  %}
+
+<header >
+    <div class="container header">
+      <div>
+       <span class="logo">Blog<span class="brand-accent">Sphere<span></span>
+    </div><nav >    
+    <ul class="nav">
+       {% comment %} {% for link in nav_links %}
+       <li>
+        <a href="{% url link.destination %}">{{ link.text | title }}</a>
+       </li>
+       {% endfor %} {% endcomment %}
+       {% comment %} <li>
+         {% if user %} 
+
+         <a href="{% url 'user-profile' user.username%}">Profileee</a>
+       {% endif %}</li> {% endcomment %}
+     
+    </ul>
+</nav>
+</div>
+</header>

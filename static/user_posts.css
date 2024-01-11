@@ -1,0 +1,6 @@
+.blogs {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(21.875rem, 1fr)); /* converted from 350px */
+}

@@ -1,0 +1,133 @@
+.post {
+    margin: 2rem auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    padding-bottom: 1em;
+    color: #0b0b0b;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 15px;
+}
+
+.author {
+    min-height: 60px;
+    background-color: var(--heading-clr);
+    position: relative;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    
+}
+
+
+
+.author-post__details   {
+    position: absolute;
+    top: -15px;
+    left: 60px;
+}
+
+.author-post__details span {
+    display: block;
+    font-size: var(--fs-600);
+    border-radius: 2px;
+    margin: 0;
+    line-height: 1;
+    color: var(--nav-text-clr);
+    padding: .25em .5em;
+    margin-bottom: .25rem;
+    font-weight: 700;
+    background-color: var(--main-clr);
+    letter-spacing: 3px;
+    box-shadow: -4px -2px 6px rgba(0,0,0, .6);
+}
+
+.author-post__details-name {
+}
+
+.author img {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: -15px;
+    left: -25px;
+    border-radius: 50%;
+    border: none;
+    overflow: hidden;
+    box-shadow: 4px 8px 16px rgba(0,0,0, .3);
+    object-fit: cover;
+    object-position: center;
+}
+
+.author img:focus-visible, .author img:hover {
+    outline: 2px solid var(--accent-clr);
+}
+
+.content {
+    padding-inline:1.5em;
+   display: flex;
+   flex-direction: column;
+   flex: 1;
+  
+}
+
+
+
+.row  {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1.25em;
+    font-size: .9375rem;
+    flex: 1;
+    column-gap:1rem;
+    align-items: center;
+}
+
+.row ul {
+    row-gap: 0.25em;
+   
+}
+
+.tags {
+    display: flex;
+    font-size: .8375rem;
+    line-height: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+
+}
+
+.read_more {
+    color: var(--accent-clr) !important;
+    text-decoration: underline !important;
+}
+
+.go-back-btn,
+.tag:link, 
+.tag:visited {
+    color: var(--accent-clr) !important;
+
+}
+
+.go-back-btn:hover{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.date {
+    color: #0b0b0bdd;
+    font-size: .875rem;
+}
+
+.post-title {
+    font-size: 1.125rem;
+    margin-bottom: .75em;
+    text-align: center;
+    background-color: var(--main-clr);
+    color: var(--heading2-clr);
+    padding-block: .75em;
+    padding-inline:.5em;
+}

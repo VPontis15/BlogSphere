@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+Welcome to BlogSphere
+{% endblock  %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'login.css'%}">
+{% endblock  %}
+
+{% block content %}
+<section class="welcome-section">
+    <div>
+<h1 class="welcome-section-heading">Empowering Developers: Explore, Learn, and Share Insights at <span class="brand">Blog<span class="brand-accent">Sphere<span></span></h1>
+<p class="welcome-section-p">BlogSphere is the place where developers and technology enthusiasts can share their journeys and knowledge about programming and tech in general.</p>
+{% if messages %}
+    <ul id="messages" class="messages">
+        {% for message in messages %}
+            <li  {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<div> 
+    
+    <form method="post">
+    {% csrf_token %}
+{% for field in form %}
+    <fieldset>
+        {{field.label_tag}}
+        {{field}} 
+    </fieldset>
+    {% endfor %}
+    {% if form.errors  %}
+        <span class="error">
+            {% for error in form.non_field_errors %}
+                {{ error }}
+            {% endfor %}
+        </span>
+    {% endif %}   
+   
+</div>  
+<div class="btns">
+<input type="submit" class="submit" value="Sign In">
+</div>
+</form>
+<div class="cta">
+<h2 class="cta-heading">Don't have an account?</h2>
+<a class="sign-up" href="{% url 'register' %}">Sign up for free </a></div>
+</div></div>
+
+{% include "components/illustration.html" %}    
+
+</section>
+
+{% endblock  %}

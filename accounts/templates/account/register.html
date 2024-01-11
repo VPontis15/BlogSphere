@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'login.css' %}">
+<link rel="stylesheet" href="{% static 'register.css' %}">
+
+{% endblock  %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+<section class="welcome-section">
+    <div>
+    <h1>Register For Free</h1>
+  
+
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% if form.non_field_errors %}
+        <ul class="errorlist">
+            {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% for field in form %}
+        <fieldset>
+            {{ field.label_tag }}
+            {{ field }} 
+           
+        </fieldset> 
+        {% endfor %}
+        {% if form.errors %}
+        {% for error in form.errors  %}
+        
+        <span class="error">{{form.errors}}</span>{% endfor %}
+        {% endif %}
+   
+    
+    <input type="submit" class="register" name="submit" value="Register">
+</form>
+
+{% if messages %}  
+<ul>   
+    {% for message in messages %}  
+        <li>{{ message }}</li>  
+        {% endfor %}  
+</ul>   
+{% endif %}  
+    <div class="cta">
+        <h2 class="cta-heading">Already have an account?</h2>
+        <a class="sign-in" href="{% url 'login' %}">Sign In </a></div>
+        </div>
+</div>
+   {% include "components/illustration.html" %}
+</section>
+{% endblock content %}

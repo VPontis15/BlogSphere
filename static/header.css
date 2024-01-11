@@ -1,0 +1,113 @@
+header {
+    width: 100%;
+background-color: var(--main-clr);
+    
+    color:var(--main-text-clr);
+    display: flex;
+    
+    
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.logo {
+   color: var(--nav-text-clr);
+   font-size: var(--fs-800);
+   font-family: serif;
+}
+
+.logo::selection {
+    color: var(--accent-clr);
+}
+
+.brand-accent {
+    color: var(--accent-clr)
+}
+
+
+.go-back-btn {
+    color: var(--accent-clr);
+}
+
+ .nav {
+   
+    display: flex;
+    gap: 1em;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav li a {
+    transform-origin: center;
+    transition: text-decoration, .25s ease-in-out;
+}
+
+nav li a:link,
+nav li a:visited {
+   color: var(--nav-text-clr);
+
+}
+
+nav li a::selection {
+    background-color: var(--nav-text-clr);
+    color: var(--main-clr);
+}
+
+nav li a:link:hover,
+a:visited:hover {
+    text-decoration: underline; 
+    text-underline-offset: 3px; 
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  nav li a {
+    position: relative;
+    text-decoration: none;
+  
+  }
+  
+  nav li a::before,
+  nav li a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    bottom: 0;
+    background-color: #fff;
+    transition: width 0.3s ease-in-out; /* Transition for the width */
+  }
+  
+  nav li a::before {
+    left: 50%; /* Starts from the middle */
+    transform: translateX(-50%);
+  }
+  
+  nav li a::after {
+    right: 50%; /* Starts from the middle */
+    transform: translateX(50%);
+  }
+  
+  nav li a:hover::before,
+  nav li a:hover::after {
+    width: 50%; /* Change the width on hover to create the effect */
+  }
+  
