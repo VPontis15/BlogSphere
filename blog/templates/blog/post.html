@@ -1,0 +1,16 @@
+
+{% extends '../layout.html' %}
+{% load static %}
+{% block style %}
+
+<link rel="stylesheet" href="{% static 'post.css' %}">
+{% endblock  %}
+ {% block title %}{{post.title}}{% endblock title %}
+ {% block content %}
+ <div class="container">
+    <a href="{% url "posts" %}">See all posts</a>
+    <article>
+    <h1>{{post.title}}</h1>
+      <p>{{post.content | linebreaks}}</p>
+    </article></div>
+    {% endblock content %}

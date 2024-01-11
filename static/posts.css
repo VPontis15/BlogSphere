@@ -9,7 +9,7 @@
 
 .heading-row {
     display: flex;
-    justify-content: space-between;
+    gap: 4.5rem;
     align-items: center;
     margin-bottom: 3em;
 }

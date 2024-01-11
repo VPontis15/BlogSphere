@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block title %}Write a new Blog{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'new.css' %}">
+
+{% endblock %}
+
+{% block content %}
+<section>
+    <form method="POST">
+        <fieldset>
+            <legend>
+               Write a new Blog
+                <img class="legend-icon" src="{% static 'post.svg'%}" alt="">
+            </legend>
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="fieldset">
+                    {{ field.label_tag | title }}
+                    {{ field }}
+                  
+                </div>  
+                <ul>
+                {% for error in field.errors %}
+                        <li class="error">{{ error }}</li>
+                    {% endfor %}</ul>
+            {% endfor %}
+            <div class="btns">
+                <input class="form-btn submit" type="submit" value="Submit">
+                <input class="form-btn reset" type="reset" value="Reset">
+            </div>
+        </fieldset>
+    </form>
+</section>
+
+{% endblock %}

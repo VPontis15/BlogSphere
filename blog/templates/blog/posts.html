@@ -1,0 +1,43 @@
+{% extends '../layout.html'%}
+{% load static%}
+
+{% block style %}
+<link rel="stylesheet" href="{% static "posts.css"%}">
+<link rel="stylesheet" href="{% static "article.css"%}">
+    
+{% endblock  %}
+
+{% block title %}All Posts{% endblock title %}
+
+
+
+{% block content %}
+{% if filtered_posts%}
+<a class="go-back-btn" href="{% url 'posts' %}">All posts</a>
+
+{% endif %}
+
+<div class="heading-row" >
+    <form class="search-container" method="GET">
+        <input class="search-input" type="search" placeholder="Search" name="q" id="q">
+        <img class="search-icon" src="{% static 'search-icon.svg' %}" alt="search icon">
+    </form>
+    <h1>Search for posts to read</h1>
+    <div></div>
+</div>
+{% if filtered_posts %}
+<h1>Posts about {% if tag %} {{tag | title}}{% else %} {{search}}{% endif %} </h1>
+{% endif %}
+    <ul class="blogs">
+        {% if not filtered_posts %}
+    {% for post in all_posts %}
+   {% include "components/article.html" %}
+    {% endfor %}
+  {% endif %}
+    {% if filtered_posts %}
+    
+    {% for post in filtered_posts %}
+   {% include "components/article.html" %}
+{% endfor %}
+{% endif%}</ul>
+{% endblock content %}

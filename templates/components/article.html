@@ -2,7 +2,7 @@
 
 {% block style %}{% endblock %}
 
-<li class="post container">
+<li class="post ">
     <header class="author">
         
         {% comment %} <a href="{% url 'user-profile' username=post.author.user.username tab='informations' %}"> {% endcomment %}
@@ -41,7 +41,7 @@
                 </div> {% endcomment %}
                 <ul class="tags">
                     {% for tag in post.tags.all %}
-                     <li>{{tag}}</li>   {% comment %} <li><a class="tag" href="{% url 'tags' tag %}">{{ tag }}</a></li> {% endcomment %}
+                        <li><a href="{% url 'posts'%}?tag={{tag}} " class="tag"> {{tag}}</a></li>
                     {% endfor %}
                 </ul>
             </div>

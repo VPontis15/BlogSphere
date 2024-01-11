@@ -85,6 +85,8 @@
 
 .row ul {
     row-gap: 0.25em;
+    text-align: center;
+    margin-inline: auto;
    
 }
 
