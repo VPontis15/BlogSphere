@@ -3,6 +3,7 @@
 {% block style %}{% endblock %}
 
 <li class="post ">
+   
     <header class="author">
         {% if request.user == post.author %}
         <a class="delete" href="{% url 'delete' id=post.id %}">
@@ -38,14 +39,16 @@
             {% else %}
             <a href="{% url 'editProfile' %}">  
        {% endif %}
-            {% if post.author.profile_pic %}
-    <img src="{{ post.author.profile_pic.url }}" alt="Profile Picture">
+       {% if post.author.profile.profile_pic %}
+       <img src="{{ post.author.profile.profile_pic.url }}" alt="Profile Picture">
+ 
 {% else %}
             <img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
             {% endif%}
 
         </a>
             <div class="author-post__details">
+             
 
                 {% comment %} <a href="{% url 'user-profile' username=post.author.user.username tab='informations' %}"> {% endcomment %}
  
@@ -58,7 +61,6 @@
            
         </div>
         <div class="content">
-          
             <p class="post-content">
                 {{ post.body|slice:":175" }}
                 {% if post.body|length > 175 %}
