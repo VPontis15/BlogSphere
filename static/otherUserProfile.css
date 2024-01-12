@@ -144,7 +144,7 @@ fieldset legend {
 
 .row {
     display: flex;
-    padding-right: 2.9rem;
+    
     gap: 0;
     margin-bottom: 1.25em;
 }

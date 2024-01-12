@@ -4,7 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
-from .forms import UserForm
+from .forms import  UserForm
+from .models import Profile
 
 
 # Create your views here.
@@ -58,20 +59,47 @@ def register(request):
 
 
 def viewProfile(request, username, tab):
-    username = User.objects.get(username = username)
-    if request.method == "POST":
-        form = UserForm(request.POST,instance= username)
-        form.save()
-    else:
-        form = UserForm(instance=username)
+    user_profile = Profile.objects.get(user__username=username)
+    is_users_profile = user_profile.user == request.user
+
+    
+
     context = {
-        "username": username,
-        "form": form,
-        "tab": tab
+        "user_profile": user_profile,
+        "tab": tab,
+        "is_users_profile": is_users_profile
     }
     return render(request, "account/user-profile.html", context)
 
 
+def EditProfile(request):
+     user_profile = Profile.objects.get(user = request.user)
+     user = User.objects.get(id = request.user.id)
+     if request.method == "POST":
+        form = UserForm(request.POST, instance=user_profile)
+        if form.is_valid():
+            user_profile.first_name = form.cleaned_data['first_name']
+            user_profile.last_name = form.cleaned_data['last_name']
+            user_profile.email = form.cleaned_data['email']
+
+            # Save both the User and Profile instances
+            user.save()
+            user_profile.save()
+
+            messages.success(request, 'Profile updated successfully')
+            return redirect('home')  
+        else:
+            messages.error(request, 'Something went wrong')
+     else:
+        form = UserForm(instance=user_profile)
+        
+     
+     context ={
+         'form': form,
+         "user_profile": user_profile
+     }
+
+     return render(request, 'account/myProfile.html', context)
 
 
 

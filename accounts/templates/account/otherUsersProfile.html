@@ -22,24 +22,24 @@
 {% else %}
 <img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
 {% endif %}
-{% if username.full_name %}
+{% if user_profile.full_name %}
 <span class="user-fullname">
-    {{username.full_name}}
+    {{user_profile.full_name}}
     {% endif %}
 </span>
 <div>
     <div role="table" class="table">
       <div role="col" class="col">
           <div role="columnheader" class="th">Posts</div>
-          <div  role="cell" class="td">{{ username.post_set.all.count }}</div>
+          <div  role="cell" class="td">{{ user_profile.user.post_set.all.count }}</div>
       </div>
       <div role="col" class="col">
           <div role="columnheader" class="th">Followers</div>
-          <div  role="cell" class="td">{{ username.followers.count }}</div>
+          <div  role="cell" class="td">{{ user_profile.followers.count }}</div>
       </div>
       <div role="col" class="col">
           <div role="columnheader" class="th">Following</div>
-          <div  role="cell" class="td">{{username.following.count}}</div>
+          <div  role="cell" class="td">{{user_profile.following.count}}</div>
       </div>
   
     </div>
@@ -51,16 +51,16 @@
 <form action="">
 <fieldset class="border-fieldset">
   <div class=" links">
-    <a class="links-user"  href="{% url 'user-profile' username=username tab='informations'%}">Informations</a>
+    <a class="links-user"  href="{% url 'user-profile' username=user_profile tab='informations'%}">Informations</a>
     <span class="slash">|</span>
-    <a class="links-user" href="{% url 'user-profile' username=username tab='posts'%}">Posts</a>
+    <a class="links-user" href="{% url 'user-profile' username=user_profile tab='posts'%}">Posts</a>
   </div>
- <legend>{{username.username}}</legend>
+ <legend>{{user_profile.user.username}}</legend>
 <section class="user-information">
   {% if tab == "posts" %}
   {% include "./user_posts.html" %}
 {% elif tab == "informations" %}
-  {% include "./user_informations2.html" %}
+  {% include "./user_informations.html" %}
 {% endif %}
 
     

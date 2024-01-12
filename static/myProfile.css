@@ -259,3 +259,20 @@ textarea:focus-visible {
     color: var(--heading-clr);
     font-weight: 600;
 }
+
+
+.row:has(.save) {
+    padding-inline-end: 2.9em;
+}
+
+.save {
+    background-color: var(--main-clr);
+    padding: 1em 2em;
+    border: 1px solid var(--main-clr);
+    color: #fff;
+    font-weight: 600;
+    margin-left: auto;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
+}

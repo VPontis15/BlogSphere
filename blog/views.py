@@ -105,3 +105,6 @@ def editPost(request, id):
    }
 
    return render(request, 'blog/new.html', context)
+
+
+

@@ -30,7 +30,7 @@
   <div role="table" class="table">
     <div role="row" class="col">
         <div role="columnheader" class="th">Posts</div>
-        <div  role="cell" class="td">{{ user_profile.post_set.all.count }}</div>
+        <div  role="cell" class="td">{{ user_profile.user.post_set.all.count }}</div>
     </div>
     <div role="row" class="col">
         <div role="columnheader" class="th">Followers</div>
@@ -54,9 +54,9 @@
 <section class="user-information">
     <form class="user-settings" method="POST" action="">
         {% csrf_token %}
-       {{user_profile.user}}
+      
         <fieldset class="border-fieldset">
-        <legend> {{user.username}} </legend>
+        <legend> {{user_profile}} </legend>
      <div class="row">
      <fieldset class="col-user-details">
         <label for="id_first_name">First Name:</label>
@@ -105,7 +105,7 @@
             </div>
         <div class="row">
         
-            <button class="save" type="submit">Save Changes</button>
+         <input class="save" type="submit" value="Submit">
             </div>
     </fieldset> 
     </form>
