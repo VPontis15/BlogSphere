@@ -32,12 +32,15 @@
 } 
 
 
-
+.row:has(p.about){
+    padding-right: 2.8em;
+}
 
 
 p.about {
     color: var(--main-text-clr) !important;
     padding-block: .75em !important;
+    line-height: 1.4;
 }
 
 
@@ -77,6 +80,7 @@ fieldset {
     border: 1px solid var(--main-clr-light);
    margin-inline:auto;
  padding-block: 2em;
+ min-height: 550px;
 }
 
 
@@ -161,6 +165,18 @@ fieldset legend {
 }
 
 
+.post-count, .link-active {
+    color: var(--heading-clr) !important;
+    font-weight: 700;
+}
+
+.post-count--active {
+    color: var(--main-clr) !important;
+    font-weight: 700;
+}
+
+
+
 
 .row:not(:last-child){
     margin-bottom: var(--gutter-y-300)
@@ -191,7 +207,8 @@ input:disabled {
 
 
   .col-user-details p {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     color: var(--heading-clr);
     padding: .15em 1em;
     min-width: 300px;
@@ -227,3 +244,11 @@ input:disabled {
 
 
 
+.blogs {
+    display: grid;
+    grid-auto-flow: column;
+    overflow-x: scroll;
+    scroll-snap-align:start;
+    padding-inline: 1.25em;
+    scroll-snap-type: mandatory;
+}

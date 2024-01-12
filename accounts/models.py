@@ -26,7 +26,7 @@ class Profile(models.Model):
     full_name = models.CharField(null=True, max_length = 200, blank= True)
     country = models.CharField(null=True, blank=True, max_length=100)
     city = models.CharField(null=True, blank=True, max_length=100)
-    following = models.ManyToManyField('self',related_name='followerss')
+    following = models.ManyToManyField('self',symmetrical=False, blank=True)
     followers = models.ManyToManyField("self", related_name="followed_by", symmetrical=False, blank=True)
 
 
