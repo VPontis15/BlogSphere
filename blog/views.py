@@ -3,23 +3,27 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import Post,Tag
 from .forms import PostForm
+from accounts.models import Profile
 # Create your views here.
 posts = Post.objects
 
 def home(request):
-
+   user_profile = Profile.objects.get(id = request.user.id)
    user =  request.user.username
-   posts = Post.objects
+   following_posts = Post.objects.filter(author__profile__in = user_profile.following.all()).exclude(author = request.user)
+   
    all_posts = posts.all()
    users_posts = posts.filter(author__username=user)
+   
    not_users_posts = posts.exclude(author__username = user)
-   follower_posts = None;
+   
    context = {
       'posts': all_posts,
       'all_posts': all_posts,
       'users_posts': users_posts,
       'not_users_posts': not_users_posts,
-      'followers_posts': follower_posts
+       "user_profile": user_profile,
+       "following_posts": following_posts
    }
 
 
