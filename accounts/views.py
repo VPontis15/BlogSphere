@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from .forms import  UserForm
 from .models import Profile
+from blog.models import Post
 
 
 # Create your views here.
@@ -61,13 +62,15 @@ def register(request):
 def viewProfile(request, username, tab):
     user_profile = Profile.objects.get(user__username=username)
     is_users_profile = user_profile.user == request.user
+    user_posts = Post.objects.filter(author__username = username )
 
     
 
     context = {
         "user_profile": user_profile,
         "tab": tab,
-        "is_users_profile": is_users_profile
+        "is_users_profile": is_users_profile,
+        "user_posts": user_posts
     }
     return render(request, "account/user-profile.html", context)
 
