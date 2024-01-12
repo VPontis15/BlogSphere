@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'article.css'%}">
+<link rel="stylesheet" href="{% static 'otherUserProfile.css'%}">
+
+
+{% endblock style %}
+
+{% block title %}BlogSphere | {{user_profile.username}}'s profile{% endblock title %}
+{% block content %}
+
+
+<section >
+    <fieldset class="user-profile" disabled>
+<div class="user-image-container">
+    {% if is_users_profile %}
+    <p type="file" name="avatar" id="avatar"></form>{% endif %}
+{% if user_profile.profile_pic  %}
+
+<img class="user-image" src="{{user_profile.profile_pic.url}}" alt="User's profile picture">
+{% else %}
+<img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
+{% endif %}
+{% if username.full_name %}
+<span class="user-fullname">
+    {{username.full_name}}
+    {% endif %}
+</span>
+<div>
+    <div role="table" class="table">
+      <div role="col" class="col">
+          <div role="columnheader" class="th">Posts</div>
+          <div  role="cell" class="td">{{ username.post_set.all.count }}</div>
+      </div>
+      <div role="col" class="col">
+          <div role="columnheader" class="th">Followers</div>
+          <div  role="cell" class="td">{{ username.followers.count }}</div>
+      </div>
+      <div role="col" class="col">
+          <div role="columnheader" class="th">Following</div>
+          <div  role="cell" class="td">{{username.following.count}}</div>
+      </div>
+  
+    </div>
+  </div>
+
+</div>
+
+
+<form action="">
+<fieldset class="border-fieldset">
+  <div class=" links">
+    <a class="links-user"  href="{% url 'user-profile' username=username tab='informations'%}">Informations</a>
+    <span class="slash">|</span>
+    <a class="links-user" href="{% url 'user-profile' username=username tab='posts'%}">Posts</a>
+  </div>
+ <legend>{{username.username}}</legend>
+<section class="user-information">
+  {% if tab == "posts" %}
+  {% include "./user_posts.html" %}
+{% elif tab == "informations" %}
+  {% include "./user_informations2.html" %}
+{% endif %}
+
+    
+</section>
+{% endblock content %}

@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-user-details">
+    <h3 >First Name:</h3>
+    <p> {% if user_profile.first_name%}{{user_profile.first_name}} {% endif %}</p>    
+    <h3 for="last_name">Last Name:</h3>
+    <p>  {% if user_profile.last_name%}{{user_profile.last_name}} {% endif %}</p>  
+  </div>
+  
+    <div class="col-user-details">
+    <h3 >Email:</h3>
+    <p>  {% if user_profile.user.email%}{{user_profile.user.email}} {% endif %}</p>  
+    <h3 >Gender:</h3>
+    <p>
+      {% if user_profile.gender %}
+          {{ user_profile.get_gender_display }}
+      {% endif %}
+  </p>
+  
+  </div>
+</div>
+</div> 
+<div class="row">
+  <div class="col-user-details">
+    <h3>Birthday:</h3>
+    <p>{% if user_profile.birthday %}{{user_profile.birthday | date:" d / m / y"}}{% endif %}</p>
+  </div>
+  <div class="col-user-details">
+    <h3>Country:</h3>
+    <p>{% if user_profile.country %}{{user_profile.country}}{% endif %}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-user-details">
+    <h3>Job:</h3>
+    <p>{% if user_profile.job %}{{user_profile.job}}{% endif %}</p>
+  </div>
+  <div class="col-user-details">
+    <h3>City:</h3>
+    <p>{% if user_profile.city %}{{user_profile.city}}{% endif %}</p>
+  </div>
+</div>
+<div class="row"> 
+<div class="col-user-details">
+            <h3 for="bio">About:</h3>{% if user_profile.bio %}
+            <p class="about"> {{user_profile.bio}} </p>        
+       {% else %}
+       <p class="about-default">{{user_profile.username}} hasn't provide any info about themselves</p>
+{% endif %}
+    </div></div> 
+
+</section></fieldset></form>

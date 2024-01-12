@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
-
+from .forms import UserForm
 
 
 # Create your views here.
@@ -54,6 +54,27 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'account/register.html', {"form": form})
+
+
+
+def viewProfile(request, username, tab):
+    username = User.objects.get(username = username)
+    if request.method == "POST":
+        form = UserForm(request.POST,instance= username)
+        form.save()
+    else:
+        form = UserForm(instance=username)
+    context = {
+        "username": username,
+        "form": form,
+        "tab": tab
+    }
+    return render(request, "account/user-profile.html", context)
+
+
+
+
+
                                                   
 def success(request):
 
