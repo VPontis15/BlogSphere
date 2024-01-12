@@ -3,15 +3,17 @@
 {% block style %}
 <link rel="stylesheet" href="{% static 'otherUserProfile.css'%}">
 <link rel="stylesheet" href="{% static 'myProfile.css'%}">
+<link rel="stylesheet" href="{% static 'article.css' %}">
 {% endblock style %}
 
 {% block title %}BlogSphere | My Profile {% endblock title %}
 {% block content %}
 
 <section class="user-profile">
+   <div class="user-settings">
 <div class="user-image-container">
-    {% if is_users_profile %}
-    <form action="" method="POST" enctype="multipart/form-data" >
+    {% if   is_users_profile  %}
+    <form action=""  method="POST" enctype="multipart/form-data" >
     <input type="file" name="avatar" id="avatar">
 </form>
 {% endif %}
@@ -40,76 +42,27 @@
         <div role="columnheader" class="th">Following</div>
         <div  role="cell" class="td">{{user_profile.following.count}}</div>
     </div>
-
+   </div>
   </div>
 </div>
-
+ <ul class="settings-list">
+   <li><a href="{% url 'editProfile' %}?tab=informations">Informations</a></li>
+   <li><a href="{% url 'editProfile' %}?tab=posts">Posts</a></li>
+   <li><a href="{% url 'editProfile' %}?tab=settings">Settings</a></li>
+   <li><a href="{% url 'logout' %}">Logout</a></li>
+ </ul>
 </div>
-
-
 
 
 
 
 <section class="user-information">
-    <form class="user-settings" method="POST" action="">
-        {% csrf_token %}
-      
-        <fieldset class="border-fieldset">
-        <legend> {{user_profile}} </legend>
-     <div class="row">
-     <fieldset class="col-user-details">
-        <label for="id_first_name">First Name:</label>
-        {{ form.first_name }}
-     </fieldset>
-     <fieldset class="col-user-details">
-        <label for="id_email">Email:</label>
-        {{ form.email }}
-     </fieldset>
-     </div>
-     <div class="row">
-     <fieldset class="col-user-details">
-        <label for="id_last_name">Last Name:</label>
-        {{ form.last_name }}
-     </fieldset>
-     <fieldset class="col-user-details">
-        <label for="id_gender">Gender:</label>
-        {{ form.gender }}  
-     </fieldset>
-     </div>
-     <div class="row">
-     <fieldset class="col-user-details">
-        <label for="id_last_name">Birthday:</label>
-        {{ form.birthday }}
-     </fieldset>
-     <fieldset class="col-user-details">
-        <label for="id_gender">Country:</label>
-        {{ form.country }}  
-     </fieldset>
-     </div>
-     <div class="row">
-        <fieldset class="col-user-details">
-           <label for="id_last_name">Job:</label>
-           {{ form.job }}
-        </fieldset>
-        <fieldset class="col-user-details">
-           <label for="id_gender">City:</label>
-           {{ form.city }}  
-        </fieldset>
-        </div>
-        <div class="row">
-            <fieldset class="col-user-details">
-               <label for="id_last_name">About:</label>
-               {{ form.bio }}
-            </fieldset>
-            </div>
-        <div class="row">
-        
-         <input class="save" type="submit" value="Submit">
-            </div>
-    </fieldset> 
-    </form>
+   {% if tab == 'informations' %}
+      {% include "account/components/myProfile/form.html" %}
+    {% endif %}
+    {% if tab == 'posts' %}
+      {% include "account/components/myProfile/posts.html" %}
+    {% endif %}
 </section>
-
 </section>
 {% endblock content %}
