@@ -8,7 +8,7 @@
  {% block title %}{{post.title}}{% endblock title %}
  {% block content %}
  <div class="container">
-    <a href="{% url "posts" %}">See all posts</a>
+    <a class='see-all' href="{% url "posts" %}">See all posts</a>
     <article>
     <h1>{{post.title}}</h1>
       <p>{{post.body | linebreaks}}</p>

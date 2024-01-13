@@ -5,34 +5,38 @@ from .models import Post,Tag
 from .forms import PostForm
 from accounts.models import Profile
 # Create your views here.
+
 posts = Post.objects
 
+@login_required(login_url='login')
 def home(request):
-   try:
-        user_profile = Profile.objects.get(user=request.user)
-   except Profile.DoesNotExist:
-       
-        user_profile = None
-   user =  request.user.username
-   if user_profile:
-      following_posts = Post.objects.filter(author__profile__in = user_profile.following.all()).exclude(author = request.user)
-   
-   all_posts = posts.all()
-   users_posts = posts.filter(author__username=user)
-   
-   not_users_posts = posts.exclude(author__username = user)
-   
-   context = {
-      'posts': all_posts,
-      'all_posts': all_posts,
-      'users_posts': users_posts,
-      'not_users_posts': not_users_posts,
-       "user_profile": user_profile,
-       "following_posts": following_posts
-   }
+    user_profile = None
+    users_posts = not_users_posts = following_posts = all_posts = None
 
+    if request.user.is_authenticated:
+        try:
+            user_profile = Profile.objects.get(user=request.user)
+        except Profile.DoesNotExist:
+            user_profile = None
 
-   return render(request, 'blog/index.html', context)
+        if user_profile:
+            user = request.user.username
+            following_posts = Post.objects.filter(author__profile__in=user_profile.following.all()).exclude(author=request.user)
+            users_posts = Post.objects.filter(author__username=user)
+            not_users_posts = Post.objects.exclude(author__username=user)
+
+    all_posts = Post.objects.all()
+
+    context = {
+        'posts': all_posts,
+        'all_posts': all_posts,
+        'users_posts': users_posts,
+        'not_users_posts': not_users_posts,
+        'user_profile': user_profile,
+        'following_posts': following_posts,
+    }
+
+    return render(request, 'blog/index.html', context)
 
 
 
@@ -58,6 +62,16 @@ def all_posts(request):
    return render(request, 'blog/posts.html', context)
 
 
+def filteredByTag(request,tag):
+   
+   filtered_by_tag = posts.filter(tags__name = tag)
+   context = {
+      'filtered_by_tag': filtered_by_tag,
+   }
+
+   return render(request, 'blog/posts.html', context)
+
+
 def detail_post(request, slug):
    post = posts.get(slug = slug)
    context = {
@@ -66,7 +80,7 @@ def detail_post(request, slug):
    return render(request, 'blog/post.html', context  )
 
 
-
+@login_required(login_url='login')
 def newPost(request):
    if request.method == 'POST':
       form = PostForm(request.POST)

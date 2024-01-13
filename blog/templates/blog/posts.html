@@ -25,11 +25,11 @@
     <h1>Search for posts to read</h1>
     <div></div>
 </div>
-{% if filtered_posts %}
+{% if filtered_posts or search %}
 <h1>Posts about {% if tag %} {{tag | title}}{% else %} {{search}}{% endif %} </h1>
 {% endif %}
     <ul class="blogs">
-        {% if not filtered_posts %}
+        {% if not filtered_posts and not search %}
     {% for post in all_posts %}
    {% include "components/article.html" %}
     {% endfor %}
@@ -38,6 +38,7 @@
     
     {% for post in filtered_posts %}
    {% include "components/article.html" %}
-{% endfor %}
+   {% endfor %}
+  {% else %} <p>No post where found</p>
 {% endif%}</ul>
 {% endblock content %}

@@ -26,9 +26,11 @@
 {% if user_profile.first_name and user_profile.last_name %}
 <span class="user-fullname">
    {{user_profile.first_name}} {{user_profile.last_name}}
+  </span>
    {% else %}
-        {{user_profile}}
-      </span>
+   <span class="user-fullname">
+   {{request.user}}
+   </span>
       {% endif %}
 <div>
   <div role="table" class="table">

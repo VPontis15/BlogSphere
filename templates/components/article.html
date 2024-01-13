@@ -6,16 +6,17 @@
    
     {% if not tab %}
     <header class="author">
-        {% if request.user == post.author %}
-        <div class="links-actions">
+            
+            {% if request.user == post.author %}
+            <div class="links-actions">
             <a class="" href="{% url 'edit' id=post.id %}">
                 <img class='edit' src="{% static 'images/test.svg' %}" alt="">
             </a> 
         <a class="" href="{% url 'delete' id=post.id %}">
            <img class='delete' src="{% static 'images/delete.svg' %}" alt="">
-        </a> 
+        </a> </div>
         {% endif %}
-    </div>
+   
         {% if post.author != request.user %}
          <a href="{% url 'user-profile' username=post.author tab='informations' %}"> 
             {% else %}
