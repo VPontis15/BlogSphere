@@ -20,26 +20,50 @@
     
 }
 
-.delete {
-    width:40px;
+.delete  {
+   
     fill: rgb(1, 4, 68);
-    position: absolute;
-    right: -28px;
+    right:0;
     
     color: rgb(1, 4, 68);
-    top: 0;
+    
   
 }
 
+.links-actions   {
+    width:100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+   position: relative;   
+   border-top-right-radius: 15px;;
+   border-top-left-radius: 15px;;
+   top: -16px;
+   max-height: 36px;
+   background-color: white;
+   box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.3);
+  
+   
+}
 
-.edit {
-    
+.links-actions  img {
+  /* background-color: var(--main-clr);
+  border-radius: 50%; */
+ position: absolute;
+ top:-15px;
+ 
+  width: 40px;
+}
+
+
+
+img.edit  {
+   width:50px;
+   right: 45px;
     fill: #fff;
-    position: absolute;
-    right: 15px;
     color: rgb(1, 4, 68);
-    top: 5px;
-    z-index: 100;
+
+    
 }
 
 
@@ -68,7 +92,7 @@
 .author-post__details-name {
 }
 
-.author img {
+.author .profile-picture {
     width: 70px;
     height: 70px;
     position: absolute;
@@ -80,6 +104,8 @@
     box-shadow: 4px 8px 16px rgba(0,0,0, .3);
     object-fit: cover;
     object-position: center;
+  
+  
 }
 
 .author img:focus-visible, .author img:hover {
@@ -152,11 +178,17 @@
 .post-title {
     font-size: 1.125rem;
     margin-bottom: .75em;
+    display: inline-flex;
+    align-items: center;
     text-align: center;
     background-color: var(--main-clr);
     color: var(--heading2-clr);
     padding-block: .75em;
     padding-inline:.5em;
+    min-height: 80px;
+    line-height: 1.2;
+    width:100%;
+    justify-content: center;
 }
 
 

@@ -1,7 +1,7 @@
 header {
     width: 100%;
 background-color: var(--main-clr);
-    
+    padding-block: 1em;
     color:var(--main-text-clr);
     display: flex;
     

@@ -80,7 +80,7 @@ fieldset {
     border: 1px solid var(--main-clr-light);
    margin-inline:auto;
  padding-block: 2em;
- min-height: 550px;
+ min-height: 682px;
 }
 
 
@@ -230,6 +230,8 @@ input:disabled {
    
 }
 
+
+
 .th {
     font-size: var(--fs-500);
     color: var(--main-clr);
@@ -251,4 +253,5 @@ input:disabled {
     scroll-snap-align:start;
     padding-inline: 1.25em;
     scroll-snap-type: mandatory;
+    align-items: center !important;
 }

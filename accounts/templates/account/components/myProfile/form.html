@@ -1,9 +1,9 @@
 <form class="user-settings" method="POST" action="">
     {% csrf_token %}
   
-    <fieldset class="border-fieldset">
-    <legend> {{user_profile}} </legend>
- <div class="row">
+   
+    
+ <div class="row tab-form">
  <fieldset class="col-user-details">
     <label for="id_first_name">First Name:</label>
     {{ form.first_name }}
@@ -13,7 +13,7 @@
     {{ form.email }}
  </fieldset>
  </div>
- <div class="row">
+ <div class="row tab-form">
  <fieldset class="col-user-details">
     <label for="id_last_name">Last Name:</label>
     {{ form.last_name }}
@@ -23,7 +23,7 @@
     {{ form.gender }}  
  </fieldset>
  </div>
- <div class="row">
+ <div class="row tab-form">
  <fieldset class="col-user-details">
     <label for="id_last_name">Birthday:</label>
     {{ form.birthday }}
@@ -33,7 +33,7 @@
     {{ form.country }}  
  </fieldset>
  </div>
- <div class="row">
+ <div class="row tab-form">
     <fieldset class="col-user-details">
        <label for="id_last_name">Job:</label>
        {{ form.job }}
@@ -43,15 +43,16 @@
        {{ form.city }}  
     </fieldset>
     </div>
-    <div class="row">
+    <div class="row textarea tab-form">
         <fieldset class="col-user-details">
            <label for="id_last_name">About:</label>
            {{ form.bio }}
         </fieldset>
+        <fieldset></fieldset>
         </div>
-    <div class="row">
+    <div class="row tab-form">
     
      <input class="save" type="submit" value="Submit">
         </div>
-</fieldset> 
+
 </form>

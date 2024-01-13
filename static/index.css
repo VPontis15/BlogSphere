@@ -19,8 +19,13 @@ h1 {
 }
 
 .blogs {
+
     display: grid;
-    justify-content: center;
-    align-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(21.875rem, 1fr)); /* converted from 350px */
+    grid-auto-flow: column;
+    grid-auto-columns: 30%;
+    padding-inline: 1em;
+    overflow-x: scroll;
+    scroll-snap-align:start;
+    scroll-snap-type: mandatory;
+    align-items: center;
 }

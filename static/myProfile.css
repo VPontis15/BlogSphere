@@ -1,10 +1,82 @@
+
+
+main {
+    margin-top: 0;
+}
+
+
+
 .user-profile {
     margin-block: 4em;
     display: grid; 
-    grid-template-columns: 23.5rem 1fr;
-    gap: 2rem;
+    grid-template-columns: 16rem 1fr;
+    gap: 0 !important;
     align-items: start;
    
+}
+
+.user-information {
+    min-height: 650px;
+}
+
+
+
+.user-image-container {
+   
+    border: 1px solid var(--main-clr);
+    border-bottom: none;
+    padding-block:1em;
+    padding-top: 1.5em;
+    margin-top: 0 !important;
+}
+
+div:has(.settings-list){
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+    
+}
+
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    border: 1px solid var(--main-clr);
+    border-radius: 2px;
+    
+}
+
+
+
+.settings-list li {
+    flex: 1;
+    text-align: center;
+    list-style: none;
+  
+    display: flex;
+    height: 100%;
+}
+
+.settings-list li a {
+    width:100% !important;
+    padding-block: 2.25em;
+    transition: all .2s ease-in;
+    
+   
+
+}
+
+.settings-list li a:hover{
+    background-color: var(--main-clr);
+    color: var(--nav-text-clr) !important;
+}
+
+
+
+.settings-list li:not(last-child){
+    border-bottom: 1px solid var(--main-clr);
 }
 
 p.about {
@@ -15,25 +87,22 @@ p.about {
 
 
 
-fieldset {
-    border: none;
-}
 
-.user-image-container {
-    max-width: 350px;
-    margin-top: var(--gutter-y-600)
-}
+
+
 
 .user-image, .no-picture {
-    max-width:350px;
+    max-width:120px;
     width:100%;
+    aspect-ratio: 16/9;
     outline:2px solid var(--heading-clr);
     outline-offset: 5px;
-    border-radius: 10px;
+    border-radius: 50%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: center;
-    margin-inline: auto;
+    margin-bottom: 1em;
+    
 }
 
 
@@ -51,7 +120,8 @@ fieldset {
 
 .user-information {
  display: grid;
- 
+ border: 1px solid var(--main-clr);
+ border-left: none;
 }
 
 fieldset {
@@ -80,12 +150,7 @@ fieldset legend {
 
 
 
-.no-picture {
-    max-width: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
-}
+
 
 
 .user-fullname{
@@ -132,7 +197,7 @@ fieldset legend {
 
 
 .row:not(:last-child){
-    margin-bottom: var(--gutter-y-300)
+    margin-bottom: var(--gutter-y-600)
 }
 
 
@@ -157,15 +222,9 @@ input:disabled {
 }
 
 
-.textarea {
-    display: grid;
-    grid-template-columns: .1fr .65fr;
-}
 
-.textarea > label {
-    padding-left: 1.25rem;
 
-}
+
 input[type='text'] {
     background: none;
    
@@ -192,6 +251,7 @@ select:focus-visible {
 textarea:focus-visible{
     background: none;
     border: none;
+    padding-block-start: 1em;
     outline: 1px solid var(--accent-clr);
 }
 
@@ -222,23 +282,9 @@ textarea:focus-visible{
 
  
 
-  textarea {
-    resize: none;
-    color: var(--main-text-clr) !important;
-    border: 2px solid var(--main-clr);
-    min-height: 150px;
-    width: 400px;
-    transition: width .5s ease-in-out;
-}
 
-textarea:focus-visible {
-    
-    width: 760px;
 
-  }
-
-  
-  
+ 
 
   .table {
     display: grid;
@@ -276,4 +322,115 @@ textarea:focus-visible {
     border-radius: 20px;
     cursor: pointer;
     box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+ul.my-posts  {
+    align-items: start !important;
+
+}
+ul.my-posts .post {
+    overflow: hidden;
+}
+
+ul.my-posts .post  {
+    min-height: 300px;
+}
+
+
+.posts-tab .blogs {
+ 
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 30%;
+    padding-inline: 0;
+  
+  
+}
+
+.posts-tab {
+    display: grid;
+    overflow-x: scroll;
+    scroll-snap-align:start;
+    scroll-snap-type: mandatory;
+    
+}
+
+.posts-tab .post {
+    transform: scale(.8);
+}
+
+
+
+.tab-form {
+    justify-content: center;
+    align-items: center;
+}
+
+
+.tab-heading {
+    background-color: var(--heading-clr);
+    color: #fff;
+    transform: translateY(-5px);
+    border-radius: 4px;
+    font-weight: 700;
+    margin: 0 !important;
+    align-self: self-start;
+    padding-block: .25em;
+}
+
+.tab-active {
+    background-color: var(--main-clr);
+    color:  #fff !important;
+    font-weight: 600;
+}
+
+
+
+textarea {
+    padding-block-start: 1em;
+}
+
+.textarea > label {
+    padding-left: 1.25rem;
+
+}
+
+textarea {
+    resize: none;
+    color: var(--main-text-clr) !important;
+    border: 2px solid var(--main-clr);
+    min-height: 150px;
+    padding-block-start: 1em;
+    width: 400px;
+    transition: width .75s ease-in-out;
+}
+
+textarea:focus-visible {
+  outline: 2px solid var(--accent-clr);
+  width: 770px;
+
+  }
+
+
+  .textarea {
+    justify-content: start;
+    
+   
+ 
+}
+
+.textarea > * {
+    flex: 1;
+   
+}
+
+.textarea .col-user-details {
+   
+    
+   
+}
+
+.textarea  {
+   margin-left: 6.5em; 
+    
 }

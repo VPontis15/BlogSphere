@@ -8,9 +8,14 @@ from accounts.models import Profile
 posts = Post.objects
 
 def home(request):
-   user_profile = Profile.objects.get(id = request.user.id)
+   try:
+        user_profile = Profile.objects.get(user=request.user)
+   except Profile.DoesNotExist:
+       
+        user_profile = None
    user =  request.user.username
-   following_posts = Post.objects.filter(author__profile__in = user_profile.following.all()).exclude(author = request.user)
+   if user_profile:
+      following_posts = Post.objects.filter(author__profile__in = user_profile.following.all()).exclude(author = request.user)
    
    all_posts = posts.all()
    users_posts = posts.filter(author__username=user)

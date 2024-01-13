@@ -75,9 +75,11 @@ def viewProfile(request, username, tab):
     return render(request, "account/user-profile.html", context)
 
 
-def EditProfile(request):
+def myProfile(request):
+     tab = request.GET.get('tab')
      user_profile = Profile.objects.get(user = request.user)
      user = User.objects.get(id = request.user.id)
+     my_posts = Post.objects.filter(author = user)
      if request.method == "POST":
         form = UserForm(request.POST, instance=user_profile)
         if form.is_valid():
@@ -90,7 +92,7 @@ def EditProfile(request):
             user_profile.save()
 
             messages.success(request, 'Profile updated successfully')
-            return redirect('home')  
+            return redirect('home')
         else:
             messages.error(request, 'Something went wrong')
      else:
@@ -99,6 +101,8 @@ def EditProfile(request):
      
      context ={
          'form': form,
+         'tab': tab,
+         "my_posts": my_posts,
          "user_profile": user_profile
      }
 

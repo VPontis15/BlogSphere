@@ -23,11 +23,13 @@
 {% else %}
 <img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
 {% endif %}
-{% if user_profile.full_name %}
+{% if user_profile.first_name and user_profile.last_name %}
 <span class="user-fullname">
-    {{user_profile.full_name}}
-    {% endif %}
-</span>
+   {{user_profile.first_name}} {{user_profile.last_name}}
+   {% else %}
+        {{user_profile}}
+      </span>
+      {% endif %}
 <div>
   <div role="table" class="table">
     <div role="row" class="col">
@@ -46,23 +48,31 @@
   </div>
 </div>
  <ul class="settings-list">
-   <li><a href="{% url 'editProfile' %}?tab=informations">Informations</a></li>
-   <li><a href="{% url 'editProfile' %}?tab=posts">Posts</a></li>
-   <li><a href="{% url 'editProfile' %}?tab=settings">Settings</a></li>
-   <li><a href="{% url 'logout' %}">Logout</a></li>
+  <li><a class="{% if tab == 'informations' %} tab-active {% endif %}" href="{% url 'editProfile' %}?tab=informations">Informations</a></li>
+   <li><a class="{% if tab == 'posts' %} tab-active {% endif %}" href="{% url 'editProfile' %}?tab=posts">Posts</a></li>
+   <li><a class="{% if tab == 'settings' %} tab-active {% endif %}" href="{% url 'editProfile' %}?tab=settings">Settings</a></li>
+   <li><a  href="{% url 'logout' %}">Logout</a></li>
  </ul>
 </div>
 
 
 
-
 <section class="user-information">
-   {% if tab == 'informations' %}
+  {% if tab == 'informations' %}
+  <h1 class="tab-heading"> {{user_profile}} </h1>
       {% include "account/components/myProfile/form.html" %}
     {% endif %}
+
     {% if tab == 'posts' %}
+    <h1 class="tab-heading">My Posts </h1>
       {% include "account/components/myProfile/posts.html" %}
     {% endif %}
+    {% if tab == 'settings' %}
+    <h1 class="tab-heading">Settings </h1>
+      {% include "account/components/myProfile/posts.html" %}
+    {% endif %}
+
+  
 </section>
 </section>
 {% endblock content %}
