@@ -2,9 +2,10 @@
 
 {% block style %}
 <link rel="stylesheet" href="{% static "header.css"%}">
+<link rel="stylesheet" href="{% static "article.css"%}">
 {% endblock  %}
 
-<header >
+<header class="nav-header" >
     <div class="container header">
       <div>
        <span class="logo">Blog<span class="brand-accent">Sphere<span></span>
@@ -15,6 +16,16 @@
         <a href="{% url link.destination %}">{{ link.text | title }}</a>
        </li>
        {% endfor %} 
+       {% if request.user.profile %}
+       <a href="{% url 'editProfile' %}?tab=informations">
+        {% if request.user.profile.profile_pic %} 
+        <img class="profile-picture" src="{{ request.user.profile.profile_pic.url }}" alt="Profile Picture">
+     {% endif %} 
+     {% if  not request.user.profile.profile_pic  %}
+     <img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
+    {% endif %}
+    
+    </a>{% endif %}
        {% comment %} <li>
          {% if user %} 
 
