@@ -3,3 +3,13 @@ article {
     max-width: min(95%, 53.125rem); /* Converted from 850px */
     margin-inline: auto;
 }
+
+
+.see-all {
+    color: var(--accent-clr) !important;
+    transition: all .5s ease-in-out;
+}
+.see-all:hover {
+   text-decoration: underline;
+   text-underline-offset: 5px;
+}

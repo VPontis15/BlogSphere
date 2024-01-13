@@ -3,12 +3,10 @@
      /* #602799; #4e2881  #4fe46f */
      
         --main-clr: #1d3580;
-        --main-clr-light: #1d3680bd;
-      
-       
-        --heading-clr: #ba1642;
+        --main-clr-light: #1d3680bd;    
+        --heading-clr: #1d3580;
         --heading2-clr: #fff;
-        --accent-clr: #e4734f;
+        --accent-clr: #ba1642;;
         --focus-clr: #e4724f13;
         --error-text-clr: rgb(231, 48, 16);
         --error-bg-clr: rgba(255, 187, 175, 0.012);
@@ -70,7 +68,7 @@
         line-height: 1.5;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         color: var(--main-text-clr);
-        background-color: #fdf0f694;
+        background-color: #e5eaf6;
     }
     
     h1 {
@@ -141,4 +139,15 @@
 
 .hidden {
     display: none;
+}
+
+.blogs::-webkit-scrollbar {
+    width: 15px;
+    background-color: var(--accent-clr);
+}
+.blogs::-webkit-scrollbar-track {
+    background-color: var(--accent-clr);
+}
+.blogs::-webkit-scrollbar-thumb {
+    background-color: var(--accent-clr);
 }

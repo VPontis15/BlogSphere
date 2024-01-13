@@ -38,7 +38,7 @@
 
 
 p.about {
-    color: var(--main-text-clr) !important;
+    color: var(--accent-clr) !important;
     padding-block: .75em !important;
     line-height: 1.4;
 }
@@ -100,13 +100,14 @@ fieldset legend {
     text-align: center;
   
     display: block;
-    background: var(--heading-clr);
+    background: var(--accent-clr);
     color: var(--nav-text-clr);
     font-weight:600;
     padding: .1em 1em ;
    margin-inline: auto;
     font-size: 2rem;
     border-radius: 5px;
+   
   
     
     
@@ -164,14 +165,17 @@ fieldset legend {
 
 }
 
+.post {
+    overflow: hidden;
+}
 
 .post-count, .link-active {
-    color: var(--heading-clr) !important;
+    color: var(--accent-clr) !important;
     font-weight: 700;
 }
 
 .post-count--active {
-    color: var(--main-clr) !important;
+    color: var(--accent-clr) !important;
     font-weight: 700;
 }
 
@@ -209,7 +213,7 @@ input:disabled {
   .col-user-details p {
     display: inline-flex;
     align-items: center;
-    color: var(--heading-clr);
+    color: var(--accent-clr);
     padding: .15em 1em;
     min-width: 300px;
     outline: 1px solid var(--main-clr-light);
@@ -238,8 +242,8 @@ input:disabled {
 }
 
 .td {
-    color: var(--heading-clr);
-    font-weight: 600;
+    color: var(--accent-clr);
+    font-weight: 700;
 }
 
 

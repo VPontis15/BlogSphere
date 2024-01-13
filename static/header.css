@@ -1,4 +1,4 @@
-header {
+.nav-header {
     width: 100%;
 background-color: var(--main-clr);
     padding-block: 1em;
@@ -12,6 +12,20 @@ background-color: var(--main-clr);
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.profile-picture, .no-picture{
+  width: 60px;
+   aspect-ratio: 1/1;
+   
+    border-radius: 50%;
+    border: none;
+    object-fit: cover;
+    object-position: center;
+}
+
+.profile-picture:hover, .profile-picture:focus-visible {
+  outline: 2px solid var(--accent-clr);
 }
 
 
@@ -39,6 +53,7 @@ background-color: var(--main-clr);
    
     display: flex;
     gap: 1em;
+    align-items: center;
 }
 
 nav li {

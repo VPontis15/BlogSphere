@@ -8,16 +8,27 @@
     flex-direction: column;
     justify-content: space-between;
     border-radius: 15px;
-    transform: scale(0.90);
+    transform: scale(0.85);
+    transition: all .5s ease-out;
 }
 
+.post:hover {
+    transform: scale(.95);
+}
+
+.post:hover .post-title, .post:hover .author {
+    background-color: var(--accent-clr) !important;
+}
+
+
+
 .author {
-    min-height: 60px;
+    max-height: 30px;
     background-color: var(--heading-clr);
     position: relative;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
-    
+    padding-block:.70em
 }
 
 .delete  {
@@ -31,16 +42,7 @@
 }
 
 .links-actions   {
-    width:100%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-   position: relative;   
-   border-top-right-radius: 15px;;
-   border-top-left-radius: 15px;;
-   top: -16px;
-   max-height: 36px;
-   background-color: white;
+   
    box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.3);
   
    
@@ -70,7 +72,7 @@ img.edit  {
 
 .author-post__details   {
     position: absolute;
-    top: -15px;
+    top: -45px;
     left: 60px;
 }
 
@@ -80,11 +82,11 @@ img.edit  {
     border-radius: 2px;
     margin: 0;
     line-height: 1;
-    color: var(--nav-text-clr);
+    color: var(--accent-clr);
     padding: .25em .5em;
     margin-bottom: .25rem;
     font-weight: 700;
-    background-color: var(--main-clr);
+    background-color: white;
     letter-spacing: 3px;
     box-shadow: -4px -2px 6px rgba(0,0,0, .6);
 }
@@ -92,12 +94,12 @@ img.edit  {
 .author-post__details-name {
 }
 
-.author .profile-picture {
-    width: 70px;
-    height: 70px;
+.author .profile-picture, .author .no-picture {
+    width: 80px;
+   aspect-ratio: 1/1;
     position: absolute;
-    top: -15px;
-    left: -25px;
+    top: -45px;
+    left: -35px;
     border-radius: 50%;
     border: none;
     overflow: hidden;
@@ -121,7 +123,10 @@ img.edit  {
 }
 
 
-
+.title-container{
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
 
 
 .row  {
@@ -181,8 +186,8 @@ img.edit  {
     display: inline-flex;
     align-items: center;
     text-align: center;
-    background-color: var(--main-clr);
-    color: var(--heading2-clr);
+    background-color: var(--heading-clr);
+    color: white;
     padding-block: .75em;
     padding-inline:.5em;
     min-height: 80px;

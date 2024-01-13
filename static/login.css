@@ -85,7 +85,7 @@ form input {
 .submit { 
     color: var(--heading2-clr); 
     background: none;
-    color: var(--heading-clr);
+    color: var(--accent-clr);
     padding: 1em 6em;
     border-radius: 15px;
     border: 1px solid var(--main-clr);
@@ -98,7 +98,7 @@ form input {
 }
 
 .submit:hover, .submit:focus-visible {
-    background-color: var(--heading-clr);
+    background-color: var(--accent-clr);
     box-shadow: 2px 2px 8px var(--main-clr);
     color: var(--nav-text-clr);
     transform: scale(1.04);
@@ -114,7 +114,7 @@ form input {
 }
 
 .cta-heading {
-    color: var(--heading-clr);
+    color: var(--accent-clr);
     margin-top: 1em;
     margin-bottom: .5em;
     text-align: center;
@@ -135,7 +135,7 @@ form input {
     
 }
 .sign-up:hover, .sign-up:focus-visible {
-    background-color: var(--heading-clr);
+    background-color: var(--accent-clr);
     border:none;
     outline: none;
    transform: translateY(-5px);
