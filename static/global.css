@@ -3,10 +3,13 @@
      /* #602799; #4e2881  #4fe46f */
      
         --main-clr: #1d3580;
+        --main-hover-clr: #2c489cd0;
+        --main-hover-link-clr: #2c489c4d;
+
         --main-clr-light: #1d3680bd;    
         --heading-clr: #1d3580;
         --heading2-clr: #fff;
-        --accent-clr: #ba1642;;
+        --accent-clr: #ba1642;
         --focus-clr: #e4724f13;
         --error-text-clr: rgb(231, 48, 16);
         --error-bg-clr: rgba(255, 187, 175, 0.012);
@@ -58,9 +61,13 @@
         max-width: 100%;
     }
 
-    input, text, label,textarea, select  {
+    input, text, label,textarea, select, button  {
         font-size: inherit;
         font-family: inherit;
+    }
+
+    button {
+        cursor: pointer;
     }
     
     body {
@@ -137,9 +144,6 @@
 }
 
 
-.hidden {
-    display: none;
-}
 
 .blogs::-webkit-scrollbar {
     width: 15px;
@@ -150,4 +154,80 @@
 }
 .blogs::-webkit-scrollbar-thumb {
     background-color: var(--accent-clr);
+}
+
+.overlay {
+    min-height: 100vh;  
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    z-index: 100;
+    inset:0;
+   
+}
+
+.delete-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+
+   
+}
+
+
+.delete-container--links {
+    display: flex;
+    flex-direction: column;
+    min-height: 60vh;
+   justify-content: center;
+    align-items: center;
+   
+  
+}
+
+.delete-container--links .row{
+    flex:0;
+}
+
+.delete-container--links h1 {
+    color: var(--accent-clr);
+    font-size: var(--fs-800);
+    margin: 0;
+}
+
+
+.delete-btn, .cancel-btn {
+  
+    background: none; 
+    border-radius: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .25s ease-in-out;
+    padding: 1em 3em; 
+}
+
+.delete-container--links .delete-links {
+    margin-top: var(--gutter-y-400);
+}
+
+.delete-btn {
+    border: 1px solid var(--accent-clr);
+    background-color: var(--accent-clr);
+    color: var(--nav-text-clr) !important;
+   
+}
+.delete-btn:hover, .delete-btn:focus {
+    border: 1px solid var(--main-clr);
+    background-color: var(--main-clr);
+    
+  
+}
+
+.cancel-btn {
+    border: 1px solid var(--main-clr);
+    
+}
+
+
+.delete-container--post {
+    
 }

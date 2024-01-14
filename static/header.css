@@ -8,13 +8,59 @@ background-color: var(--main-clr);
     
 }
 
+#profile-pic {
+  background: none;
+  border:none;
+  cursor: pointer;
+  margin-inline-start: 1.125em;
+
+}
+
+ header  {
+  position:relative;
+}
+
+header .profile-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  border: 1px solid var(--main-clr);
+  border-radius: 2px;
+  position: absolute;
+  bottom:-288px;
+  right:0;
+  z-index: 1000;
+  background-color: var(--main-clr);
+  
+}
+
+
+
+.profile-list li {
+  flex: 1;
+  text-align: center;
+  list-style: none;
+  display: flex;
+  height: 100%;
+}
+
+.profile-list li a {
+  flex: 1;
+  padding: 1.5em 2.5em;
+}
+.profile-list li a:hover {
+ background-color: var(--main-hover-clr);
+ text-decoration: none !important;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.profile-picture, .no-picture{
+header .profile-picture, .no-picture{
   width: 60px;
    aspect-ratio: 1/1;
    
@@ -27,6 +73,8 @@ background-color: var(--main-clr);
 .profile-picture:hover, .profile-picture:focus-visible {
   outline: 2px solid var(--accent-clr);
 }
+
+
 
 
 
@@ -62,7 +110,7 @@ nav li {
 
 nav li a {
     transform-origin: center;
-    transition: text-decoration, .25s ease-in-out;
+   
 }
 
 nav li a:link,
@@ -76,23 +124,24 @@ nav li a::selection {
     color: var(--main-clr);
 }
 
-nav li a:link:hover,
-a:visited:hover {
-    text-decoration: underline; 
-    text-underline-offset: 3px; 
-}
 
+.hidden {
+  display: none;
+}
 
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
+ 
   }
   
   nav li {
     display: inline-block;
     margin: 0 10px;
   }
+
+
   
   nav li a {
     position: relative;

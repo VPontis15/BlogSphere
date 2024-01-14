@@ -69,7 +69,7 @@ div:has(.settings-list){
 }
 
 .settings-list li a:hover{
-    background-color: var(--accent-clr);
+    background-color: var(--main-clr);
     color: var(--nav-text-clr) !important;
 }
 

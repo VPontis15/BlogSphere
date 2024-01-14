@@ -27,6 +27,8 @@
     
    
    <section  id="welcome">
+ 
+  
     {% if users_posts %}
     <h2>These are your latest blogs</h2>
     <ul class="latest_blogs blogs">
@@ -34,6 +36,7 @@
         {% include "components/article.html" %}
         {% endfor %}
     </ul>
+   
     {% else %}
         <p>You have no posts yet </p>
         {% comment %} <a class="link" href="{% url 'new'%}">Write a new posts</a> {% endcomment %}

@@ -8,13 +8,20 @@
     <header class="author">
             
             {% if request.user == post.author %}
-            <div class="links-actions">
-            <a class="" href="{% url 'edit' id=post.id %}">
+            <div class="options ">
+             <button class="options-button">
+                <img class="options-icon" src="{% static 'options.svg '%}" alt="">
+            </button>
+        
+            <div class="links-actions  ">
+                
+            <a class="action-button" href="{% url 'edit' id=post.id %}">Edit  post
                 <img class='edit' src="{% static 'images/test.svg' %}" alt="">
             </a> 
-        <a class="" href="{% url 'delete' id=post.id %}">
+        <a href="{% url 'delete' pk=post.id %}" class="action-button"> Delete post {{post_id}}
            <img class='delete' src="{% static 'images/delete.svg' %}" alt="">
-        </a> </div>
+        </a> </div></div>
+        
         {% endif %}
    
         {% if post.author != request.user %}
@@ -48,7 +55,7 @@
             <p class="post-content">
                 {{ post.body|slice:":175" }}
                 {% if post.body|length > 175 %}
-                ... <a class="read_more" href="#">Read More</a>
+                ... <a class="read_more" href="{% url 'post' post.slug %}">Read More</a>
                 {% endif %}
             </p>
         </a>

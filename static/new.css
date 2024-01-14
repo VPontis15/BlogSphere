@@ -80,7 +80,7 @@ textarea {
     border-radius: 5px;
     max-width: 100%;
     border: none;
-    min-height: 31.25rem;
+    min-height: 26.25rem;
   outline: 2px solid var(--main-clr);
 }
 

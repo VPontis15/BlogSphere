@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Post,Tag
 from .forms import PostForm
 from accounts.models import Profile
+from django.contrib import messages
 # Create your views here.
 
 posts = Post.objects
@@ -62,14 +63,7 @@ def all_posts(request):
    return render(request, 'blog/posts.html', context)
 
 
-def filteredByTag(request,tag):
-   
-   filtered_by_tag = posts.filter(tags__name = tag)
-   context = {
-      'filtered_by_tag': filtered_by_tag,
-   }
 
-   return render(request, 'blog/posts.html', context)
 
 
 def detail_post(request, slug):
@@ -97,11 +91,12 @@ def newPost(request):
    })
 
 @login_required(login_url= 'login')
-def deletePost(request, id):
-   post = posts.get(pk = id)
+def deletePost(request, pk):
+   post = posts.get(pk = pk)
 
    if request.method == "POST":
       post.delete()
+      messages.success(request, 'Your post has been successfully deleted', extra_tags='sucess-delete--post')
       return redirect('home')
    context = {
       'post': post,

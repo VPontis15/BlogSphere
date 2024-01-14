@@ -3,6 +3,7 @@
 {% block style %}
 <link rel="stylesheet" href="{% static "header.css"%}">
 <link rel="stylesheet" href="{% static "article.css"%}">
+<script defer src="{% static 'js/header.js' %}"></script>
 {% endblock  %}
 
 <header class="nav-header" >
@@ -17,7 +18,7 @@
        </li>
        {% endfor %} 
        {% if request.user.profile %}
-       <a href="{% url 'editProfile' %}?tab=informations">
+       <button id="profile-pic" >
         {% if request.user.profile.profile_pic %} 
         <img class="profile-picture" src="{{ request.user.profile.profile_pic.url }}" alt="Profile Picture">
      {% endif %} 
@@ -25,7 +26,7 @@
      <img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
     {% endif %}
     
-    </a>{% endif %}
+    </button>{% endif %}
        {% comment %} <li>
          {% if user %} 
 
@@ -35,4 +36,16 @@
     </ul>
 </nav>
 </div>
+
+<nav class="profile-links-nav hidden">
+  
+    <ul class="profile-list">
+      <li><a class="{% if tab == 'informations' %} tab-active {% endif %}" href="{% url 'editProfile' %}?tab=informations">Informations</a></li>
+       <li><a class="{% if tab == 'posts' %} tab-active {% endif %}" href="{% url 'editProfile' %}?tab=posts">Posts</a></li>
+       <li><a class="{% if tab == 'settings' %} tab-active {% endif %}" href="{% url 'editProfile' %}?tab=settings">Settings</a></li>
+       <li><a  href="{% url 'logout' %}">Logout</a></li>
+    
+  </ul>
+</nav>
+
 </header>
