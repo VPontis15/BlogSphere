@@ -1,5 +1,5 @@
 const overlay = document.querySelector('.overlay')
-const deleteBtns = document.querySelectorAll('.delete-button')
+const openDeletePostDialogBtns = document.querySelectorAll('.openDeletePostDialogBtns')
 
 const optionsActionsDiv = document.querySelectorAll('.links-actions');
 const deletePostMssg = document.querySelector('.delete-message')
@@ -7,7 +7,20 @@ const optionsBtn = document.querySelectorAll('.options-button');
 
 const profilePic = document.getElementById('profile-pic')
 const profileList = document.querySelector('.profile-links-nav');
+const dialogDeletePost = document.querySelectorAll('.delete-dialog');
+const closeDeleteModal = document.querySelectorAll('.cancel-delete-post')
 
+
+closeDeleteModal.forEach((btn, index) =>{
+  btn.style.color = 'purple'
+ const currentCloseModalBtn = closeDeleteModal[index]
+ const currentDialog =dialogDeletePost[index]
+ console.log(index)
+ currentCloseModalBtn.addEventListener('click', ()=>{
+   currentDialog.close()
+ })
+ 
+ })
 
 
 profilePic.addEventListener('click', ()=>{
@@ -36,6 +49,22 @@ optionsBtn.forEach((btn, index )=> {
        console.log('clicked')
     })
 })
+
+
+openDeletePostDialogBtns.forEach((btn, index) =>{
+
+const currentDialogBtn = openDeletePostDialogBtns[index]
+const currentDialog =dialogDeletePost[index]
+currentDialogBtn.addEventListener('click', ()=>{
+  currentDialog.showModal()
+})
+
+})
+
+
+
+
+
 
 
 

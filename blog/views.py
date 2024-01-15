@@ -96,13 +96,13 @@ def deletePost(request, pk):
 
    if request.method == "POST":
       post.delete()
-      messages.success(request, 'Your post has been successfully deleted', extra_tags='sucess-delete--post')
+      messages.info(request, 'Your post has been successfully deleted', extra_tags='sucess-delete--post')
       return redirect('home')
    context = {
       'post': post,
       'id': id
    }
-   return render(request, 'components/delete.html', context )
+   return render(request, 'layout.html', context )
 
 
 

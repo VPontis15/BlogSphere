@@ -18,9 +18,13 @@
             <a class="action-button" href="{% url 'edit' id=post.id %}">Edit  post
                 <img class='edit' src="{% static 'images/test.svg' %}" alt="">
             </a> 
-        <a href="{% url 'delete' pk=post.id %}" class="action-button"> Delete post {{post_id}}
+        <button  class="action-button openDeletePostDialogBtns"> Delete post {{post_id}}
            <img class='delete' src="{% static 'images/delete.svg' %}" alt="">
-        </a> </div></div>
+
+        </button>
+    
+    </div>
+   </div>
         
         {% endif %}
    
@@ -74,3 +78,18 @@
             </div>
         </div>
     </li>
+
+    <div class="dialog-wrapper">
+        <dialog  class="delete-dialog dialog">
+           
+            <h4 class="delete-message--title">Are you sure youu want to delete  your post titled: <span>{{post.title}}?</span></h4>
+            <form  method="post" action="{% url 'delete' pk=post.id%}">
+                {% csrf_token %}
+                <div class="delete-links">       
+                    <button class="delete-btn">Delete</button>
+                    <a class="cancel-btn" href="{{ request.path }}">Cancel</a>
+                   
+            </div>
+            </form>
+           
+        </dialog></div>

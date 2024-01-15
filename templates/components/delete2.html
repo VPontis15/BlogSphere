@@ -1,0 +1,11 @@
+<div class="delete-message">
+    <h4 class="delete-message--title">Are you sure youu want to delete  your post?</h4>
+    <form  method="post" action="{% url 'delete' pk=post.id%}">
+        {% csrf_token %}
+        <div class="delete-links">
+        <a class="delete-btn" href="{% url 'delete' pk=post.id%}"> Delete </a>
+        <button class="cancel-delete" >Cancel</button>
+    </div>
+    </form>
+   
+</div>
