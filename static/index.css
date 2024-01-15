@@ -23,8 +23,7 @@ h1 {
     display: grid;
     padding-block: 2.5em;
     grid-auto-flow: column;
-    grid-auto-columns: 30%;
-    padding-inline: 1em;
+    padding-inline: .5em;
     overflow-x: scroll;
     scroll-snap-align:start;
     scroll-snap-type: mandatory;

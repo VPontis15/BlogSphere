@@ -82,6 +82,7 @@ textarea {
     border: none;
     min-height: 26.25rem;
   outline: 2px solid var(--main-clr);
+  scrollbar-color:var(--main-clr) #fff;
 }
 
 select {

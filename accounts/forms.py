@@ -8,8 +8,8 @@ from .models import Profile
 
 class  UserForm(forms.ModelForm):
     email = forms.EmailField( required=False)
-    first_name = forms.CharField(max_length=100)
-    last_name = forms.CharField(max_length=100)
+    first_name = forms.CharField(max_length=100, required=False)
+    last_name = forms.CharField(max_length=100, required=False)
     class Meta:
         model = Profile
         exclude = ["following", "followers", 'user']

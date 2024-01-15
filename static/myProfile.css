@@ -384,13 +384,10 @@ ul.my-posts .post  {
 
 
 
-textarea {
-    padding-block-start: 1em;
-}
 
 .textarea > label {
     padding-left: 1.25rem;
-
+    
 }
 
 textarea {
@@ -398,6 +395,7 @@ textarea {
     color: var(--main-text-clr) !important;
     border: 2px solid var(--main-clr);
     min-height: 150px;
+    scrollbar-color:var(--main-clr) #fff;
     padding-block-start: 1em;
     width: 400px;
     transition: width .75s ease-in-out;

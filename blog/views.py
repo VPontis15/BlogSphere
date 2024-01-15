@@ -43,15 +43,21 @@ def home(request):
 
 
 def all_posts(request):
-   q = request.GET.get('q','').strip()
+   q = request.GET.get('q', '')
    tag = request.GET.get('tag', '')
-   filtered_posts = posts.filter(
-    Q(tags__name=tag) |
-    Q(tags__name__contains=q) |
-    Q(author__username__contains=q) |
-    Q(title__contains=q)
-).distinct()
    all_posts = posts.all()
+   if q:
+      filtered_posts = posts.filter(
+      Q(tags__name=tag) |
+      Q(tags__name__contains=q) |
+      Q(author__username__contains=q) |
+      Q(title__contains=q)
+   ).distinct()
+   else: 
+      filtered_posts = None;
+   
+
+   
    
    context = {
       'all_posts': all_posts,
@@ -82,6 +88,7 @@ def newPost(request):
         post = form.save(commit=False)
         post.author = request.user
         post.save()
+        form.save_m2m()
         return redirect('home')
       
    else:

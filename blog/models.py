@@ -32,5 +32,5 @@ class Post(models.Model):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
-        def __str__(self):
-               return f"Title = {self.title} Author = {self.author} Content = {self.body[:50]} Date = {self.created_at} Tags = {self.tags}"
+    def __str__(self):
+        return f"Title = {self.title} Author = {self.author} Content = {self.body[:50]} Date = {self.created_at} Tags = {self.tags}"
