@@ -45,6 +45,7 @@ def home(request):
 def all_posts(request):
    q = request.GET.get('q', '')
    tag = request.GET.get('tag', '')
+   filter = request.GET.get('filter', '')
    all_posts = posts.all()
    if q:
       filtered_posts = posts.filter(
@@ -56,6 +57,10 @@ def all_posts(request):
    else: 
       filtered_posts = None;
    
+   filtered_posts_by_author = posts.filter(author__username__contains=q).distinct()
+   filtered_posts_by_title = posts.filter(title__contains=q)
+   filtered_posts_by_tag = posts.filter(Q(tags__name__contains=q)| Q(tags__name = tag))
+   
 
    
    
@@ -63,7 +68,11 @@ def all_posts(request):
       'all_posts': all_posts,
       'tag': tag,
       'filtered_posts': filtered_posts,
-      'search': q
+      'search': q,
+      "filtered_posts_by_author": filtered_posts_by_author,
+      "filtered_posts_by_title": filtered_posts_by_title,
+      "filtered_posts_by_tag": filtered_posts_by_tag
+
    }
 
    return render(request, 'blog/posts.html', context)
@@ -130,6 +139,9 @@ def editPost(request, id):
    }
 
    return render(request, 'blog/new.html', context)
+
+
+
 
 
 
