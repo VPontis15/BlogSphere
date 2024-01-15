@@ -43,23 +43,23 @@ def home(request):
 
 
 def all_posts(request):
-   q = request.GET.get('q', '')
+   q = request.GET.get('q', ' ').strip()
    tag = request.GET.get('tag', '')
-   filter = request.GET.get('filter', '')
+   filter_param = request.GET.get('filter', '')
    all_posts = posts.all()
+   filtered_posts_by_author = posts.filter(author__username__contains=q)
+   filtered_posts_by_title =all_posts.filter(title__icontains=q)
+   filtered_posts_by_tag = posts.filter(Q(tags__name__contains=q)| Q(tags__name = tag)).distinct()
    if q:
       filtered_posts = posts.filter(
       Q(tags__name=tag) |
-      Q(tags__name__contains=q) |
-      Q(author__username__contains=q) |
-      Q(title__contains=q)
+      Q(tags__name__icontains=q) |
+      Q(author__username__icontains=q) |
+      Q(slug__icontains=q)
    ).distinct()
    else: 
       filtered_posts = None;
    
-   filtered_posts_by_author = posts.filter(author__username__contains=q).distinct()
-   filtered_posts_by_title = posts.filter(title__contains=q)
-   filtered_posts_by_tag = posts.filter(Q(tags__name__contains=q)| Q(tags__name = tag))
    
 
    
@@ -67,6 +67,7 @@ def all_posts(request):
    context = {
       'all_posts': all_posts,
       'tag': tag,
+      'filter': filter_param,
       'filtered_posts': filtered_posts,
       'search': q,
       "filtered_posts_by_author": filtered_posts_by_author,
