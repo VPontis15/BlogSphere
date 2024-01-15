@@ -9,7 +9,7 @@
 {% block title  %}Homepage{% endblock  %}
 
     {% block content%}
-    {% comment %} {% if messages %}
+     {% if messages %}
     {% for message in messages %}
         {% if 'registration' in message.tags %}
             <h1 class="welcome-message">
@@ -21,7 +21,7 @@
             </h1>
         {% endif %}
     {% endfor %}
-{% endif %} {% endcomment %}
+{% endif %} 
 
 
     

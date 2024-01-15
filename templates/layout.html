@@ -10,13 +10,40 @@
 
     <link rel="stylesheet" href="{% static "global.css"%}">
     <script defer src="{% static 'js/global.js'%}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
  
     {% block style%} {% endblock %}
 </head>
 <body>
     {% include "./components/header.html" %}
     <main class="container main">
-        
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li id="message_{{ message.id }}" {% if message.tags %}class="{{ message.tags }}"{% endif %}>
+
+                    {% include "components\delete_message.html" %}
+                </li>
+            {% endfor %}
+        </ul>
+    
+        <script>
+          
+            function hidePopUp() {
+                var deletePostMssg = document.getElementById('message_{{ your_message_id }}');  
+    
+                setTimeout(function() {
+                    if (deletePostMssg) {
+                        deletePostMssg.classList.add('hidden');
+                    }
+                }, 2000);
+            }
+    
+           
+            window.onload = hidePopUp;
+        </script>
+    {% endif %}
+    
     {% block content %}{% endblock content %}
 </main>
 {% include "./components/footer.html" %}

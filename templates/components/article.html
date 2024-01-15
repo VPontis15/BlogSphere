@@ -39,10 +39,13 @@
         </a>
             <div class="author-post__details">
              
-
+                {% if post.author != request.user  %}
                 <a href="{% url 'user-profile' username=post.author tab='informations' %}">
- 
-                    <span class="author-post__details-name">{{post.author.username}}</span> </a>
+                    <span class="author-post__details-name">{{post.author.username}}</span> </a>{% endif %}
+             
+                {% if post.author == request.user  %}
+                <a href="{% url 'editProfile' %}?tab=informations">
+                    <span class="author-post__details-name">{{post.author.username}}</span> </a>{% endif %}
                     <span class="author-post__details-date">{{post.created_at|date:"d/m/y"}}</span></div>
                 </header>
                 {% endif %}

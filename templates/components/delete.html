@@ -12,7 +12,6 @@
 <div class="delete-container">
     <div class="delete-container--links">
 <h1>Delete Confirmation</h1>
-
     <p>Are you sure you want to delete  the post titled: {{post.title}}?</p>
     <form  method="post" action="{% url 'delete' pk=post.id%}">
         {% csrf_token %}

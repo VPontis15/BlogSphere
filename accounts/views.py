@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from .forms import  UserForm
 from .models import Profile
 from blog.models import Post
+from accounts.helper import displayGreeting
 
 
 # Create your views here.
@@ -21,7 +22,7 @@ def loginPage(request):
            user = authenticate(username=username, password= password)
            if user is not None:
                login(request, user)
-              
+               messages.success(request, f'{displayGreeting(request.user)}', extra_tags='login')
                return redirect('home')
            else:
                messages.error(request,'Wrong inputs')
@@ -47,7 +48,7 @@ def register(request):
                 return redirect('register')
             else:
                 user = form.save()
-                messages.success(request,f"Welcome to Blogsphere! {user.username}")
+                messages.success(request,f"Welcome to Blogsphere {user.username}!",extra_tags='registration')
                 login(request,user)
                 return redirect('home') 
         else:

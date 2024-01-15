@@ -227,7 +227,40 @@
     
 }
 
+.delete-message {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 1.5em;
+    background-color: #fff;
+    padding: .75em 1.5em;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 5px;
+    z-index: 10000;
+    left:50%;
+    transform: translateX(-50%);
+    animation: popOut 2s ease-out;
+    
+}
 
-.delete-container--post {
+.delete-message img {
+  fill: var(--main-clr);
+   width:40px;
+}
+
+.delete-message--title {
+    color: var(--accent-clr);
+    font-size: var(--fs-500);
+}
+
+@keyframes popOut {
+    0% {
+        opacity: 1;
+    }
+
+    80%,100% {
+        opacity: 0;
+    }
     
 }
