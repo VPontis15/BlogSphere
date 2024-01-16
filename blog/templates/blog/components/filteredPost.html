@@ -1,0 +1,20 @@
+
+
+  {% if filter == 'author' %}
+    {% for post in filtered_posts_by_author %}
+      {% include "components/article.html" %}
+    {% endfor %}
+  {% endif %}
+  
+  {% if filter == 'title' %}
+    {% for post in filtered_posts_by_title %}
+      {% include "components/article.html" %}
+    {% endfor %}
+  {% endif %}
+  
+  {% if filter == 'tag' %}
+    {% for post in filtered_posts_by_tag %}
+      {% include "components/article.html" %}
+    {% endfor %}
+  {% endif %}
+

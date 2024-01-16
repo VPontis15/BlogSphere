@@ -43,7 +43,7 @@ def home(request):
 
 
 def all_posts(request):
-   q = request.GET.get('q', ' ').strip()
+   q = request.GET.get('q', '').strip()
    tag = request.GET.get('tag', '')
    filter_param = request.GET.get('filter', '')
    all_posts = posts.all()
@@ -59,7 +59,7 @@ def all_posts(request):
    ).distinct()
    else: 
       filtered_posts = None;
-   
+   tag_posts = posts.filter(tags__name = tag)
    
 
    
@@ -70,6 +70,7 @@ def all_posts(request):
       'filter': filter_param,
       'filtered_posts': filtered_posts,
       'search': q,
+      'tag_posts': tag_posts,
       "filtered_posts_by_author": filtered_posts_by_author,
       "filtered_posts_by_title": filtered_posts_by_title,
       "filtered_posts_by_tag": filtered_posts_by_tag

@@ -18,29 +18,57 @@
 {% endif %}
 
 <div class="heading-row" >
-    <form class="search-container" method="GET">
-        <input class="search-input" type="search" placeholder="Search" name="q" id="q">
+    <form class="search-container" action={{request.path}} method="GET">
+        <input class="search-input" type="text"  placeholder="Search" name="q" id="q">
         <img class="search-icon" src="{% static 'search-icon.svg' %}" alt="search icon">
     </form>
     {% if filtered_posts %}
-<h1>Posts about {% if tag %} {{tag | title}}{% else %} {{search}}{% endif %} </h1>
+    <div class="search-container">
+<h1>Search Results: <span class="search-container-count" > {{filtered_posts.count}}</span></h1>
+<div class="search-container--filter">
+{% if filtered_posts.count %}
+<h4>Filter by:</h4>
+<div class="filter-links"> 
+<a class=" {% if filter == 'author' %} filter-active {% endif %}  filter-by--author filter-link" href="{% url 'posts'%}?filter=author&q={{search}}"> Author <span >{{filtered_posts_by_author.count}}</span> </a>
+<a class=" {% if filter == 'title' %} filter-active {% endif %} filter-by--title filter-link" href="{% url 'posts'%}?filter=title&q={{search}}"> Posts <span >{{filtered_posts_by_title.count}}</span></a>
+<a class="{% if filter == 'tag' %} filter-active {% endif %} filter-by--tag filter-link" href="{% url 'posts'%}?filter=tag&q={{search}}"> Tags <span >{{filtered_posts_by_tag.count}}</span></a>
+<a class="filter-reset filter-link" href="{% url 'posts'%}?q={{search}}"> Reset filter</a>
+</div>
+{% endif %}
+
+</div>
+</div>
+{% else %}
+{% if tag %}
+<h1 >Posts about <span class="post-about">{{tag}}</span></h1>
 {% else %}
 <h1>Search for posts to read</h1>
 {% endif %}
+{% endif %}
+
+ 
     <div></div>
 </div>
 
-    <ul class="blogs">
+
+   
+     <ul class="blogs">
+        {% if tag %}
+        {% for post in tag_posts %}
+        {% include "components/article.html" %}
+        {% endfor %}
+        {% else %}
         {% if not filtered_posts and not search %}
     {% for post in all_posts %}
    {% include "components/article.html" %}
     {% endfor %}
   {% endif %}
-    {% if filtered_posts %}
+    {% if filtered_posts and not filter %}
     
     {% for post in filtered_posts %}
    {% include "components/article.html" %}
    {% endfor %}
-  {% else %} <p>No post where found</p>
-{% endif%}</ul>
+   {% else %}
+   {% include "blog/components/filteredPost.html" %}
+{% endif%} {% endif %}</ul>  
 {% endblock content %}
