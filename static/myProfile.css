@@ -330,9 +330,7 @@ ul.my-posts  {
     align-items: start !important;
 
 }
-ul.my-posts .post {
-    overflow: hidden;
-}
+
 
 ul.my-posts .post  {
     min-height: 300px;

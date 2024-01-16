@@ -165,9 +165,7 @@ fieldset legend {
 
 }
 
-.post {
-    overflow: hidden;
-}
+
 
 .post-count, .link-active {
     color: var(--accent-clr) !important;

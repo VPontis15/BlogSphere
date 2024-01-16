@@ -4,10 +4,10 @@
 
 <li class="post ">
    
-    {% if not tab %}
+    
     <header class="author">
             
-            {% if request.user == post.author %}
+            
             <div class="options ">
              <button class="options-button">
                 <img class="options-icon" src="{% static 'options.svg '%}" alt="">
@@ -26,7 +26,7 @@
     </div>
    </div>
         
-        {% endif %}
+       
    
         {% if post.author != request.user %}
          <a href="{% url 'user-profile' username=post.author tab='informations' %}"> 
@@ -52,7 +52,7 @@
                     <span class="author-post__details-name">{{post.author.username}}</span> </a>{% endif %}
                     <span class="author-post__details-date">{{post.created_at|date:"d/m/y"}}</span></div>
                 </header>
-                {% endif %}
+              
                 <a href="{% url 'post' post.slug %}">
         <div class="title-container">
             <h3 class="post-title">{{ post.title }}</h3>
@@ -84,7 +84,7 @@
                 {% csrf_token %}
                 <div class="delete-links">       
                     <button class="delete-btn">Delete</button>
-                    <a class="cancel-btn" href="{{ request.path }}">Cancel</a>
+                    <a class="cancel-btn" href="{{ request.META.path.refferer }}">Cancel</a>
                    
             </div>
             </form>
