@@ -13,4 +13,37 @@
     <h1>{{post.title}}</h1>
       <p>{{post.body | linebreaks}}</p>
     </article></div>
-    {% endblock content %}
+    <h2 class="comments-heading">Comments ( )</h2>{% endblock content %}
+    {% block comments %}
+    <hr>
+    <div class="comments container">
+      <div class="comment"> 
+        <header class="comment-header">
+        {% comment %} if no profile-picture {% endcomment %}
+      <img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
+      <div class="comment_user-details">
+        <span class="comment_user-details-username">%NAME%</span>
+        <span class="comment_user-details-posted_at">%DATE%</span>
+      </div>
+    </header>
+    {% if not request.user.profile %}
+  <p class="comment-body">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet rem cumque, earum recusandae odio quaerat debitis culpa nobis mollitia tenetur obcaecati ex fugiat impedit atque modi a ea perspiciatis ullam.
+    Natus in earum ad itaque incidunt non tenetur numquam facilis, ex corporis voluptatum omnis soluta reprehenderit, explicabo veniam animi blanditiis nulla. Consectetur, rem assumenda. Recusandae minima accusantium quam earum blanditiis.
+    Architecto nisi et cupiditate corrupti, ullam ipsum. Dolorem ullam ea molestiae officia odit. Tempora eius voluptates tenetur consectetur inventore optio quae soluta, non tempore iusto in sit libero laborum. Dicta.
+    Quam pariatur esse ad reiciendis magnam optio, dolor voluptates! Porro sint quia quaerat nemo natus delectus excepturi sit dolorum facilis cum rerum modi tempore, consequatur non at optio corrupti officia!
+    Sed aperiam unde rem. Laborum corporis delectus minus possimus cumque eligendi similique enim ipsum expedita officia! Porro consequuntur vel exercitationem eos ipsa deserunt dolores perspiciatis. Assumenda est ullam consequuntur officia!
+  </p>
+  {% else %}
+      <form action="" method="POST">
+        {% csrf_token %}
+        <textarea class="comment-textarea" name="comment" id="comment"  rows="5"></textarea>
+        <div class="row">
+        <button class="cancel-btn" type="submit">Post comment</button></div>
+      </form>
+  
+  {% endif %}
+</div>
+    </div>
+    {% endblock comments %}
+    
