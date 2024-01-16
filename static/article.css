@@ -235,10 +235,11 @@ img.edit  {
     background-color: var(--heading-clr);
     color: white;
     padding-block: .75em;
-    padding-inline:.5em;
+    padding-inline: 1.5em;
     min-height: 80px;
     line-height: 1.2;
     width:100%;
+    max-width: 45ch;
     justify-content: center;
 }
 
