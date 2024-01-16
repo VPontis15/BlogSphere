@@ -24,7 +24,7 @@
     </form>
     {% if filtered_posts %}
     <div class="search-container">
-<h1>Search Results: <span class="search-container-count" > {{filtered_posts.count}}</span></h1>
+<h1>Search Results for <span class="post-about">{{search|title}}</span>:  <span class="search-container-count" > {{filtered_posts.count}}</span></h1>
 <div class="search-container--filter">
 {% if filtered_posts.count %}
 <h4>Filter by:</h4>

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from .helper import default_date
+from blog.models import Comment
 
 # Create your models here.
 class Profile(models.Model):
@@ -28,7 +29,7 @@ class Profile(models.Model):
     city = models.CharField(null=True, blank=True, max_length=100)
     following = models.ManyToManyField('self',symmetrical=False, blank=True)
     followers = models.ManyToManyField("self", related_name="followed_by", symmetrical=False, blank=True)
-
+    comments = models.ManyToManyField(Comment)
 
     def __str__(self):
         return f"{self.user.username}"
