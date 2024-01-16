@@ -20,10 +20,10 @@
        {% if request.user.profile %}
        <button id="profile-pic" >
         {% if request.user.profile.profile_pic %} 
-        <img class="profile-picture" src="{{ request.user.profile.profile_pic.url }}" alt="Profile Picture">
+        <img class="profile-picture header-picture" src="{{ request.user.profile.profile_pic.url }}" alt="Profile Picture">
      {% endif %} 
      {% if  not request.user.profile.profile_pic  %}
-     <img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
+     <img class="no-picture header-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
     {% endif %}
     
     </button>{% endif %}

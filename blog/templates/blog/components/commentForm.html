@@ -1,7 +1,8 @@
 {% load static %}
 
 
-<div class="comment-form container"> 
+<div class="comment-form "> 
+  <span class="add-comment">Add a Comment</span>
     <header class="comment-header">    
     {% comment %} if no profile-picture {% endcomment %}
     {% if not user.profile.profile_pic %}
@@ -10,17 +11,19 @@
         <img class="profile-picture" src="{{user.profile.profile_pic.url}}" alt="">
   
   {% endif %}
-  <div class="comment_user-details">
-    <span class="comment_user-details-username">{{user}}</span>
-   
-  </div>
-</header>
+
+
   <form action="{% url 'post' slug=post.slug %}" method="POST">
     {% csrf_token %}
-    {{form.as_p}}
+    {% for field in form %}
+    <fieldset class="comment-textarea ">
+      {{field}}
+    </fieldset>
+    
+    {% endfor %}
     <div class="row">
-    <button class="cancel-btn" type="submit">Post comment</button></div>
-  </form>
+    <button class="cancel-btn comment-btn hidden" type="submit">Add a comment</button></div>
+  </form></header>
 
 
 

@@ -3,17 +3,33 @@
 <div class="comment "> 
     <header class="comment-header">    
     {% comment %} if no profile-picture {% endcomment %}
+      {% if comment.user ==  request.user %}
+     
+      <a href="{% url 'editProfile' %}?tab=informations"> 
     {% if not comment.user.profile.profile_pic %}
   <img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
   {% else %}
         <img class="profile-picture" src="{{comment.user.profile.profile_pic.url}}" alt="">
   
   {% endif %}
+</a>
+  
+{% else %}
+
+<a href="{% url 'user-profile'  username=comment.user  tab='informations' %}"> 
+  {% if not comment.user.profile.profile_pic %}
+<img class="no-picture comment-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
+{% else %}
+      <img class="profile-picture" src="{{comment.user.profile.profile_pic.url}}" alt="">
+
+{% endif %}
+</a>
+  {% endif %}
   <div class="comment_user-details">
-    <span>{{comment.timestamp}}</span>
+    <span class="comment_user-details-posted_at">{{comment.timestamp}}</span>
     <span class="comment_user-details-username">{{comment.user}}</span>
     {% if comment.user.profile.job %}
-    <span class="comment_user-details-posted_at">{{comment.user.profile.job}}</span>
+    <span class="comment_user-details-job " >{{comment.user.profile.job}}</span>
     {% endif %}
   </div>
 </header>

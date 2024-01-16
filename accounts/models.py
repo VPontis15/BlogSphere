@@ -53,8 +53,7 @@ def create_profile(sender, instance, created, **kwargs):
      if created:
         user_profile = Profile(user=instance)
         user_profile.save()
-        user_comments = Comment.objects.filter(user=instance)
-        user_profile.comments.set(user_comments)
+
         # user_profile.followers.set([instance.profile.id])
 
 post_save.connect(create_profile, sender=User)

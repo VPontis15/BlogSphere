@@ -15,7 +15,7 @@
     </article></div>
 
  
-    <h2 class="comments-heading">Comments ({{post.comments.count}})</h2>{% endblock content %}
+    <h2 class="comments-heading">Comments <span class="count">({{post.comments.count}})</span></h2>{% endblock content %}
     {% block comments %}
     <hr> 
     {% if request.user.is_authenticated %}

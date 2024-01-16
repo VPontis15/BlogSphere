@@ -56,3 +56,14 @@
         </div>
 
 </form>
+
+
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'success' and 'update-profile' in message.extra_tags %}
+            <div class="success-message">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}

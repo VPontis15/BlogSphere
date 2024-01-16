@@ -87,15 +87,12 @@ def myProfile(request):
             user_profile.first_name = form.cleaned_data['first_name']
             user_profile.last_name = form.cleaned_data['last_name']
             user_profile.email = form.cleaned_data['email']
+            form.save()
 
-            # Save both the User and Profile instances
-            user.save()
-            user_profile.save()
-
-            messages.success(request, 'Profile updated successfully')
+            messages.success(request, 'Profile updated successfully', extra_tags='update-profile')
             return redirect('home')
         else:
-            messages.error(request, 'Something went wrong')
+           return render(request, 'account/myProfile.html', {'form': form, 'tab': tab, 'my_posts': my_posts, 'user_profile': user_profile})
      else:
         form = UserForm(instance=user_profile)
         

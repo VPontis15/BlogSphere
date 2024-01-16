@@ -70,6 +70,10 @@ header .profile-picture, .no-picture{
     object-position: center;
 }
 
+header .no-picture.header-picture {
+  width: 60px;
+}
+
 .profile-picture:hover, .profile-picture:focus-visible {
   outline: 2px solid var(--accent-clr);
 }

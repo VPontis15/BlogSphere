@@ -117,7 +117,7 @@ fieldset legend {
 
 
 .no-picture {
-    max-width: 300px;
+    max-width: 300px !important;
     border-radius: 50%;
     object-fit: cover;
     object-position: center;

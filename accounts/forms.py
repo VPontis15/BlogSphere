@@ -12,7 +12,7 @@ class  UserForm(forms.ModelForm):
     last_name = forms.CharField(max_length=100, required=False)
     class Meta:
         model = Profile
-        exclude = ["following", "followers", 'user']
+        exclude = ["following", "followers", 'user','comments']
 
     
     def __init__(self, *args, **kwargs):

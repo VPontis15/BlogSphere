@@ -9,6 +9,20 @@
 {% block title %}BlogSphere | My Profile {% endblock title %}
 {% block content %}
 
+
+{% if form.errors %}
+    <div class="error-message">
+        <p>Form submission failed. Please check the errors below:</p>
+        <ul>
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    <li>{{ field }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
 <section class="user-profile">
    <div class="user-settings">
 <div class="user-image-container">

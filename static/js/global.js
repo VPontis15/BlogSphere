@@ -9,7 +9,8 @@ const profilePic = document.getElementById('profile-pic')
 const profileList = document.querySelector('.profile-links-nav');
 const dialogDeletePost = document.querySelectorAll('.delete-dialog');
 const closeDeleteModal = document.querySelectorAll('.cancel-delete-post')
-
+const textAreaComment = document.querySelector('.comment-textarea')
+const commentBtn = document.querySelector('.comment-btn')
 
 closeDeleteModal.forEach((btn, index) =>{
   btn.style.color = 'purple'
@@ -62,6 +63,12 @@ currentDialogBtn.addEventListener('click', ()=>{
 })
 
 
+textAreaComment.addEventListener('focus', ()=>{
+  commentBtn.classList.remove('hidden')
+ commentBtn.classList.add('fadeIn')
+
+
+},true)
 
 
 
