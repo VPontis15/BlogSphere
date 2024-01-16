@@ -1,8 +1,8 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from .models import Post,Tag
-from .forms import PostForm
+from .models import Post,Tag,Comment
+from .forms import PostForm, CommentForm
 from accounts.models import Profile
 from django.contrib import messages
 # Create your views here.
@@ -85,6 +85,18 @@ def all_posts(request):
 
 def detail_post(request, slug):
    post = posts.get(slug = slug)
+   if request.method == "POST":
+      form = CommentForm(request.POST, instance= request.user.profile)
+      if form.is_valid():
+       comment = form.save(commit=False)
+       comment.user = request.user.profile
+       comment.save()
+       form.save_m2m();
+       return redirect('post', slug=slug)
+      else: 
+            redirect('post', slug=slug)
+   else:
+      form = CommentForm()
    context = {
       'post': post
    }
