@@ -29,7 +29,7 @@ class Profile(models.Model):
     city = models.CharField(null=True, blank=True, max_length=100)
     following = models.ManyToManyField('self',symmetrical=False, blank=True)
     followers = models.ManyToManyField("self", related_name="followed_by", symmetrical=False, blank=True)
-    comments = models.ManyToManyField(Comment)
+    comments = models.ManyToManyField(Comment,related_name='user_comments')
 
     def __str__(self):
         return f"{self.user.username}"
@@ -53,6 +53,8 @@ def create_profile(sender, instance, created, **kwargs):
      if created:
         user_profile = Profile(user=instance)
         user_profile.save()
+        user_comments = Comment.objects.filter(user=instance)
+        user_profile.comments.set(user_comments)
         # user_profile.followers.set([instance.profile.id])
 
 post_save.connect(create_profile, sender=User)

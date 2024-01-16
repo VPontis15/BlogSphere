@@ -52,5 +52,5 @@ class Comment(models.Model):
 
 
     def __str__(self):
-        return f"User:{{self.user}} Post: {{self.post.title}}"
+        return f"User: {self.user} Post: {self. post_to_comment.title} Body: {self.body}"
 

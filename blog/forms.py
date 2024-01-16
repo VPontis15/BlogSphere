@@ -30,4 +30,4 @@ class CommentForm(forms.ModelForm):
     
     class Meta:
         model = Comment
-        fields = "__all__"
+        exclude = ['user', 'timestamp', 'post_to_comment']

@@ -85,20 +85,30 @@ def all_posts(request):
 
 def detail_post(request, slug):
    post = posts.get(slug = slug)
+   user = request.user if request.user.is_authenticated else None
    if request.method == "POST":
-      form = CommentForm(request.POST, instance= request.user.profile)
+      form = CommentForm(request.POST)
       if form.is_valid():
        comment = form.save(commit=False)
-       comment.user = request.user.profile
+       comment.user = user
+       comment.post_to_comment = post
        comment.save()
-       form.save_m2m();
+       post.comments.add(comment)
+       
        return redirect('post', slug=slug)
-      else: 
-            redirect('post', slug=slug)
+      else:
+            return redirect('home')
    else:
       form = CommentForm()
+   
+   comments = post.comments.all()
+
+   
    context = {
-      'post': post
+      'post': post,
+      'user': user,
+      'form': form,
+      'comments': comments
    }
    return render(request, 'blog/post.html', context  )
 

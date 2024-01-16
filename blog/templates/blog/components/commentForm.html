@@ -1,0 +1,28 @@
+{% load static %}
+
+
+<div class="comment-form container"> 
+    <header class="comment-header">    
+    {% comment %} if no profile-picture {% endcomment %}
+    {% if not user.profile.profile_pic %}
+  <img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
+  {% else %}
+        <img class="profile-picture" src="{{user.profile.profile_pic.url}}" alt="">
+  
+  {% endif %}
+  <div class="comment_user-details">
+    <span class="comment_user-details-username">{{user}}</span>
+   
+  </div>
+</header>
+  <form action="{% url 'post' slug=post.slug %}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="row">
+    <button class="cancel-btn" type="submit">Post comment</button></div>
+  </form>
+
+
+
+
+</div></div>
