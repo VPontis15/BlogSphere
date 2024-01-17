@@ -1,17 +1,4 @@
-.post {
-    margin: 2rem auto;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-    width: 400px;
-    padding-bottom: 1em;
-    color: #0b0b0b;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: 15px;
-    transform: scale(0.85);
-    transition: all .25s ease-out;
-    min-height: 300px;
-}
+
 
 .post:hover {
     transform: scale(.90);

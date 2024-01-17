@@ -8,9 +8,9 @@
  {% block title %}BlogSphere | {{post.title}}{% endblock title %}
  {% block content %}
  <div class="container grid-container"> 
-  <div></div>
+  <div class="grid-col-1"> <a class='see-all' href="{% url "posts" %}">See all posts</a></div>
   <div class="bg-white">
-    <a class='see-all' href="{% url "posts" %}">See all posts</a>
+   
     <article>
     <header class="article_header">
       <h1 class="article-title">{{post.title}}</h1>
@@ -64,6 +64,7 @@
     
   </ul>{% endif %}
   </div>
+  {% if  request.user != post.author %}
   <div class="post_by_author">
     {% if users_posts %}
     <h3>More posts from <span class="accent-clr">{{post.author.username}}</span> </h3>
@@ -78,7 +79,7 @@
     {% endfor %}
     
   </ul>{% endif %}
-  </div>
+  </div>{% endif %}
 </section>
 
 

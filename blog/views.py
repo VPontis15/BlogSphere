@@ -102,7 +102,7 @@ def detail_post(request, slug):
       form = CommentForm()
    
    comments = post.comments.all()
-   related_posts = posts.filter(tags__name__in= post.tags.values_list('name', flat=True)).distinct()
+   related_posts = posts.filter(tags__name__in= post.tags.values_list('name', flat=True)).distinct().exclude(title=post.title)
    users_posts = posts.filter(author = post.author).exclude(title=post.title)
    
    context = {
