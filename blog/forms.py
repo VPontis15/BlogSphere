@@ -2,7 +2,7 @@
 from django.forms import ModelForm
 from django import forms
 from .models import Post, Comment
-
+from ckeditor.widgets import CKEditorWidget
 
 
 
@@ -14,7 +14,8 @@ class PostForm(ModelForm):
         fields = ("title", "body", "tags")
         widgets = {
             "title": forms.TextInput(attrs={"placeholder": " Enter blog's title"}),
-            "tags": forms.CheckboxSelectMultiple(attrs={"class": "options"})
+            "tags": forms.CheckboxSelectMultiple(attrs={"class": "options"}),
+            'body': CKEditorWidget()
         }
         labels = {
             "tags": "available tags"

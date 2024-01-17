@@ -1,0 +1,14 @@
+footer {
+    background-color: var(--main-clr);
+    min-height: 150px;
+    font-size: var(--fs-800);
+    text-align: end;
+}
+
+footer .container {
+   padding-top: 1em;
+}
+
+.footer span {
+    font-family: serif;
+}

@@ -1,0 +1,181 @@
+.nav-header {
+    width: 100%;
+background-color: var(--main-clr);
+    padding-block: 1em;
+    color:var(--main-text-clr);
+    display: flex;
+    
+    
+}
+
+#profile-pic {
+  background: none;
+  border:none;
+  cursor: pointer;
+  margin-inline-start: 1.125em;
+
+}
+
+ header  {
+  position:relative;
+}
+
+header .profile-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  border: 1px solid var(--main-clr);
+  border-radius: 2px;
+  position: absolute;
+  bottom:-288px;
+  right:0;
+  z-index: 1000;
+  background-color: var(--main-clr);
+  
+}
+
+
+
+.profile-list li {
+  flex: 1;
+  text-align: center;
+  list-style: none;
+  display: flex;
+  height: 100%;
+}
+
+.profile-list li a {
+  flex: 1;
+  padding: 1.5em 2.5em;
+}
+.profile-list li a:hover {
+ background-color: var(--main-hover-clr);
+ text-decoration: none !important;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .profile-picture, .no-picture{
+  width: 60px;
+   aspect-ratio: 1/1;
+   
+    border-radius: 50%;
+    border: none;
+    object-fit: cover;
+    object-position: center;
+}
+
+header .no-picture.header-picture {
+  width: 60px;
+}
+
+.profile-picture:hover, .profile-picture:focus-visible {
+  outline: 2px solid var(--accent-clr);
+}
+
+
+
+
+
+.logo {
+   color: var(--nav-text-clr);
+   font-size: var(--fs-800);
+   font-family: serif;
+}
+
+.logo::selection {
+    color: var(--accent-clr);
+}
+
+.brand-accent {
+    color: var(--accent-clr)
+}
+
+
+.go-back-btn {
+    color: var(--accent-clr);
+}
+
+ .nav {
+   
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav li a {
+    transform-origin: center;
+   
+}
+
+nav li a:link,
+nav li a:visited {
+   color: var(--nav-text-clr);
+
+}
+
+nav li a::selection {
+    background-color: var(--nav-text-clr);
+    color: var(--main-clr);
+}
+
+
+.hidden {
+  display: none;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+ 
+  }
+  
+  nav li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+
+  
+  nav li a {
+    position: relative;
+    text-decoration: none;
+  
+  }
+  
+  nav li a::before,
+  nav li a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 1px;
+    bottom: 0;
+    background-color: #fff;
+    transition: width 0.3s ease-in-out; /* Transition for the width */
+  }
+  
+  nav li a::before {
+    left: 50%; /* Starts from the middle */
+    transform: translateX(-50%);
+  }
+  
+  nav li a::after {
+    right: 50%; /* Starts from the middle */
+    transform: translateX(50%);
+  }
+  
+  nav li a:hover::before,
+  nav li a:hover::after {
+    width: 50%; /* Change the width on hover to create the effect */
+  }
+  

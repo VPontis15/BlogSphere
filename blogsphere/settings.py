@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
-    'blog.apps.BlogConfig'
+    'blog.apps.BlogConfig',
+    'ckeditor',
+    'ckeditor_uploader',
     
   
 ]
@@ -145,3 +147,5 @@ LOGOUT_REDIRECT_URL = 'login'
 
 MEDIA_ROOT = BASE_DIR / 'profile_pics'
 MEDIA_URL = "/user-media/"
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'

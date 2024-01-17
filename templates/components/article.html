@@ -61,7 +61,7 @@
         </div>
         <div class="content">
             <p class="post-content">
-                {{ post.body|slice:":175" }}
+                {{ post.body|slice:":175"|safe }}
                 {% if post.body|length > 175 %}
                 ... <a class="read_more" href="{% url 'post' post.slug %}">Read More</a>
                 {% endif %}

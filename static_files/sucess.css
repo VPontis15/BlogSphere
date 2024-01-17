@@ -1,0 +1,29 @@
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   margin-top: var(--gutter-y-900);
+    align-items: center;
+    
+}
+
+
+
+h1 {
+    margin-top: var(--gutter-y-200);
+    margin-bottom: 0.5em;
+    color: var(--heading-clr);
+}
+
+p {
+   font-size: .9375rem;
+   max-width: 60ch;
+   margin: 0 auto;
+}
+
+section a {
+    text-align: center;
+    margin: 0 auto;
+    color:var(--main-clr);
+    text-decoration: underline;
+}

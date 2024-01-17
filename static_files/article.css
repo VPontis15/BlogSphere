@@ -1,0 +1,266 @@
+.post {
+    margin: 2rem auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    width: 400px;
+    padding-bottom: 1em;
+    color: #0b0b0b;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 15px;
+    transform: scale(0.85);
+    transition: all .25s ease-out;
+    min-height: 300px;
+}
+
+.post:hover {
+    transform: scale(.90);
+}
+
+.post:hover .post-title, .post:hover .author {
+    background-color: var(--accent-clr) !important;
+}
+
+
+.options-icon {
+    width: 33px;
+}
+.options-icon:focus-visible {
+    outline: 1px solid var(--main-clr);
+}
+
+
+.author {
+    max-height: 30px;
+    background-color: var(--heading-clr);
+    position: relative;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    padding-block:.70em
+}
+
+.options {
+    width:100%;
+    display: flex;
+    justify-content: end;
+    position: relative;
+}
+
+.options-button{
+
+   background: none;
+   border:none;
+   cursor: pointer;
+   
+    
+}
+
+.options-button:hover, .options-button:focus-visible {
+    outline: 2px solid var(--main-clr)
+}
+
+
+
+.links-actions   {
+   background-color: #ffffff;
+   box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.3);
+    position: absolute;
+   display: flex;
+   flex-direction: column;
+   z-index: 1000;
+   top: -50px;
+   right:25px;
+  
+   
+}
+
+.action-button {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25em 2em;
+    gap: 1.25em;
+    color: var(--accent-clr) !important;   
+}
+
+.action-button:hover {
+    background-color: var(--main-hover-link-clr) !important;
+}
+
+.links-actions  img {
+  /* background-color: var(--main-clr);
+  border-radius: 50%; */
+ /* position: absolute;
+ top:-15px; */
+ fill: var(--accent-clr);
+  width: 35px;
+}
+
+
+
+
+
+img.edit  {
+   /* width:50px;
+   right: 45px; */
+    fill: #fff;
+    color: rgb(1, 4, 68);
+}
+
+.delete  {
+    fill: rgb(1, 4, 68);
+    right:0;
+    color: rgb(1, 4, 68);  
+}
+
+
+.author-post__details   {
+    position: absolute;
+    top: -45px;
+    left: 60px;
+}
+
+.author-post__details span {
+    display: block;
+    font-size: var(--fs-600);
+    border-radius: 2px;
+    margin: 0;
+    line-height: 1;
+    color: var(--accent-clr);
+    padding: .25em .5em;
+    margin-bottom: .25rem;
+    font-weight: 700;
+    background-color: white;
+    letter-spacing: 3px;
+    box-shadow: -4px -2px 6px rgba(0,0,0, .6);
+}
+
+.hidden {
+    display: none;
+}
+
+.author-post__details-name:hover, .author-post__details-name:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.author .profile-picture, .author .no-picture {
+    width: 80px;
+   aspect-ratio: 1/1;
+    position: absolute;
+    top: -45px;
+    left: -35px;
+    border-radius: 50%;
+    border: none;
+    overflow: hidden;
+    box-shadow: 4px 8px 16px rgba(0,0,0, .3);
+    object-fit: cover;
+    object-position: center;
+}
+
+.author img:focus-visible, .author img:hover, .no-picture:focus, .no-picture:hover {
+    outline: 2px solid var(--accent-clr);
+}
+
+.content {
+    padding-inline:1.5em;
+   display: flex;
+   flex-direction: column;
+   flex: 1;
+  
+}
+
+.no-picture {
+    max-width: 300px;
+   
+}
+
+.title-container{
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+
+.row  {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1.25em;
+    font-size: .9375rem;
+    flex: 1;
+    column-gap:1rem;
+    align-items: center;
+}
+
+.row ul {
+    row-gap: 0.25em;
+    text-align: center;
+    margin-inline: auto;
+   
+}
+
+.tags {
+    display: flex;
+    font-size: .8375rem;
+    line-height: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+
+}
+
+.read_more {
+    color: var(--accent-clr) !important;
+    text-decoration: underline !important;
+}
+
+.go-back-btn,
+.tag:link, 
+.tag:visited {
+    color: var(--accent-clr) !important;
+
+}
+
+
+
+.go-back-btn:hover{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.date {
+    color: #0b0b0bdd;
+    font-size: .875rem;
+}
+
+.post-title {
+    font-size: 1.125rem;
+    margin-bottom: .75em;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    background-color: var(--heading-clr);
+    color: white;
+    padding-block: .75em;
+    padding-inline: 1.5em;
+    min-height: 80px;
+    line-height: 1.2;
+    width:100%;
+    max-width: 45ch;
+    justify-content: center;
+}
+
+
+
+
+
+a.delete {
+    position: absolute;
+    right: 0;
+    top: -20px;
+    margin-left: auto;
+}
+
+

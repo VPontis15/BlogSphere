@@ -228,6 +228,12 @@ fieldset {
     outline: 2px solid var(--accent-clr) !important;
 }
 
+section.post-body{
+    display: grid;
+    gap: 1em;
+    background-color: red !important;
+}
+
 
 @keyframes buttonFromRight {
     0% {
