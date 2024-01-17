@@ -56,7 +56,7 @@ def all_posts(request):
       Q(tags__name__icontains=q) |
       Q(author__username__icontains=q) |
       Q(slug__icontains=q)
-   ).distinct()
+   ).distinct().order_by('')
    else: 
       filtered_posts = None;
    tag_posts = posts.filter(tags__name = tag)

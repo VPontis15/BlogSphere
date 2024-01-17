@@ -140,6 +140,11 @@ img.edit  {
     display: none;
 }
 
+.author-post__details-name:hover, .author-post__details-name:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
 .author .profile-picture, .author .no-picture {
     width: 80px;
    aspect-ratio: 1/1;

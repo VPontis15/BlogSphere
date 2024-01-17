@@ -4,6 +4,66 @@ article {
     margin-inline: auto;
 }
 
+header.article_header{
+    background-color: #fff;
+    padding:1em 1.125em;
+    margin-bottom: 1.75em;
+    border-radius: 10px;
+  
+
+}
+
+ .row-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article_header-user_details {
+   position: static !important;
+ 
+
+}
+.article_header-user_details > * {
+  
+   position: static !important;
+
+}
+
+.article_header .row {
+    margin-block: .75em;
+}
+
+.article_header-user_details .article_header-username,
+ .article_header-date,
+.article_header-user_details .article_header-job
+{
+ box-shadow: none;
+ background-color: none;
+ margin: 0;
+}
+
+.article_header-user_details .article_header-username{
+    font-size: var(--fs-550);
+}
+.article_header-user_details .article_header-job{
+    font-size: var(--fs-450);
+}
+
+ .article_header-date {
+    font-size: var(--fs-450);
+    color: rgba(15, 33, 98, 0.793)
+
+}
+
+h1.article-title {
+    font-size: var(--fs-650);
+}
+
+
+p.article_header-posted-by {
+    color: var(--main-clr);
+}
 
 .see-all {
     color: var(--accent-clr) !important;
