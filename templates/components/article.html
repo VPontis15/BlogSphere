@@ -7,7 +7,7 @@
     
     <header class="author">
             
-            
+            {% if post.author ==  request.user %}
             <div class="options ">
              <button class="options-button">
                 <img class="options-icon" src="{% static 'options.svg '%}" alt="">
@@ -25,6 +25,7 @@
     
     </div>
    </div>
+   {% endif %}
         
        
    
