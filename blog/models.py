@@ -30,6 +30,10 @@ class Post(models.Model):
     slug = models.SlugField(unique=True, editable= False, blank= True, db_index=True, default='')
     comments = models.ManyToManyField('Comment')
 
+    class Meta:
+        ordering = ['-created_at']
+
+
     def save(self, *args, **kwargs):
 
         self.slug = slugify(self.title)
@@ -50,6 +54,8 @@ class Comment(models.Model):
     timestamp = models.DateTimeField(default=timezone.now)
     body = models.TextField();
 
+    class Meta:
+        ordering = ['-timestamp']
 
     def __str__(self):
         return f"User: {self.user} Post: {self. post_to_comment.title} Body: {self.body}"

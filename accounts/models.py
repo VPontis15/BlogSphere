@@ -31,6 +31,8 @@ class Profile(models.Model):
     followers = models.ManyToManyField("self", related_name="followed_by", symmetrical=False, blank=True)
     comments = models.ManyToManyField(Comment,related_name='user_comments')
 
+   
+
     def __str__(self):
         return f"{self.user.username}"
     
