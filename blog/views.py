@@ -56,7 +56,7 @@ def all_posts(request):
       Q(tags__name__icontains=q) |
       Q(author__username__icontains=q) |
       Q(slug__icontains=q)
-   ).distinct().order_by('')
+   ).distinct().order_by('-created_at','title')
    else: 
       filtered_posts = None;
    tag_posts = posts.filter(tags__name = tag)
@@ -102,13 +102,17 @@ def detail_post(request, slug):
       form = CommentForm()
    
    comments = post.comments.all()
-
+   related_posts = posts.filter(tags__name__in= post.tags.values_list('name', flat=True)).distinct()
+   users_posts = posts.filter(author = post.author).exclude(title=post.title)
    
    context = {
       'post': post,
       'user': user,
       'form': form,
-      'comments': comments
+      'comments': comments,
+      'related_posts': related_posts,
+      'users_posts': users_posts
+
    }
    return render(request, 'blog/post.html', context  )
 

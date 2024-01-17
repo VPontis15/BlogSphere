@@ -5,7 +5,7 @@
         --main-clr: #1d3580;
         --main-hover-clr: #2c489cd0;
         --main-hover-link-clr: #2c489c4d;
-
+        --body-clr: #e5eaf6;
         --main-clr-light: #1d3680bd;    
         --heading-clr: #1d3580;
         --heading2-clr: #fff;
@@ -337,4 +337,10 @@
 
 .hidden {
     display: none;
+}
+
+
+.accent-clr {
+    color: var(--accent-clr);
+    font-weight: 600;
 }

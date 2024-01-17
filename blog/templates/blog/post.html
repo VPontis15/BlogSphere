@@ -7,10 +7,13 @@
 {% endblock  %}
  {% block title %}BlogSphere | {{post.title}}{% endblock title %}
  {% block content %}
- <div class="container"> 
+ <div class="container grid-container"> 
+  <div></div>
+  <div class="bg-white">
     <a class='see-all' href="{% url "posts" %}">See all posts</a>
     <article>
     <header class="article_header">
+      <h1 class="article-title">{{post.title}}</h1>
       <div class="row-header">
       <p class="article_header-posted-by">Posted by:</p>
       <span class="author-post__details-date article_header-date">{{post.created_at|date:"d/m/y"}}</span>
@@ -22,10 +25,10 @@
          <a href="{% url 'editProfile' %}?tab=informations">  
       {% endif %}
       {% if post.author.profile.profile_pic %}
-      <img class="profile-picture" src="{{ post.author.profile.profile_pic.url }}" alt="Profile Picture">
+      <img class="profile-picture article-header-picture" src="{{ post.author.profile.profile_pic.url }}" alt="Profile Picture">
       
       {% else %}
-         <img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
+         <img class="no-picture article-header-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
          {% endif%}
       
       </a>
@@ -40,10 +43,48 @@
                  <span class="author-post__details-name article_header-username">{{post.author.username}}</span> </a>{% endif %}
                  {% if  post.author.profile.job %}
                  <span class="author-post__details-date article_header-job">{{post.author.profile.job}}</span>{% endif %}</div></div>
-    <h1 class="article-title">{{post.title}}</h1></header>
-      <p>{{post.body |safe}}</p>
-    </article></div>
+    </header>
+    
+      <p>{{post.body |safe}}</p></div>
+    </article>
+    <section class="related-posts">
+     
+     <div class="tag_posts">
+    <h3>Related Post</h3>
+    {% if related_posts %}
+    <ul>
+    {% for post in related_posts|slice:"5"  %}
+    <li>
+      <a href="{% url 'post' slug=post.slug %}">
+      <span class="related_post-heading">
+    {{post.title}}
+  </span></a>
+  </li>
+    {% endfor %}
+    
+  </ul>{% endif %}
+  </div>
+  <div class="post_by_author">
+    {% if users_posts %}
+    <h3>More posts from <span class="accent-clr">{{post.author.username}}</span> </h3>
+    <ul>
+    {% for post in users_posts|slice:"5"  %}
+    <li>
+      <a href="{% url 'post' slug=post.slug %}">
+      <span class="related_post-heading">
+    {{post.title}}
+  </span></a>
+  </li>
+    {% endfor %}
+    
+  </ul>{% endif %}
+  </div>
+</section>
 
+
+
+  </div>
+   
  
     <h2 class="comments-heading">Comments <span class="count">({{post.comments.count}})</span></h2>{% endblock content %}
     {% block comments %}
