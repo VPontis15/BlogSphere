@@ -60,7 +60,7 @@ header .profile-list {
     align-items: center;
 }
 
-header .profile-picture, .no-picture{
+header .profile-picture, header .profile-picture.no-picture{
   width: 60px;
    aspect-ratio: 1/1;
    
@@ -68,6 +68,7 @@ header .profile-picture, .no-picture{
     border: none;
     object-fit: cover;
     object-position: center;
+ 
 }
 
 header .no-picture.header-picture {

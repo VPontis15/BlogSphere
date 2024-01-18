@@ -4,10 +4,14 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
+from django.urls import reverse
 from .forms import  UserForm
 from .models import Profile
 from blog.models import Post
 from accounts.helper import displayGreeting
+from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
+from django.contrib.auth import update_session_auth_hash
+
 
 
 # Create your views here.
@@ -81,16 +85,22 @@ def myProfile(request):
      user_profile = Profile.objects.get(user = request.user)
      user = User.objects.get(id = request.user.id)
      my_posts = Post.objects.filter(author = user)
+  
+
+
+    
      if request.method == "POST":
-        form = UserForm(request.POST, instance=user_profile)
+        form = UserForm(request.POST, request.FILES,  instance=user_profile)
         if form.is_valid():
             user_profile.first_name = form.cleaned_data['first_name']
             user_profile.last_name = form.cleaned_data['last_name']
             user_profile.email = form.cleaned_data['email']
             form.save()
-
+    
+            url = reverse('editProfile')  
+            url_with_params = f"{url}?tab={tab}"
             messages.success(request, 'Profile updated successfully', extra_tags='update-profile')
-            return redirect('home')
+            return redirect(url_with_params)
         else:
            return render(request, 'account/myProfile.html', {'form': form, 'tab': tab, 'my_posts': my_posts, 'user_profile': user_profile})
      else:
@@ -106,6 +116,17 @@ def myProfile(request):
 
      return render(request, 'account/myProfile.html', context)
 
+
+@login_required(login_url='home')
+def change_user_password(request):
+    form = PasswordChangeForm(user=request.user,data= request.POST)
+    if form.is_valid():
+        form.save()
+        update_session_auth_hash(request, form.user)
+        return redirect('home')
+    return render(request, 'accounts/user_settings.html', {
+        'form': form
+    })
 
 
                                                   

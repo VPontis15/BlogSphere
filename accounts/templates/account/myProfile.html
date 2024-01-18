@@ -26,11 +26,8 @@
 <section class="user-profile">
    <div class="user-settings">
 <div class="user-image-container">
-    {% if   is_users_profile  %}
-    <form action=""  method="POST" enctype="multipart/form-data" >
-    <input type="file" name="avatar" id="avatar">
-</form>
-{% endif %}
+    
+
 {% if user_profile.profile_pic  %}
 
 <img class="user-image" src="{{user_profile.profile_pic.url}}" alt="User's profile picture">
@@ -85,7 +82,7 @@
     {% endif %}
     {% if tab == 'settings' %}
     <h1 class="tab-heading">Settings </h1>
-      {% include "account/components/myProfile/posts.html" %}
+      {% include "account\user_settings.html" %}
     {% endif %}
 
   

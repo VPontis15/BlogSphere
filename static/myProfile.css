@@ -87,7 +87,34 @@ p.about {
 
 
 
+fieldset:has(#id_profile_pic ) >a,
+fieldset:has(#id_profile_pic ) >input[type='checkbox']
+ {
+    display: none;
+}
 
+label#profile_pic-clear_id {
+    display: none;
+}
+
+#id_profile_pic  {
+    margin-top: -1rem;
+ 
+}
+
+#id_profile_pic label {
+
+}
+
+.tab-form:has(#id_profile_pic){
+    justify-content: start;
+    margin-left: 6.25em;
+
+}
+
+#id_profile_pic {
+    padding-block: .5em;
+}
 
 
 
@@ -102,6 +129,7 @@ p.about {
     object-fit: cover;
     object-position: center;
     margin-bottom: 1em;
+    margin-inline: auto;
     
 }
 

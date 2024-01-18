@@ -20,13 +20,13 @@
 
 <img class="user-image" src="{{user_profile.profile_pic.url}}" alt="User's profile picture">
 {% else %}
-<img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
+<img class="no-picture no-picture-othersUser-profile" src="{% static 'images/no-profile-picture.svg' %}" alt="">
 {% endif %}
 {% if user_profile.first_name and user_profile.last_name %}
 <span class="user-fullname">
    {{user_profile.first_name}} {{user_profile.last_name}}
    {% else %}
-        {{user_profile}}
+   <span class="user-fullname">  {{user_profile}} </span>
       </span>
       {% endif %}
 <div>

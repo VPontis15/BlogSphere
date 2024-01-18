@@ -1,4 +1,4 @@
-<form class="user-settings" method="POST" action="">
+<form class="user-settings" method="POST" enctype="multipart/form-data" action="">
     {% csrf_token %}
   
    
@@ -25,6 +25,12 @@
  </div>
  <div class="row tab-form">
  <fieldset class="col-user-details">
+  
+   {{ form.profile_pic }}  
+ </fieldset>
+</div>
+ <div class="row tab-form">
+ <fieldset class="col-user-details">
     <label for="id_last_name">Birthday:</label>
     {{ form.birthday }}
  </fieldset>
@@ -32,6 +38,7 @@
     <label for="id_gender">Country:</label>
     {{ form.country }}  
  </fieldset>
+
  </div>
  <div class="row tab-form">
     <fieldset class="col-user-details">
@@ -41,8 +48,8 @@
     <fieldset class="col-user-details">
        <label for="id_gender">City:</label>
        {{ form.city }}  
-    </fieldset>
-    </div>
+      </fieldset>
+   </div>
     <div class="row textarea tab-form">
         <fieldset class="col-user-details">
            <label for="id_last_name">About:</label>
@@ -51,10 +58,8 @@
         <fieldset></fieldset>
         </div>
     <div class="row tab-form">
-    
      <input class="save" type="submit" value="Submit">
         </div>
-
 </form>
 
 
