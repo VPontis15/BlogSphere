@@ -86,39 +86,6 @@ def all_posts(request):
 def detail_post(request, slug):
    post = posts.get(slug = slug)
    user = request.user if request.user.is_authenticated else None
-
-   form = CommentForm()
-   
-   comments = post.comments.all()
-   related_posts = posts.filter(tags__name__in= post.tags.values_list('name', flat=True)).distinct().exclude(title=post.title)
-   users_posts = posts.filter(author = post.author).exclude(title=post.title)
-   active_color_like = '#1d3580' if post.author.profile  in request.user.profile.following.all() else  '#10082e40'
-   active_color_follow = '#ba1642' if post.author.profile  in request.user.profile.following.all() else  '#e5eaf6'
-   following = request.user.profile.following.all()
-   context = {
-      'post': post,
-      'user': user,
-      'form': form,
-      'comments': comments,
-      'related_posts': related_posts,
-      'users_posts': users_posts,
-      'active_color_follow': active_color_follow,
-      'active_color_like': active_color_like,
-      'following': following
-
-   }
-   return render(request, 'blog/post.html', context  )
-
-
-
-
-
-
-
-
-def newComment(request, slug):
-   post = posts.get(slug = slug)
-   user = request.user if request.user.is_authenticated else None
    if request.method == "POST":
       form = CommentForm(request.POST)
       if form.is_valid():
@@ -130,25 +97,24 @@ def newComment(request, slug):
        
        return redirect('post', slug=slug)
       else:
-            return redirect('post', slug=slug)
+            return redirect('home')
    else:
       form = CommentForm()
-
+   
+   comments = post.comments.all()
+   related_posts = posts.filter(tags__name__in= post.tags.values_list('name', flat=True)).distinct().exclude(title=post.title)
+   users_posts = posts.filter(author = post.author).exclude(title=post.title)
+   
    context = {
       'post': post,
       'user': user,
       'form': form,
-    
+      'comments': comments,
+      'related_posts': related_posts,
+      'users_posts': users_posts
+
    }
    return render(request, 'blog/post.html', context  )
-
-
-
-
-
-
-
-
 
 
 @login_required(login_url='login')

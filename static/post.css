@@ -26,12 +26,6 @@ main {
     
 }
 
-.article_user_details-container {
-    display: flex;
-    align-items: center;
-    gap: 1.125rem;
-}
-
 .related-posts h3 {
     text-align: center;
     margin-bottom: .75em;
@@ -113,40 +107,7 @@ header.article_header{
     margin: 0;
     padding-inline: 1.125rem;
     background-color: var(--body-clr);
-    align-items: end;
 }
-
-.article_header_links {
-    display: flex;
-    justify-content: flex-end;
-    align-items: end;
-    flex:1;
-    gap: 1.125rem;
-    position: relative;
-    margin-bottom: 1rem;
-}
-
-.article_header_links button {
-    background: none;
-    border:none;
-}
-
-.article_header_links svg {
-    width: 35px;
-    aspect-ratio: 1/1;
-    color: var(--accent-clr);
-    
-    
-}
-
-#follow, #like {
-    fill:#190d5a4d 
-}
-
-#like  .article_header_links-active {
-    fill: purple;
-}
-
 
 .article_header-user_details .article_header-username,
  .article_header-date,

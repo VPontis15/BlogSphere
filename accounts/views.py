@@ -112,11 +112,3 @@ def myProfile(request):
 def success(request):
 
     return render(request, 'components/success')
-
-
-
-def followUser(request, user):
-
-
-   
-    pass

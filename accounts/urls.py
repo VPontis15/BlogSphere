@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from blog.views import detail_post
+
 
 
 urlpatterns =[ 
@@ -10,6 +10,5 @@ urlpatterns =[
     path('success/', views.success, name='success'),
     path('user/<str:username>/<str:tab>', views.viewProfile, name='user-profile'),
     path('MyProfile/', views.myProfile, name='editProfile'),
-    path('follow/', detail_post, name='follow')
   
 ]

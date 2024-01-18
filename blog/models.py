@@ -29,7 +29,7 @@ class Post(models.Model):
     created_at = models.DateField(auto_now=True)
     tags = models.ManyToManyField(Tag)
     slug = models.SlugField(unique=True, editable= False, blank= True, db_index=True, default='')
-    comments = models.ManyToManyField('Comment')
+    comments = models.ManyToManyField('Comment', blank=True)
 
     class Meta:
         ordering = ['-created_at']

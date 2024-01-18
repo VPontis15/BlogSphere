@@ -29,7 +29,7 @@ class Profile(models.Model):
     city = models.CharField(null=True, blank=True, max_length=100)
     following = models.ManyToManyField('self',symmetrical=False, blank=True)
     followers = models.ManyToManyField("self", related_name="followed_by", symmetrical=False, blank=True)
-    comments = models.ManyToManyField(Comment,related_name='user_comments')
+    comments = models.ManyToManyField(Comment,related_name='user_comments', blank=True)
 
    
 

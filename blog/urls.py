@@ -11,7 +11,6 @@ urlpatterns = [
     path('new/', views.newPost, name='new'),
     path('edit/<int:id>', views.editPost, name='edit'),
     path('delete/<pk>', views.deletePost, name='delete'),
-    path('comment/<slug:slug>', views.newComment, name='comment'),
    
    
 ]
