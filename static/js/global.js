@@ -1,16 +1,17 @@
 const overlay = document.querySelector('.overlay')
 const openDeletePostDialogBtns = document.querySelectorAll('.openDeletePostDialogBtns')
-
 const optionsActionsDiv = document.querySelectorAll('.links-actions');
 const deletePostMssg = document.querySelector('.delete-message')
 const optionsBtn = document.querySelectorAll('.options-button');
-
 const profilePic = document.getElementById('profile-pic')
 const profileList = document.querySelector('.profile-links-nav');
 const dialogDeletePost = document.querySelectorAll('.delete-dialog');
 const closeDeleteModal = document.querySelectorAll('.cancel-delete-post')
 const textAreaComment = document.querySelector('.comment-textarea')
 const commentBtn = document.querySelector('.comment-btn')
+
+const likeBtn = document.querySelector('#like');
+const followBtn = document.querySelector('#follow');
 
 closeDeleteModal.forEach((btn, index) =>{
   btn.style.color = 'purple'
@@ -70,8 +71,15 @@ textAreaComment.addEventListener('focus', ()=>{
 
 },true)
 
+let currentColor = likeBtn.style.fill || getComputedStyle(likeBtn).fill;
 
-
+likeBtn.addEventListener('click', () => {
+  if (likeBtn.style.fill === currentColor || !likeBtn.style.fill) {
+    likeBtn.style.fill = '#ba1642';
+  } else {
+    likeBtn.style.fill = currentColor;
+  }
+});
 
 
 

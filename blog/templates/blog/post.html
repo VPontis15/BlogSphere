@@ -8,7 +8,10 @@
  {% block title %}BlogSphere | {{post.title}}{% endblock title %}
  {% block content %}
  <div class="container grid-container"> 
-  <div class="grid-col-1"> <a class='see-all' href="{% url "posts" %}">See all posts</a></div>
+  <div class="grid-col-1"> 
+    <a class='see-all' href="{% url "posts" %}">See all posts</a>
+  
+  </div>
   <div class="bg-white">
    
     <article>
@@ -19,6 +22,7 @@
       <span class="author-post__details-date article_header-date">{{post.created_at|date:"d/m/y"}}</span>
     </div>
       <div class="row">
+        <div class="article_user_details-container">
       {% if post.author != request.user %}
       <a href="{% url 'user-profile' username=post.author tab='informations' %}"> 
          {% else %}
@@ -42,7 +46,35 @@
              <a href="{% url 'editProfile' %}?tab=informations">
                  <span class="author-post__details-name article_header-username">{{post.author.username}}</span> </a>{% endif %}
                  {% if  post.author.profile.job %}
-                 <span class="author-post__details-date article_header-job">{{post.author.profile.job}}</span>{% endif %}</div></div>
+                 <span class="author-post__details-date article_header-job">{{post.author.profile.job}}</span>{% endif %}</div>
+                </div>
+                <div class="article_header_links">
+                  <button class="like" >
+                    <svg class="article_header_links-active" width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z" stroke='#1d3580' fill="{{active_color_follow}}"/>
+                    </svg>
+                  </button>
+                  {% if request.user != post.author and post.author.profile not in request.user.profile.following.all %}
+                  <form action="{{request.path}}" method = "POST">
+                    {% csrf_token %}
+                  <button>  
+                  <svg class="follow" height="35px" width="35px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                  viewBox="0 0 512 512"  xml:space="preserve">
+               <style type="text/css">
+                  .st0 { fill: {{ active_color_like }}; }
+               </style>
+               <g>
+                 <path class="st0" d="M458.159,404.216c-18.93-33.65-49.934-71.764-100.409-93.431c-28.868,20.196-63.938,32.087-101.745,32.087
+                   c-37.828,0-72.898-11.89-101.767-32.087c-50.474,21.667-81.479,59.782-100.398,93.431C28.731,448.848,48.417,512,91.842,512
+                   c43.426,0,164.164,0,164.164,0s120.726,0,164.153,0C463.583,512,483.269,448.848,458.159,404.216z"/>
+                 <path class="st0" d="M256.005,300.641c74.144,0,134.231-60.108,134.231-134.242v-32.158C390.236,60.108,330.149,0,256.005,0
+                   c-74.155,0-134.252,60.108-134.252,134.242V166.4C121.753,240.533,181.851,300.641,256.005,300.641z"/>
+               </g>
+               </svg>
+                 
+                </button></form>
+                </div>
+              </div>{% endif %}
     </header>
     
       <p>{{post.body |safe}}</p></div>
