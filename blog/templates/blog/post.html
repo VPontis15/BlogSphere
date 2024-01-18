@@ -67,7 +67,8 @@
   {% if  request.user != post.author %}
   <div class="post_by_author">
     {% if users_posts %}
-    <h3>More posts from <span class="accent-clr">{{post.author.username}}</span> </h3>
+    <a href="{% url 'user-profile' username=post.author tab='posts'%}">
+    <h3>More posts from <span class="accent-clr underline">{{post.author.username}}</span> </h3></a>
     <ul>
     {% for post in users_posts|slice:"5"  %}
     <li>

@@ -338,3 +338,9 @@
 .hidden {
     display: none;
 }
+
+
+.underline {
+    text-decoration: underline;
+    text-underline-offset: 8px;
+}

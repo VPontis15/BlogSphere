@@ -12,7 +12,7 @@ main {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 15% 55% 20%;
+    grid-template-columns: 10% 60% 20%;
     justify-content: space-around;
 }
 
@@ -231,16 +231,16 @@ hr{
 
 .comment-form {
     width:400px;
-    max-width: 900px;
+    max-width: 1600px;
     margin-right: auto;
     margin-left: 5em;
-    transition: width .5s ease-in;
+    transition: width .75s ease-in;
    
     position: relative;
 }
 
  .comment-form:focus-within {
-    width: 900px;
+    width: 1385px;
 } 
 
 .comment_user-details {
@@ -283,7 +283,7 @@ fieldset {
     resize:vertical;
     width:100%;
     max-width: 100%;
-    min-height: 40px;
+    min-height: 60px;
     height:40px;
     padding-block: .75rem;
     padding-left: 1em;
@@ -291,13 +291,13 @@ fieldset {
     border:none;
     outline: 1px solid var(--main-clr);
     width: 250px;
-    transition: width .5s ease-in;
+    transition: width .75s ease-in;
 }
 
 
 
 .comment-textarea > textarea:focus-visible {
-    width: 700px;
+    width: 1200px;
     outline: 1px solid var(--accent-clr);
 }
 
