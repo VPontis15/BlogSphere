@@ -79,51 +79,39 @@ def viewProfile(request, username, tab):
     }
     return render(request, "account/user-profile.html", context)
 
-@login_required(login_url='home')
-def myProfile(request):
-    tab = request.GET.get('tab')
-    user_profile = Profile.objects.get(user=request.user)
-    my_posts = Post.objects.filter(author=request.user)
+# @login_required(login_url='home')
+# # def myProfile(request,tab):
+#     pass
+#     user_profile = Profile.objects.get(user=request.user)
+#     my_posts = Post.objects.filter(author=request.user)
 
-    if request.method == "POST":
-        form = UserForm(request.POST, request.FILES, instance=user_profile)
-        change_password_form = ChangingPasswordForm(user=request.user, data=request.POST)
-        
-        if form.is_valid():
-            form.save()
-            url = reverse('editProfile')  
-            url_with_params = f"{url}?tab={tab}"
-            messages.success(request, 'Profile updated successfully', extra_tags='update-profile')
-            return redirect(url_with_params)
-        else:
-            messages.error(request, 'Error updating profile. Please check the form.', extra_tags='update-profile')
+#     if request.method == "POST":
+#         form = UserForm(request.POST, request.FILES, instance=user_profile)    
+#         if form.is_valid():
+#             form.save()
+#             # url = reverse('my-profile')  
+#             # url_with_params = f"{url}?tab={tab}"
+#             messages.success(request, 'Profile updated successfully', extra_tags='update-profile')
+#             return redirect('home')
+#         else:
+#             messages.error(request, 'Error updating profile. Please check the form.', extra_tags='update-profile')
 
-    else:
-        form = UserForm(instance=user_profile)
+#     else:
+#         form = UserForm(instance=user_profile)
 
-    change_password_form = ChangingPasswordForm(user=request.user)
+ 
 
-    if request.method == "POST" and change_password_form.is_valid():
-        user = change_password_form.save(commit=False)
-        request.user.set_password(user.new_password1)
-        request.user.username = user.username
+    
 
-        request.user.save()
-        update_session_auth_hash(request, request.user)
-        messages.success(request, 'Password updated successfully', extra_tags='update-password')
-        return redirect('home')
-    elif request.method == "POST":
-        messages.error(request, 'Error updating password. Please check the form.', extra_tags='update-password')
+    # context ={
+    #     'form': form,
+    #     'tab': tab,
+    #     'my_posts': my_posts,
+    #     'user_profile': user_profile,
+       
+    # }
 
-    context ={
-        'form': form,
-        'tab': tab,
-        'my_posts': my_posts,
-        'user_profile': user_profile,
-        'change_password_form': change_password_form,  
-    }
-
-    return render(request, 'account/myProfile.html', context)
+    # return render(request, 'account/myProfile.html', context)
 
 
 

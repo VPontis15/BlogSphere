@@ -2,7 +2,7 @@
 {% if post.author != request.user %}
 <a href="{% url 'user-profile' username=post.author tab='informations' %}"> 
    {% else %}
-   <a href="{% url 'editProfile' %}?tab=informations">  
+   <a href="">  
 {% endif %}
 {% if post.author.profile.profile_pic %}
 <img class="profile-picture" src="{{ post.author.profile.profile_pic.url }}" alt="Profile Picture">
@@ -19,6 +19,6 @@
            <span class="author-post__details-name article_header-username">{{post.author.username}}</span> </a>{% endif %}
     
        {% if post.author == request.user  %}
-       <a href="{% url 'editProfile' %}?tab=informations">
+       <a href="">
            <span class="author-post__details-name article_header-username">{{post.author.username}}</span> </a>{% endif %}
            <span class="author-post__details-date article_header-date">{{post.created_at|date:"d/m/y"}}</span></div>

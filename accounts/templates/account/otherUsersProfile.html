@@ -53,9 +53,9 @@
 <form action="">
 <fieldset class="border-fieldset">
   <div class=" links">
-    <a class="links-user {% if tab == 'informations' %} link-active {% endif %}"  href="{% url 'user-profile' username=user_profile tab='informations' %}">Informations</a>
+    <a class="links-user "  href="{% url 'user-profile' username=user_profile tab='informations' %}">Informations</a>
     <span class="slash">|</span>
-    <a class="links-user {% if tab == 'posts' %} link-active {% endif %}" href="{% url 'user-profile' username=user_profile tab='posts' %}">
+    <a class="links-user " href="{% url 'user-profile' username=user_profile tab='posts' %}">
       Posts <span class="post-count {% if tab == 'posts' %} post-count--active {% endif %}">({{ user_posts.count }})</span>
   </a>
   
