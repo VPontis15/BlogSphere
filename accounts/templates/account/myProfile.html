@@ -61,32 +61,20 @@
   </div>
 </div>
  <ul class="settings-list">
-  <li><a  href="">Informations</a></li>
-   <li><a  href="">Posts</a></li>
+  <li><a  href="{% url 'my-informations' %}">Informations</a></li>
+   <li><a  href="{% url 'my-posts' %}">Posts</a></li>
    <li><a  href="">Settings</a></li>
    <li><a  href="">Logout</a></li>
  </ul>
 </div>
 
 
-{% block myProfile-content %}
-{% comment %} <section class="user-information">
-  {% if tab == 'informations' %}
-      <h1 class="tab-heading"> {{user_profile}} </h1>
-      {% include "account/components/myProfile/form.html" %}
-  {% endif %}
-
-  {% if tab == 'posts' %}
-      <h1 class="tab-heading">My Posts </h1>
-      {% include "account/components/myProfile/posts.html" %}
-  {% endif %}
-
-  {% if tab == 'settings' %}
-      <h1 class="tab-heading">Settings </h1>
-      {% include "account/user_settings.html" %}
+<section class="user-information">
+    {% block myProfile-content %}
     
-  {% endif %}
-</section> {% endcomment %}
-{% endblock myProfile-content %}
+     
+
+      {% endblock myProfile-content %}z
+    </section> 
 </section>
 {% endblock content %}

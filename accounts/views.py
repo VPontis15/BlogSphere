@@ -154,3 +154,18 @@ def myΙnformations(request):
 def success(request):
 
     return render(request, 'components/success')
+
+
+
+
+def myPosts(request):
+    my_posts = Post.objects.filter(author=request.user)
+    user_profile = Profile.objects.get(user=request.user)
+    context ={
+  
+        'my_posts': my_posts,
+         'user_profile': user_profile,
+       
+     }
+
+    return render(request, 'account/components/myProfile/posts.html', context)

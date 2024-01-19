@@ -1,7 +1,14 @@
 {% extends "account/myProfile.html" %}
+{% load static %}
 
+{% block style %}
+{% comment %} <link rel="stylesheet" href="{% static 'otherUserProfile.css'%}"> {% endcomment %}
+<link rel="stylesheet" href="{% static 'article.css' %}">
+<link rel="stylesheet" href="{% static 'myProfile.css'%}">
+
+{% endblock style %}
 {% block myProfile-content %}
-
+<h1 class="tab-heading"> {{user_profile}} </h1> 
    
 <ul class="blogs my-posts">
    
