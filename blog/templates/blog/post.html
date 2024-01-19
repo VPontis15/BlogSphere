@@ -22,7 +22,7 @@
       {% if post.author != request.user %}
       <a href="{% url 'user-profile' username=post.author tab='informations' %}"> 
          {% else %}
-         <a href="">  
+         <a href="{% url 'my-informations' %}">  
       {% endif %}
       {% if post.author.profile.profile_pic %}
       <img class="profile-picture article-header-picture" src="{{ post.author.profile.profile_pic.url }}" alt="Profile Picture">
@@ -39,7 +39,7 @@
                  <span class="author-post__details-name article_header-username">{{post.author.username}}</span> </a>{% endif %}
           
              {% if post.author == request.user  %}
-             <a href="">
+             <a href="{% url 'my-informations' %}">
                  <span class="author-post__details-name article_header-username">{{post.author.username}}</span> </a>{% endif %}
                  {% if  post.author.profile.job %}
                  <span class="author-post__details-date article_header-job">{{post.author.profile.job}}</span>{% endif %}</div></div>
