@@ -103,13 +103,24 @@ def myProfile(request):
 
     change_password_form = ChangingPasswordForm(user=request.user)
 
+    if request.method == "POST" and change_password_form.is_valid():
+        user = change_password_form.save(commit=False)
+        request.user.set_password(user.new_password1)
+        request.user.username = user.username
+
+        request.user.save()
+        update_session_auth_hash(request, request.user)
+        messages.success(request, 'Password updated successfully', extra_tags='update-password')
+        return redirect('home')
+    elif request.method == "POST":
+        messages.error(request, 'Error updating password. Please check the form.', extra_tags='update-password')
 
     context ={
         'form': form,
         'tab': tab,
         'my_posts': my_posts,
         'user_profile': user_profile,
-      
+        'change_password_form': change_password_form,  
     }
 
     return render(request, 'account/myProfile.html', context)
