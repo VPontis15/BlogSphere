@@ -128,6 +128,28 @@ def viewProfile(request, username, tab):
 #     })
 
 
+def myΙnformations(request):
+
+    user_profile = Profile.objects.get(user=request.user)
+    if request.method == "POST":
+        form = UserForm(request.POST, request.FILES, instance=user_profile)    
+        if form.is_valid():
+            form.save()
+            # url = reverse('my-profile')  
+            # url_with_params = f"{url}?tab={tab}"
+            messages.success(request, 'Profile updated successfully', extra_tags='update-profile')
+            return redirect('my-informations')
+        else:
+            messages.error(request, 'Error updating profile. Please check the form.', extra_tags='update-profile')
+
+    else:
+        form = UserForm(instance=user_profile)
+    context={
+        'form':form,
+        'user_profile': user_profile
+    }
+    return render(request,'account/components/myProfile/form.html',context )
+
                                                   
 def success(request):
 

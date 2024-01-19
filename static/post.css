@@ -78,9 +78,11 @@ header.article_header{
     width:75px !important;
 }
 
-.article_header .profile-image, .article_header .no-picture {
-    width:90px;
+.article_header .profile-image, .comment-header .no-picture {
+    width:90px !important;
 }
+
+
 
  .row-header {
     display: flex;

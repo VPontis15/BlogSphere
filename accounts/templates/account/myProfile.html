@@ -69,8 +69,8 @@
 </div>
 
 
-
-<section class="user-information">
+{% block myProfile-content %}
+{% comment %} <section class="user-information">
   {% if tab == 'informations' %}
       <h1 class="tab-heading"> {{user_profile}} </h1>
       {% include "account/components/myProfile/form.html" %}
@@ -86,7 +86,7 @@
       {% include "account/user_settings.html" %}
     
   {% endif %}
-</section>
-
+</section> {% endcomment %}
+{% endblock myProfile-content %}
 </section>
 {% endblock content %}

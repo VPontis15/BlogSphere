@@ -9,7 +9,9 @@ urlpatterns =[
     path('register/', views.register, name='register'),
     path('success/', views.success, name='success'),
     path('user/<str:username>/<str:tab>', views.viewProfile, name='user-profile'),
-    # path('MyProfile/<str:tab>', views.myProfile, name='my-profile'),
+     path('MyProfile/informations/', views.myΙnformations, name='my-informations'),
+    # path('MyProfile/posts/', views.myProfile, name='my-posts'),
+    # path('MyProfile/settings/', views.myProfile, name='my-settings'),
    
   
 ]
