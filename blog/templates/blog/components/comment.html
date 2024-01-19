@@ -4,7 +4,7 @@
     <header class="comment-header">    
     {% comment %} if no profile-picture {% endcomment %}
       {% if comment.user ==  request.user %}
-     
+     <div class="header-details">
       <a href=""> 
     {% if not comment.user.profile.profile_pic %}
   <img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
@@ -31,7 +31,26 @@
     {% if comment.user.profile.job %}
     <span class="comment_user-details-job " >{{comment.user.profile.job}}</span>
     {% endif %}
-  </div>
+  </div></div>
+  {% if comment.user ==  request.user %}
+  <div class="options ">
+   <button class="options-button">
+      <img class="options-icon" src="{% static 'options.svg '%}" alt="">
+  </button>
+
+  <div class="links-actions  ">
+      
+  <a class="action-button" href="{% url 'edit' id=post.id %}">Edit  post
+      <img class='edit' src="{% static 'images/test.svg' %}" alt="">
+  </a> 
+<button  class="action-button openDeletePostDialogBtns"> Delete post {{post_id}}
+ <img class='delete' src="{% static 'images/delete.svg' %}" alt="">
+
+</button>
+
+</div>
+</div>
+{% endif %}
 </header>
 <p class="comment-body">
    {{ comment.body}}
@@ -41,3 +60,22 @@
 
 
 </div></div>
+
+
+
+
+
+<div class="dialog-wrapper">
+  <dialog  class="delete-dialog dialog">
+     
+      <h4 class="delete-message--title">Are you sure you want to delete  your post titled: <span>{{post.title}}?</span></h4>
+      <form  method="post" action="{% url 'delete' pk=post.id%}">
+          {% csrf_token %}
+          <div class="delete-links">       
+              <button class="delete-btn">Delete</button>
+              <a class="cancel-btn" href="{{ request.META.path.refferer }}">Cancel</a>
+             
+      </div>
+      </form>
+     
+  </dialog></div>
