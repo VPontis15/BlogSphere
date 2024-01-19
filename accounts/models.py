@@ -18,7 +18,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(blank=True,null=True,  max_length = 400)
     profile_pic = models.ImageField( blank=True, null=True)
-    gender = models.CharField(null=True,  max_length=1,choices=GENDER_CHOICES, default= MALE)
+    gender = models.CharField(null=True, blank= True,  max_length=1,choices=GENDER_CHOICES, default= MALE)
     birthday = models.DateField(null=True, blank = True, default=default_date)
     job = models.CharField(blank=True, null=True,  max_length = 400)
     first_name = models.CharField(null=True, blank=True, max_length=100)

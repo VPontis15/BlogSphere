@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 {% load static %}
 {% block style %}
-<link rel="stylesheet" href="{% static 'otherUserProfile.css'%}">
-<link rel="stylesheet" href="{% static 'myProfile.css'%}">
+{% comment %} <link rel="stylesheet" href="{% static 'otherUserProfile.css'%}"> {% endcomment %}
 <link rel="stylesheet" href="{% static 'article.css' %}">
+<link rel="stylesheet" href="{% static 'myProfile.css'%}">
 {% endblock style %}
 
 {% block title %}BlogSphere | My Profile {% endblock title %}
@@ -30,9 +30,9 @@
 
 {% if user_profile.profile_pic  %}
 
-<img class="user-image" src="{{user_profile.profile_pic.url}}" alt="User's profile picture">
+<img class="user-image myprofile-pic " src="{{user_profile.profile_pic.url}}" alt="User's profile picture">
 {% else %}
-<img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
+<img class="no-picture myprofile-pic" src="{% static 'images/no-profile-picture.svg' %}" alt="">
 {% endif %}
 {% if user_profile.first_name and user_profile.last_name %}
 <span class="user-fullname">
@@ -72,20 +72,21 @@
 
 <section class="user-information">
   {% if tab == 'informations' %}
-  <h1 class="tab-heading"> {{user_profile}} </h1>
+      <h1 class="tab-heading"> {{user_profile}} </h1>
       {% include "account/components/myProfile/form.html" %}
-    {% endif %}
+  {% endif %}
 
-    {% if tab == 'posts' %}
-    <h1 class="tab-heading">My Posts </h1>
+  {% if tab == 'posts' %}
+      <h1 class="tab-heading">My Posts </h1>
       {% include "account/components/myProfile/posts.html" %}
-    {% endif %}
-    {% if tab == 'settings' %}
-    <h1 class="tab-heading">Settings </h1>
-      {% include "account\user_settings.html" %}
-    {% endif %}
+  {% endif %}
 
-  
+  {% if tab == 'settings' %}
+      <h1 class="tab-heading">Settings </h1>
+      {% include "account/user_settings.html" %}
+    
+  {% endif %}
 </section>
+
 </section>
 {% endblock content %}

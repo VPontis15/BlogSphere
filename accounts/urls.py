@@ -10,5 +10,6 @@ urlpatterns =[
     path('success/', views.success, name='success'),
     path('user/<str:username>/<str:tab>', views.viewProfile, name='user-profile'),
     path('MyProfile/', views.myProfile, name='editProfile'),
+   
   
 ]

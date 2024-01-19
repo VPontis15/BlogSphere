@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.urls import reverse
-from .forms import  UserForm
+from .forms import  UserForm, ChangingPasswordForm
 from .models import Profile
 from blog.models import Post
 from accounts.helper import displayGreeting
@@ -79,54 +79,54 @@ def viewProfile(request, username, tab):
     }
     return render(request, "account/user-profile.html", context)
 
-
+@login_required(login_url='home')
 def myProfile(request):
-     tab = request.GET.get('tab')
-     user_profile = Profile.objects.get(user = request.user)
-     user = User.objects.get(id = request.user.id)
-     my_posts = Post.objects.filter(author = user)
-  
+    tab = request.GET.get('tab')
+    user_profile = Profile.objects.get(user=request.user)
+    my_posts = Post.objects.filter(author=request.user)
 
-
-    
-     if request.method == "POST":
-        form = UserForm(request.POST, request.FILES,  instance=user_profile)
+    if request.method == "POST":
+        form = UserForm(request.POST, request.FILES, instance=user_profile)
+        change_password_form = ChangingPasswordForm(user=request.user, data=request.POST)
+        
         if form.is_valid():
-            user_profile.first_name = form.cleaned_data['first_name']
-            user_profile.last_name = form.cleaned_data['last_name']
-            user_profile.email = form.cleaned_data['email']
             form.save()
-    
             url = reverse('editProfile')  
             url_with_params = f"{url}?tab={tab}"
             messages.success(request, 'Profile updated successfully', extra_tags='update-profile')
             return redirect(url_with_params)
         else:
-           return render(request, 'account/myProfile.html', {'form': form, 'tab': tab, 'my_posts': my_posts, 'user_profile': user_profile})
-     else:
+            messages.error(request, 'Error updating profile. Please check the form.', extra_tags='update-profile')
+
+    else:
         form = UserForm(instance=user_profile)
+
+    change_password_form = ChangingPasswordForm(user=request.user)
+
+
+    context ={
+        'form': form,
+        'tab': tab,
+        'my_posts': my_posts,
+        'user_profile': user_profile,
+      
+    }
+
+    return render(request, 'account/myProfile.html', context)
+
+
+
+# def change_user_password(request):
+   
+#     change_password_form = PasswordChangeForm(user=request.user,data= request.POST)
+#     if change_password_form.is_valid():
+#         change_password_form.save()
+#         update_session_auth_hash(request, change_password_form.user)
+#         return redirect('home')
+#     return render(request, 'account/myProfile.html', {
+#         'form': change_password_form,
         
-     
-     context ={
-         'form': form,
-         'tab': tab,
-         "my_posts": my_posts,
-         "user_profile": user_profile
-     }
-
-     return render(request, 'account/myProfile.html', context)
-
-
-@login_required(login_url='home')
-def change_user_password(request):
-    form = PasswordChangeForm(user=request.user,data= request.POST)
-    if form.is_valid():
-        form.save()
-        update_session_auth_hash(request, form.user)
-        return redirect('home')
-    return render(request, 'accounts/user_settings.html', {
-        'form': form
-    })
+#     })
 
 
                                                   

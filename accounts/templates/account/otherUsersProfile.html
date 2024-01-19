@@ -18,7 +18,7 @@
     <p type="file" name="avatar" id="avatar"></form>{% endif %}
 {% if user_profile.profile_pic  %}
 
-<img class="user-image" src="{{user_profile.profile_pic.url}}" alt="User's profile picture">
+<img class="user-image user-profile" src="{{user_profile.profile_pic.url}}" alt="User's profile picture">
 {% else %}
 <img class="no-picture no-picture-othersUser-profile" src="{% static 'images/no-profile-picture.svg' %}" alt="">
 {% endif %}

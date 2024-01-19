@@ -143,7 +143,7 @@ img.edit  {
     overflow: hidden;
     box-shadow: 4px 8px 16px rgba(0,0,0, .3);
     object-fit: cover;
-    object-position: center;
+    object-position: top center;
 }
 
 .author img:focus-visible, .author img:hover, .no-picture:focus, .no-picture:hover {

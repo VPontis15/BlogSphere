@@ -203,7 +203,9 @@ fieldset legend {
 }
 
 
-
+fieldset {
+    border:none;
+}
 
 
 .row {

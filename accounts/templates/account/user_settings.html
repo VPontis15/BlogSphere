@@ -1,5 +1,21 @@
 <form method="POST">
- {{change_password_form.as_p}}
+        {% csrf_token %}
+        {% for field  in change_password_form %}
+        <div class="row tab-form">
+         <fieldset class="col-user-details">
+             {{field.label_tag}}
+              {{field}}
+              {% for error in field.errors  %}
+              <span>{{error}}</span>
+              {% endfor %}
+            </fieldset>
+        </div>
+        {% endfor %}
+        <div class="row tab-form">
+            <input class="save" type="submit" value="Submit">
+               </div>   
+    </form>
 
 
-</form>
+
+

@@ -344,3 +344,7 @@
     text-decoration: underline;
     text-underline-offset: 8px;
 }
+
+.user-profile .no-picture {
+    width: 120px !important
+}

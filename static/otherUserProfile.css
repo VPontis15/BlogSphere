@@ -1,5 +1,5 @@
 .user-profile {
-    margin-block: 4em;
+   
     display: grid; 
     grid-template-columns: 23.5rem 1fr;
     gap: 3rem;
@@ -56,7 +56,9 @@ fieldset {
     margin-top: var(--gutter-y-600)
 }
 
-fieldset.user-image-container.user-image, .no-picture-othersUser-profile {
+
+
+ .user-image, .no-picture-othersUser-profile {
     max-width:350px !important;
     width:100%;
     outline:2px solid var(--heading-clr);

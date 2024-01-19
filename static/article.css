@@ -160,6 +160,8 @@ img.edit  {
     object-position: center;
 }
 
+
+
 .author img:focus-visible, .author img:hover, .no-picture:focus, .no-picture:hover {
     outline: 2px solid var(--accent-clr);
 }
@@ -172,10 +174,7 @@ img.edit  {
   
 }
 
-.no-picture {
-    max-width: 300px;
-   
-}
+
 
 .title-container{
     border-top-right-radius: 15px;
