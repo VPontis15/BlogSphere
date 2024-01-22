@@ -94,6 +94,7 @@ def detail_post(request, slug):
        comment.post_to_comment = post
        comment.save()
        post.comments.add(comment)
+       user.profile.comments.add(comment)
        
        return redirect('post', slug=slug)
       else:
@@ -147,6 +148,24 @@ def deletePost(request, pk):
       'id': id
    }
    return render(request, 'layout.html', context )
+
+
+def deleteComment(request, pk):
+   user = request.user.profile
+   comment_to_delete = user.comments.get(pk = pk)
+   redirect_url = request.POST.get('redirect_url', '/')
+         
+   if request.method == "POST":
+      comment_to_delete.delete()
+      
+      user.comments.remove(comment_to_delete)
+      messages.info(request, 'Your comment has been successfully deleted', extra_tags='sucess-delete--post')
+      return redirect(redirect_url)
+   context = {
+      'comment_to_delete':  comment_to_delete,
+      'comment_id':pk
+   }
+   return render(request, 'components/delete2.html', context )
 
 
 

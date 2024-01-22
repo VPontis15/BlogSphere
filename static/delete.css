@@ -3,3 +3,34 @@
     margin: 0;
     margin-top: -5.5em;
 }
+
+div:has(.message-wrapper){
+    min-height: 80vh;  
+    display: grid;
+    place-items: center;
+}
+
+.message-wrapper {
+
+}
+
+.message-wrapper .delete-links {
+    display: flex;
+ 
+    align-items: center;
+    justify-content: center;
+    gap:1.75em;
+}
+
+.message-wrapper .delete-links .cancel-btn {
+    padding: .8em 3em;
+}
+
+.delete-btn,
+.cancel-btn {
+    transition: all .5s ease-in-out;
+}
+
+.delete-btn:hover {
+    transform: scale(1.05);
+}

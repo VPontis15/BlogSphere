@@ -1,11 +1,21 @@
-<div class="delete-message">
-    <h4 class="delete-message--title">Are you sure youu want to delete  your post?</h4>
-    <form  method="post" action="{% url 'delete' pk=post.id%}">
+{% extends "layout.html" %}
+{% block style %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'delete.css' %}">
+{% endblock style %}
+
+{% block content %}
+<div>
+<div class="message-wrapper">
+    <h4 class="delete-message--title">Are you sure you want to delete  your comment <span class="accent">'{{comment_to_delete.body}}'</span> ?</h4>
+    <form  method="post" action="{% url 'delete_comment' pk=comment_id%}">
         {% csrf_token %}
         <div class="delete-links">
-        <a class="delete-btn" href="{% url 'delete' pk=post.id%}"> Delete </a>
-        <button class="cancel-delete" >Cancel</button>
+            <input type="hidden" name="redirect_url" value="{{request.META.HTTP_REFERER}}">
+        <button class="delete-btn" >Delete</button>
+        <a class="cancel-btn" href="{{request.META.HTTP_REFERER}}"> Cancel </a>
     </div>
     </form>
    
-</div>
+</div></div>{% endblock content %}

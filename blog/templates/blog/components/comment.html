@@ -27,7 +27,7 @@
   {% endif %}
   <div class="comment_user-details">
     <span class="comment_user-details-posted_at">{{comment.timestamp}}</span>
-    <span class="comment_user-details-username">{{comment.user}}</span>
+    <span class="comment_user-details-username">{{comment.user}} {{comment.id}}</span>
     {% if comment.user.profile.job %}
     <span class="comment_user-details-job " >{{comment.user.profile.job}}</span>
     {% endif %}
@@ -43,10 +43,10 @@
   <a class="action-button" href="{% url 'edit' id=post.id %}">Edit  post
       <img class='edit' src="{% static 'images/test.svg' %}" alt="">
   </a> 
-<button  class="action-button openDeletePostDialogBtns"> Delete post {{post_id}}
+<a href="{% url 'delete_comment' pk=comment.id %}"  class="action-button openDeletePostDialogBtns"> Delete post {{post_id}}
  <img class='delete' src="{% static 'images/delete.svg' %}" alt="">
 
-</button>
+</a>
 
 </div>
 </div>
@@ -65,17 +65,17 @@
 
 
 
-<div class="dialog-wrapper">
+{% comment %} <div class="dialog-wrapper">
   <dialog  class="delete-dialog dialog">
      
-      <h4 class="delete-message--title">Are you sure you want to delete  your post titled: <span>{{post.title}}?</span></h4>
-      <form  method="post" action="{% url 'delete' pk=post.id%}">
+      <h4 class="delete-message--title">Are you sure you want to delete  your comment with id : <span>{{comment.id}}?</span></h4>
+      <form  method="POST" action="{% url 'delete_comment' pk=comment.id%}">
           {% csrf_token %}
           <div class="delete-links">       
               <button class="delete-btn">Delete</button>
-              <a class="cancel-btn" href="{{ request.META.path.refferer }}">Cancel</a>
+              <a class="cancel-btn" href="{{ request.META.HTTP_REFERER }}">Cancel</a>
              
       </div>
       </form>
      
-  </dialog></div>
+  </dialog></div> {% endcomment %}
