@@ -27,11 +27,11 @@
   {% endif %}
   <div class="comment_user-details">
     <span class="comment_user-details-posted_at">{{comment.timestamp}}</span>
-    <span class="comment_user-details-username">{{comment.user}} {{comment.id}}</span>
+    <span class="comment_user-details-username">{{comment.user}}</span>
     {% if comment.user.profile.job %}
-    <span class="comment_user-details-job " >{{comment.user.profile.job}}</span>
+    <span class="comment_user-details-job " >{{comment.user.profile.job |title}}</span>
     {% endif %}
-  </div></div>
+  </div>
   {% if comment.user ==  request.user %}
   <div class="options ">
    <button class="options-button">
@@ -47,35 +47,19 @@
  <img class='delete' src="{% static 'images/delete.svg' %}" alt="">
 
 </a>
-
-</div>
-</div>
+</div></div>
 {% endif %}
 </header>
 <p class="comment-body">
    {{ comment.body}}
 </p>
 
+</div>
+
+</div>
 
 
 
-</div></div>
 
 
 
-
-
-{% comment %} <div class="dialog-wrapper">
-  <dialog  class="delete-dialog dialog">
-     
-      <h4 class="delete-message--title">Are you sure you want to delete  your comment with id : <span>{{comment.id}}?</span></h4>
-      <form  method="POST" action="{% url 'delete_comment' pk=comment.id%}">
-          {% csrf_token %}
-          <div class="delete-links">       
-              <button class="delete-btn">Delete</button>
-              <a class="cancel-btn" href="{{ request.META.HTTP_REFERER }}">Cancel</a>
-             
-      </div>
-      </form>
-     
-  </dialog></div> {% endcomment %}

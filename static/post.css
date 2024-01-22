@@ -223,6 +223,7 @@ hr {
   display: flex;
   align-items: center;
   gap: 1.125em;
+  margin-bottom: .25em;
 }
 .comment-form header.comment-header {
   display: flex;
@@ -264,7 +265,7 @@ hr {
 }
 
 .comment-body {
-  padding-inline: 5em;
+
 }
 
 .comment-form form {
