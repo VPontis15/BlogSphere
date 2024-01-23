@@ -4,8 +4,7 @@ const openDeletePostDialogBtns = document.querySelectorAll('.openDeletePostDialo
 const optionsActionsDiv = document.querySelectorAll('.links-actions');
 const deletePostMssg = document.querySelector('.delete-message')
 const optionsBtn = document.querySelectorAll('.options-button');
-const commentEditModalBtns = document.querySelectorAll('.editComment')
-const commentEditModal = document.querySelector('.comment-form--modal')
+
 const profilePic = document.getElementById('profile-pic')
 const profileList = document.querySelector('.profile-links-nav');
 const dialogDeletePost = document.querySelectorAll('.delete-dialog');
@@ -48,7 +47,7 @@ optionsBtn.forEach((btn, index )=> {
                 option.classList.add('hidden')
         })
         currentOptionsActionsDiv.classList.toggle('hidden')
-       
+       console.log('clicked')
     })
 })
 
@@ -73,12 +72,7 @@ textAreaComment.addEventListener('focus', ()=>{
 
 
 
-commentEditModalBtns.forEach((btn,index) => {
-  currentEditModalBtn = commentEditModalBtns[index]
-  currentEditModalBtn.addEventListener('click', ()=>{
-    commentEditModal.showModal()
-  })
-})
+
 
 
 

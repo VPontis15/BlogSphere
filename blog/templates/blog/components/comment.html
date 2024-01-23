@@ -40,9 +40,9 @@
 
   <div class="links-actions  ">
       
-  <button class="action-button editComment" >Edit  post
+  <a href="{% url 'edit_comment' pk=comment.id %}" class="action-button editComment" >Edit  post {{comment.id}}
       <img class='edit' src="{% static 'images/test.svg' %}" alt="">
-  </button> 
+  </a> 
 <a href="{% url 'delete_comment' pk=comment.id %}"  class="action-button openDeletePostDialogBtns"> Delete post {{post_id}}
  <img class='delete' src="{% static 'images/delete.svg' %}" alt="">
 

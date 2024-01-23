@@ -152,6 +152,7 @@ def deletePost(request, pk):
 
 def deleteComment(request, pk):
    user = request.user.profile
+
    comment_to_delete = user.comments.get(pk = pk)
    redirect_url = request.POST.get('redirect_url', '/')
          
@@ -167,20 +168,33 @@ def deleteComment(request, pk):
    }
    return render(request, 'components/delete2.html', context )
 
-def editComment(request,pk): #
-   pass
+def editComment(request, pk): #
+   usera = request.user.profile
+   comment = get_object_or_404(Comment, pk=pk)
+   redirect_url = request.POST.get('redirect_url', '/')
+   if request.method == "POST":
+      form = CommentForm(request.POST, instance= comment)
+      if form.is_valid():
+         form.save()
+         messages.success(request, 'Comment successfuly edited')
+         return redirect(redirect_url)
+   else:
+         form = CommentForm(instance=comment)
+   context2 = {
+      'comment_to_edit':comment,
+      'form': form
+   }
    
-
+   return render(request, 'blog/components/commentFormModal.html', context2  )
 
 
 def editPost(request, id):
    post = posts.get(pk = id)
-
    if request.method == "POST":
       form = PostForm(request.POST,instance= post)
       if form.is_valid():
          form.save()
-         return redirect('home')
+         return redirect('new')
    else:
       form = PostForm(instance=post)
 
