@@ -264,8 +264,56 @@ hr {
   color: var(--accent-clr);
 }
 
+form:has(.comment-body) {
+  max-width: 900px;
+}
 .comment-body {
+  border: none;
 
+  height: 100%;
+  width:100%;
+  overflow: hidden;
+  
+}
+
+.comments {
+  position: relative;
+}
+
+.comment-form--modal {
+  position: fixed;
+  left: 50%;
+  bottom: 40px;
+  transform: translateX(-50%);
+  margin-top: auto;
+  max-width: 100%;
+  width:1200px;
+  background-color: #ffffff81;
+  padding-block: 1em;
+  padding-inline: 1.5em;
+ 
+  border-radius: 15px;
+}
+
+.comment-form--modal .comment-textarea > textarea {
+  resize: vertical;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100px;
+  height: 40px;
+  padding-block: 0.75rem;
+  padding-left: 1em;
+  border-radius: 8px;
+  border: none;
+  outline: 1px solid var(--main-clr);
+  width:1000px;
+  transition: width 0.75s ease-in;
+
+}
+
+.comment-form--modal .comment-textarea > textarea:focus-visible {
+  width:1000px;
+  outline: 1px solid var(--accent-clr);
 }
 
 .comment-form form {

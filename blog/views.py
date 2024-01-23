@@ -167,6 +167,10 @@ def deleteComment(request, pk):
    }
    return render(request, 'components/delete2.html', context )
 
+def editComment(request,pk): #
+   pass
+   
+
 
 
 def editPost(request, id):
