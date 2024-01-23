@@ -1,0 +1,27 @@
+.edit-comment {
+    background-color: #ffffff81;
+ 
+    border: none;
+    margin-top: 2em;
+   
+    
+}
+
+
+
+.edit-comment > textarea {
+    resize: vertical;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100px;
+    height: 40px;
+    padding-block: 0.75rem;
+    padding-left: 1em;
+    border-radius: 8px;
+    border: none;
+    outline: 1px solid var(--main-clr);
+    width:1000px;
+    transition: width 0.75s ease-in;
+    width:100%;
+    border: none;
+}

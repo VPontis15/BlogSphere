@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'post.css'%}">
+<link rel="stylesheet" href="{% static 'editComment.css'%}">
 {% endblock style %}
 {% block content %}
 
@@ -23,13 +23,13 @@
     {% csrf_token %}
     <input type="hidden" name="redirect_url" value="{{request.META.HTTP_REFERER}}">
     {% for field in form %}
-    <fieldset class="comment-textarea ">
+    <fieldset class=" edit-comment ">
       {{field}}
     </fieldset>
     
     {% endfor %}
     <div class="row">
-    <button class="cancel-btn comment-btn hidden" type="submit">Save changes</button></div>
+    <button class="cancel-btn comment-btn " type="submit">Save changes</button></div>
   </form></header>
 
 
