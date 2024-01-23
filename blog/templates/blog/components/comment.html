@@ -5,7 +5,7 @@
     {% comment %} if no profile-picture {% endcomment %}
       {% if comment.user ==  request.user %}
      <div class="header-details">
-      <a href=""> 
+      <a href="{% url 'my-informations'  %}"> 
     {% if not comment.user.profile.profile_pic %}
   <img class="no-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
   {% else %}
