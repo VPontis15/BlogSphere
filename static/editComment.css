@@ -7,6 +7,19 @@
     
 }
 
+.edit_comment-heading .accent-clr {
+    font-style: italic;
+    font-size: var(--fs-600);
+}
+
+
+.edit_comment-heading {
+    margin-top: 3rem;
+    
+    font-size: var(--fs-650);
+    color: var(--main-clr);
+    font-weight: 700;
+  }
 
 
 .edit-comment > textarea {

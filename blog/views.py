@@ -169,7 +169,6 @@ def deleteComment(request, pk):
    return render(request, 'components/delete2.html', context )
 
 def editComment(request, pk): #
-   usera = request.user.profile
    comment = get_object_or_404(Comment, pk=pk)
    redirect_url = request.POST.get('redirect_url', '/')
    if request.method == "POST":
