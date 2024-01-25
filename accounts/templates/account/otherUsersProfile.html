@@ -22,13 +22,30 @@
 {% else %}
 <img class="no-picture no-picture-othersUser-profile" src="{% static 'images/no-profile-picture.svg' %}" alt="">
 {% endif %}
+<div class="row user-details">
 {% if user_profile.first_name and user_profile.last_name %}
 <span class="user-fullname">
    {{user_profile.first_name}} {{user_profile.last_name}}
    {% else %}
-   <span class="user-fullname">  {{user_profile}} </span>
+     {{user_profile}} 
       </span>
       {% endif %}
+      <form method="POST" action="">
+        {% csrf_token %}
+        {% if user_profile in request.user.profile.following.all %}
+    <button class="follow-status" >
+        Followed  
+      </button>
+      {% else %}
+      <button class="follow-status" >
+      Follow 
+    </button>
+      {% endif %}
+      </form>
+      
+   
+      </div>
+    {% comment %} ADD follow status {% endcomment %}
 <div>
     <div role="table" class="table">
       <div role="col" class="col">
