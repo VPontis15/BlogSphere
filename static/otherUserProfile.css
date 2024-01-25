@@ -38,9 +38,10 @@ p.about {
 .follow-status {
   font-size: var(--fs-450);
   color: var(--main-clr-light);
-  padding: 0.25em 1.25em;
-  border: 1px solid var(--main-clr);
+  padding: 0.5em 1.25em;
+  border: 1px solid var(--main-clr-light);
   transition: all 0.125s ease-in;
+  margin-top: 0.25em;
 }
 
 .follow-status:hover {

@@ -1,35 +1,38 @@
 #welcome {
-    margin-top: var(--gutter-y-900);
+  margin-top: var(--gutter-y-900);
 }
 
 #welcome h2 {
-    color: var(--heading-clr);
-    font-size: 2.25rem; 
+  color: var(--heading-clr);
+  font-size: 2.25rem;
 }
 
 h1 {
-    margin-top: 3em ;
+  margin-top: 3em;
 }
 
 .latest_blogs {
-  
-    padding-inline: 1.25rem;
-    display: flex;
-    box-shadow: inset 0 0.25rem 0.15rem rgba(0, 0, 0, 0.2); /* converted from 4px 4px 8px */
+  padding-inline: 1.25rem;
+  display: flex;
+  box-shadow: inset 0 0.25rem 0.15rem rgba(0, 0, 0, 0.2); /* converted from 4px 4px 8px */
 }
 
 .blogs {
-
-    display: grid;
-    padding-block: 2.5em;
-    grid-auto-flow: column;
-    padding-inline: .5em;
-    overflow-x: scroll;
-    scroll-snap-align:start;
-    scroll-snap-type: mandatory;
-    align-items: center;
-    scrollbar-color:var(--main-clr) #fff;
-    box-shadow: inset 0 0.25rem 0.15rem rgba(0, 0, 0, 0.2); 
-    margin-bottom: 4em;
+  display: grid;
+  padding-block: 2.5em;
+  grid-auto-flow: column;
+  padding-inline: 0.5em;
+  overflow-x: scroll;
+  scroll-snap-align: start;
+  scroll-snap-type: mandatory;
+  align-items: center;
+  scrollbar-color: var(--main-clr) #fff;
+  box-shadow: inset 0 0.25rem 0.15rem rgba(0, 0, 0, 0.2);
+  margin-bottom: 4em;
 }
 
+h2 {
+  color: var(--main-clr);
+  font-size: var(--fs-650);
+  margin-block-end: 0.5em;
+}

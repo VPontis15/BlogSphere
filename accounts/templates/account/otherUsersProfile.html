@@ -12,7 +12,7 @@
 
 
 <section >
-    <fieldset class="user-profile" disabled>
+    <fieldset class="user-profile" >
 <div class="user-image-container">
     {% if is_users_profile %}
     <p type="file" name="avatar" id="avatar"></form>{% endif %}
@@ -22,26 +22,28 @@
 {% else %}
 <img class="no-picture no-picture-othersUser-profile" src="{% static 'images/no-profile-picture.svg' %}" alt="">
 {% endif %}
+
 <div class="row user-details">
 {% if user_profile.first_name and user_profile.last_name %}
 <span class="user-fullname">
-   {{user_profile.first_name}} {{user_profile.last_name}}
+   {{user_profile.first_name}} {{user_profile.last_name}} 
    {% else %}
      {{user_profile}} 
+  
       </span>
+      
       {% endif %}
-      <form method="POST" action="">
+    
+      
+      <form method='POST' >
         {% csrf_token %}
-        {% if user_profile in request.user.profile.following.all %}
-    <button class="follow-status" >
-        Followed  
-      </button>
-      {% else %}
-      <button class="follow-status" >
-      Follow 
-    </button>
-      {% endif %}
-      </form>
+        {% if user_profile not in request.user.profile.following.all %}
+          <button class="follow-status" name="follow" value="follow" type="submit">Follow</button>
+          {% else %}
+          <button class="follow-status" name="follow" value="unfollow" type="submit">Unfollow</button>
+          {% endif %}
+        </form>
+        
       
    
       </div>
