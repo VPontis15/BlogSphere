@@ -43,7 +43,16 @@
              <a href="{% url 'my-informations' %}">
                  <span class="author-post__details-name article_header-username">{{post.author.username}}</span> </a>{% endif %}
                  {% if  post.author.profile.job %}
-                 <span class="author-post__details-date article_header-job">{{post.author.profile.job}}</span>{% endif %}</div></div>
+                 <span class="author-post__details-date article_header-job">{{post.author.profile.job}}</span>{% endif %}
+                </div>
+                <form class="article-header-form" method='POST' action="">
+                  {% csrf_token %}
+               <button class="like-btn" value= 'like' name='like'>
+                <img src="{% static 'like.svg' %}" alt="">
+                <span class="like-counter">0</span>
+               </button>
+              </form>
+              </div>
     </header>
     <p>{{post.body |safe}}</p></div>
   </article>
