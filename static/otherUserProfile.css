@@ -36,19 +36,24 @@ p.about {
 }
 
 .follow-status {
+  display: inline-flex;
+  align-items: center;
+  flex: 1;
+  gap: 0.5rem;
   font-size: var(--fs-450);
   color: var(--main-clr-light);
   padding: 0.5em 1.25em;
-  border: 1px solid var(--main-clr-light);
+  border: none;
   transition: all 0.125s ease-in;
   margin-top: 0.25em;
+  background-color: var(--body-clr);
 }
 
-.follow-status:hover {
+/* .follow-status:hover {
   background-color: var(--main-clr);
   color: #fff;
   font-weight: 700;
-}
+} */
 
 fieldset {
   border: none;
@@ -73,9 +78,11 @@ fieldset {
 }
 
 .user-profile .user-details {
-  margin: 0;
+  margin-top: 1rem;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  padding-inline: 1rem;
+  margin-inline: auto;
 }
 
 .about-default {
@@ -119,12 +126,10 @@ fieldset legend {
 }
 
 .user-fullname {
-  display: block;
   color: var(--main-clr);
   font-size: var(--fs-550);
   text-align: center;
   letter-spacing: 0.5px;
-  margin-top: var(--gutter-y-300);
 }
 
 .user-location {

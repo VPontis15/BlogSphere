@@ -24,23 +24,28 @@
 {% endif %}
 
 <div class="row user-details">
+  <span class="user-fullname">
 {% if user_profile.first_name and user_profile.last_name %}
-<span class="user-fullname">
    {{user_profile.first_name}} {{user_profile.last_name}} 
    {% else %}
      {{user_profile}} 
   
-      </span>
-      
-      {% endif %}
+     
+     {% endif %}
+    </span>
     
       
       <form method='POST' >
         {% csrf_token %}
         {% if user_profile not in request.user.profile.following.all %}
-          <button class="follow-status" name="follow" value="follow" type="submit">Follow</button>
+          <button class="follow-status" name="follow" value="follow" type="submit"><img src="{% static 'images/follow.svg' %}">
+          <span>Follow</span>
+          </button>
           {% else %}
-          <button class="follow-status" name="follow" value="unfollow" type="submit">Unfollow</button>
+          <button class="follow-status" name="follow" value="unfollow" type="submit">
+              <img src="{% static 'images/unfollow.svg' %}" alt="">
+              <span>Unfollow</span>
+          </button>
           {% endif %}
         </form>
         
