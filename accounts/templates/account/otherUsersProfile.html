@@ -3,7 +3,7 @@
 {% block style %}
 <link rel="stylesheet" href="{% static 'article.css'%}">
 <link rel="stylesheet" href="{% static 'otherUserProfile.css'%}">
-
+<script defer src="{% static 'js/otherUsersProfile.js' %}"></script>
 
 {% endblock style %}
 
@@ -38,13 +38,13 @@
       <form method='POST' >
         {% csrf_token %}
         {% if user_profile not in request.user.profile.following.all %}
-          <button class="follow-status" name="follow" value="follow" type="submit"><img src="{% static 'images/follow.svg' %}">
-          <span>Follow</span>
+          <button class="follow-status" name="follow" value="follow" type="submit"><img class="follow-status-icon" src="{% static 'images/follow.svg' %}">
+          <span class="follow-action">Follow</span>
           </button>
           {% else %}
           <button class="follow-status" name="follow" value="unfollow" type="submit">
-              <img src="{% static 'images/unfollow.svg' %}" alt="">
-              <span>Unfollow</span>
+              <img class="follow-status-icon" src="{% static 'images/unfollow.svg' %}" alt="">
+              <span class="follow-action">Unfollow</span>
           </button>
           {% endif %}
         </form>
@@ -94,4 +94,8 @@
 
     
 </section>
+<script>
+  const unfollowSvgUrl = "{% static 'unfollow.svg' %}";
+  const followSvgUrl = "{% static 'follow.svg' %}";
+</script>
 {% endblock content %}

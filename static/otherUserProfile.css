@@ -40,13 +40,36 @@ p.about {
   align-items: center;
   flex: 1;
   gap: 0.5rem;
-  font-size: var(--fs-450);
+
   color: var(--main-clr-light);
   padding: 0.5em 1.25em;
   border: none;
   transition: all 0.125s ease-in;
   margin-top: 0.25em;
   background-color: var(--body-clr);
+  position: relative;
+}
+
+.follow-action {
+  position: absolute;
+  z-index: 1000;
+  display: none;
+  color: var(--accent-clr);
+  top: -40px;
+  font-size: var(--fs-550);
+  right: -100px;
+  background-color: #fff;
+  padding: 0.5em 1.5em 1.25em 1.5em;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    45% 76%,
+    9% 100%,
+    24% 75%,
+    0% 75%
+  );
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* .follow-status:hover {
