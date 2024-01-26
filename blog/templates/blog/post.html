@@ -45,11 +45,11 @@
                  {% if  post.author.profile.job %}
                  <span class="author-post__details-date article_header-job">{{post.author.profile.job}}</span>{% endif %}
                 </div>
-                <form class="article-header-form" method='POST' action="">
+                <form name='like' class="article-header-form" method='POST' action="">
                   {% csrf_token %}
                <button class="like-btn" value= 'like' name='like'>
                 <img src="{% static 'like.svg' %}" alt="">
-                <span class="like-counter">0</span>
+                <span class="like-counter">{{post.likes.all.count}}</span>
                </button>
               </form>
               </div>
