@@ -82,43 +82,44 @@ def detail_post(request, slug):
     post = posts.get(slug=slug)
     user = request.user if request.user.is_authenticated else None
     form = None
-    liked = False
-    if user and user.is_authenticated:
-        liked = Like.objects.filter(
-            user=user, liked_post=post).exists()
-        if request.method == "POST":
-            form = CommentForm(request.POST)
-            if form.is_valid():
-                comment = form.save(commit=False)
-                comment.user = user
-                comment.post_to_comment = post
-                comment.save()
-                post.comments.add(comment)
-                user.profile.comments.add(comment)
+    liked = Like.objects.filter(
+        user=user, liked_post=post).exists()
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = user
+            comment.post_to_comment = post
+            comment.save()
+            post.comments.add(comment)
+            user.profile.comments.add(comment)
 
-                return redirect('post', slug=slug)
+            return redirect('post', slug=slug)
 
+    else:
+        form = CommentForm()
+
+    if request.method == 'POST' and 'like' in request.POST:
+        if request.user.is_authenticated:
+            if not liked:
+                like = Like.objects.create(
+                    user=user, liked_post=post)
+                post.likes.add(like)
+                is_it_liked = True
+            else:
+                like = Like.objects.get(
+                    user=user, liked_post=post)
+                like.delete()
+                post.likes.remove(like)
+                is_it_liked = liked
+
+            return redirect('post', slug=slug)
         else:
-            form = CommentForm()
-
-            if request.method == 'POST' and 'like' in request.POST:
-                if not liked:
-                    like = Like.objects.create(
-                        user=user, liked_post=post)
-                    post.likes.add(like)
-                    is_it_liked = True
-                else:
-                    like = Like.objects.get(
-                        user=user, liked_post=post)
-                    like.delete()
-                    post.likes.remove(like)
-                    is_it_liked = liked
-
-                return redirect('post', slug=slug)
+            return redirect('login')
 
     comments = post.comments.all()
     related_posts = posts.filter(tags__name__in=post.tags.values_list(
-        'name', flat=True)).distinct().exclude(title=post.title).exclude(author=user) if user else None
+        'name', flat=True)).distinct().exclude(title=post.title).exclude(author=post.author)
     users_posts = posts.filter(author=post.author).exclude(title=post.title)
 
     context = {
