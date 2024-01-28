@@ -240,6 +240,10 @@ input:disabled {
   font-weight: 700;
 }
 
+.follow-status-icon {
+  width: 35px;
+}
+
 .blogs {
   display: grid;
   grid-auto-flow: column;

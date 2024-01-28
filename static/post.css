@@ -151,8 +151,22 @@ h1.article-title {
   margin: 0;
 }
 
+.article-header-form {
+  display: flex;
+  flex: 1;
+  justify-content: end;
+  align-items: center;
+}
+
 p.article_header-posted-by {
   color: #fff;
+}
+
+.like-btn {
+  background: none;
+  border: none;
+  display: inline-flex;
+  align-items: end;
 }
 
 .grid-col-1 {
@@ -223,7 +237,7 @@ hr {
   display: flex;
   align-items: center;
   gap: 1.125em;
-  margin-bottom: .25em;
+  margin-bottom: 0.25em;
 }
 .comment-form header.comment-header {
   display: flex;
@@ -271,9 +285,8 @@ form:has(.comment-body) {
   border: none;
 
   height: 100%;
-  width:100%;
+  width: 100%;
   overflow: hidden;
-  
 }
 
 .comments {
@@ -287,11 +300,11 @@ form:has(.comment-body) {
   transform: translateX(-50%);
   margin-top: auto;
   max-width: 100%;
-  width:1200px;
+  width: 1200px;
   background-color: #ffffff81;
   padding-block: 1em;
   padding-inline: 1.5em;
- 
+
   border-radius: 15px;
 }
 
@@ -306,16 +319,14 @@ form:has(.comment-body) {
   border-radius: 8px;
   border: none;
   outline: 1px solid var(--main-clr);
-  width:1000px;
+  width: 1000px;
   transition: width 0.75s ease-in;
-
 }
 
 .comment-form--modal .comment-textarea > textarea:focus-visible {
-  width:1000px;
+  width: 1000px;
   outline: 1px solid var(--accent-clr);
 }
-
 
 .comment-form form {
   align-items: start;

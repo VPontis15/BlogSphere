@@ -69,19 +69,26 @@ def viewProfile(request, username, tab):
     user_profile = get_object_or_404(Profile, user__username=username)
     is_users_profile = user_profile.user == request.user
     user_posts = Post.objects.filter(author=user_profile.user)
-    logged_user = request.user.profile
+
+    if request.user.is_authenticated:
+        logged_user = request.user.profile
+    else:
+        logged_user = request.user
 
     if request.method == "POST":
         if 'follow' in request.POST:
-            action = request.POST['follow']
-            if action == 'follow':
-                logged_user.following.add(user_profile)
-                user_profile.followers.add(logged_user)
+            if logged_user != request.user:
+                action = request.POST['follow']
+                if action == 'follow':
+                    logged_user.following.add(user_profile)
+                    user_profile.followers.add(logged_user)
+                else:
+                    logged_user.following.remove(user_profile)
+                    user_profile.followers.remove(logged_user)
+                    logged_user.save()
+                    user_profile.save()
             else:
-                logged_user.following.remove(user_profile)
-                user_profile.followers.remove(logged_user)
-                logged_user.save()
-                user_profile.save()
+                return redirect('login')
             return redirect('user-profile', username=username, tab=tab)
 
     context = {

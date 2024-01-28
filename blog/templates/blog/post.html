@@ -43,12 +43,18 @@
              <a href="{% url 'my-informations' %}">
                  <span class="author-post__details-name article_header-username">{{post.author.username}}</span> </a>{% endif %}
                  {% if  post.author.profile.job %}
-                 <span class="author-post__details-date article_header-job">{{post.author.profile.job}}</span>{% endif %}
+                 <span class="author-post__details-date article_header-job">{{post.author.profile.job |title}}</span>{% endif %}
                 </div>
                 <form name='like' class="article-header-form" method='POST' action="">
                   {% csrf_token %}
+                 
+              
                <button class="like-btn" value= 'like' name='like'>
-                <img src="{% static 'like.svg' %}" alt="">
+                {% if not is_it_liked %}
+                <img src="{% static 'like.svg' %}" alt="">       
+                {% else %}
+                <img src="{% static 'unlike.svg' %}" alt="">
+                {% endif %}
                 <span class="like-counter">{{post.likes.all.count}}</span>
                </button>
               </form>
@@ -76,6 +82,7 @@
   </div>{% endif %}
   {% if  request.user != post.author %}
   <div class="post_by_author">
+    
     {% if users_posts %}
     <a href="{% url 'user-profile' username=post.author tab='posts'%}">
     <h3>More posts from <span class="accent-clr underline">{{post.author.username}}</span> </h3></a>
