@@ -241,7 +241,7 @@ label {
    font-size: 1.125rem;
 }
 
-input[type="text"]{
+.col-user-details input[type="text"]{
   padding: .25em;
   padding-left: .75em;
   border-radius: 4px;
@@ -257,20 +257,20 @@ input:disabled {
 
 
 
-input[type='text'] {
+.col-user-details input[type='text'] {
     background: none;
    
     border: 2px solid var(--main-clr);
 }
 
-input[type='text'],
+.col-user-details input[type='text'],
 input[type='date'],
 input[type='email'],
 select {
     background: none;
     border: 2px solid var(--main-clr);
 }
-input[type='text']:focus-visible,
+.col-user-details input[type='text']:focus-visible,
 input[type='date']:focus-visible,
 input[type='email']:focus-visible,
 select:focus-visible {

@@ -48,7 +48,10 @@
                 <form name='like' class="article-header-form" method='POST' action="">
                   {% csrf_token %}
                  
-              
+              <a href="#comment">
+                <img src="{% static 'comment.svg' %}" alt="">
+
+              </a>
                <button class="like-btn" value= 'like' name='like'>
                 {% if not is_it_liked %}
                 <img src="{% static 'like.svg' %}" alt="">       
