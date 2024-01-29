@@ -1,4 +1,5 @@
 from .models import Navigation
+from accounts.models import Profile
 
 def render_Nav_processor(request):
   if request.user.is_authenticated:
@@ -6,8 +7,17 @@ def render_Nav_processor(request):
   else:
     navigation_links = Navigation.objects.exclude(destination = 'logout')
    
-      
+  
   
   return  {
-        'nav_links': navigation_links
+        'nav_links': navigation_links,
+    }
+
+
+def render_Profile_processor(request):
+  
+  logged_user = request.user.profile  if request.user.is_authenticated else None  
+
+  return  {
+        'logged_user': logged_user,
     }

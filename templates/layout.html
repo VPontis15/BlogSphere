@@ -18,13 +18,13 @@
 <body>
     {% include "./components/header.html" %}
     <div class="main-layout">
-    <aside class='aside-nav' >
-        <nav>
+  
+        <nav class='aside-nav'>
             <ul>
                 {% for link in nav_links %}
-                  <li class='nav-item'>
+                  <li > <a class='nav-item' href="{% url link.destination %}">
                     <img src="{% static link.destination|add:'.svg' %}" alt="">
-                   <a href="{% url link.destination %}">{{ link.text | title }}</a>
+                 <span> {{ link.text | title }}</span></a>
                   </li>
                   {% endfor %} 
                   <div class="nav-user-detais-container">
@@ -39,15 +39,15 @@
               
                {% endif %} 
                <div class="nav-user-details">
-                <span class="nav-user-details-name">{{user_profile.first_name}}</span>
+                <span class="nav-user-details-name">{{logged_user.first_name}}</span>
               
-                <span class="nav-user-details-name">{{user_profile.last_name}}</span>
+                <span class="nav-user-details-name">{{logged_user.last_name}}</span>
                </div></div></button>
                  
                 
                </ul> 
         </nav>
-    </aside>
+    
     <main class="container main">
     {% block content %}
     {% endblock content %}

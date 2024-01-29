@@ -358,21 +358,18 @@ div.container.header {
   border-right: 1px solid var(--main-clr);
 }
 
-.aside-nav > nav > ul {
+.aside-nav  > ul {
   display: grid;
   background-color: var(--body-clr);
   height: 100%;
+  width:100%
 }
 
 .aside-nav > nav {
  height: 100%;
 }
 
-.aside-nav > nav > ul li {
-text-align: center;
-align-self: center;
-  
-}
+
 
 .main-layout {
   display: grid;
@@ -392,19 +389,39 @@ main {
   border-radius: 50%;
 }
 
+
+
 .nav-item {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding-inline: 1.125em;
+  text-align: center;
   gap:.5em;
+  width:100%;
+  transition: all .25s ease-in-out;
+  height: 100%;
 }
 
-.nav-item > * {
+.nav-item:hover {
+  background-color: var(--accent-clr);
+  color: #fff !important;
+}
+.nav-item:hover img {
+ 
+  fill : #fff !important;
+}
+
+.nav-item span {
+  flex: 1;
+}
+
+.nav-item {
   color: var(--main-clr) !important;
 }
 
 .nav-item img {
-  width:40px;
+  width:35px;
   
   margin:0;
 }

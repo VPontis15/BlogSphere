@@ -138,10 +138,10 @@ fieldset {
 fieldset legend {
     
     text-align: center;
-  
+  font-family: var(--ff-heading);
     display: block;
     background: var(--accent-clr);
-    color: #fff;;
+    color: #fff;
     font-weight:600;
     padding: .1em 1em ;
    margin-inline: auto;
