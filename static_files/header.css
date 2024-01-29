@@ -1,6 +1,6 @@
 .nav-header {
     width: 100%;
-background-color: var(--main-clr);
+background-color: var(--body-clr);
     padding-block: 1em;
     color:var(--main-text-clr);
     display: flex;
@@ -121,7 +121,7 @@ input[type="text"]:focus + .search-icon {
 
 
 .logo {
-   color: var(--nav-text-clr);
+   color: #fff;;
    font-size: var(--fs-800);
    font-family: serif;
 }
@@ -157,12 +157,12 @@ nav li a {
 
 nav li a:link,
 nav li a:visited {
-   color: var(--nav-text-clr);
+   color: #fff;;
 
 }
 
 nav li a::selection {
-    background-color: var(--nav-text-clr);
+    background-color: #fff;;
     color: var(--main-clr);
 }
 
@@ -198,7 +198,7 @@ nav ul {
     width: 0%;
     height: 1px;
     bottom: 0;
-    background-color: #fff;
+    background-color: #fff;;
     transition: width 0.3s ease-in-out; /* Transition for the width */
   }
   

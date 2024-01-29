@@ -11,17 +11,49 @@
     <link rel="stylesheet" href="{% static "global.css"%}">
     <script defer src="{% static 'js/global.js'%}"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
  
     {% block style%} {% endblock %}
 </head>
 <body>
     {% include "./components/header.html" %}
+    <div class="main-layout">
+    <aside class='aside-nav' >
+        <nav>
+            <ul>
+                {% for link in nav_links %}
+                  <li class='nav-item'>
+                    <img src="{% static link.destination|add:'.svg' %}" alt="">
+                   <a href="{% url link.destination %}">{{ link.text | title }}</a>
+                  </li>
+                  {% endfor %} 
+                  <div class="nav-user-detais-container">
+                  {% if request.user.profile %}
+                  <button id="profile-pic" >
+                   {% if request.user.profile.profile_pic %} 
+                   <img class="profile-picture header-picture" src="{{ request.user.profile.profile_pic.url }}" alt="Profile Picture">
+                {% endif %} 
+                {% if  not request.user.profile.profile_pic  %}
+                <img class="no-picture header-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
+               {% endif %}
+              
+               {% endif %} 
+               <div class="nav-user-details">
+                <span class="nav-user-details-name">{{user_profile.first_name}}</span>
+              
+                <span class="nav-user-details-name">{{user_profile.last_name}}</span>
+               </div></div></button>
+                 
+                
+               </ul> 
+        </nav>
+    </aside>
     <main class="container main">
     {% block content %}
     {% endblock content %}
+    {% block comments %}{% endblock comments %}
 </main>
-
-{% block comments %}{% endblock comments %}
-{% include "./components/footer.html" %}
+</div>
+{% comment %} {% include "./components/footer.html" %} {% endcomment %}
 </body>
 </html>

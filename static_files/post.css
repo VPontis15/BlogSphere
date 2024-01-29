@@ -5,7 +5,7 @@ article {
 }
 
 header.article_header{
-    background-color: #fff;
+    background-color: #fff;;
     padding:1em 1.125em;
     margin-bottom: 1.75em;
     border-radius: 10px;
@@ -90,7 +90,7 @@ hr{
 }
 
 .comment, .comment-form {
-    background-color: #ffffff81;
+    background-color: #fff;fff81;
     padding-block: 1em;
     padding-inline: 1.5em;
     margin-block: 2em;
@@ -199,7 +199,7 @@ fieldset {
 .add-comment {
     font-size: var(--fs-500);
     background-color: var(--main-clr);
-    color: #fff;
+    color: #fff;;
     padding:.5em 1em 1.5em 1em;
     position: absolute;
     top:-30px;

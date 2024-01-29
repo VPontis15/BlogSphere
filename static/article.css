@@ -56,7 +56,7 @@
 }
 
 .links-actions {
-  background-color: #ffffff;
+  background-color: #fff;fff;
   box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.3);
   position: absolute;
   display: flex;
@@ -92,7 +92,7 @@
 img.edit {
   /* width:50px;
    right: 45px; */
-  fill: #fff;
+  fill: #fff;;
   color: rgb(1, 4, 68);
 }
 

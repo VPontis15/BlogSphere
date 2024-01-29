@@ -58,7 +58,7 @@ p.about {
   top: -40px;
   font-size: var(--fs-550);
   right: -100px;
-  background-color: #fff;
+  background-color: #fff;;
   padding: 0.5em 1.5em 1.25em 1.5em;
   clip-path: polygon(
     0% 0%,
@@ -74,7 +74,7 @@ p.about {
 
 /* .follow-status:hover {
   background-color: var(--main-clr);
-  color: #fff;
+  color: #fff;;
   font-weight: 700;
 } */
 
@@ -133,7 +133,7 @@ fieldset legend {
 
   display: block;
   background: var(--accent-clr);
-  color: var(--nav-text-clr);
+  color: #fff;;
   font-weight: 600;
   padding: 0.1em 1em;
   margin-inline: auto;

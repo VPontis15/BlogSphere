@@ -8,10 +8,10 @@ html[data-theme="light"],
     --primary: #79aec8;
     --secondary: #417690;
     --accent: #f5dd5d;
-    --primary-fg: #fff;
+    --primary-fg: #fff;;
 
     --body-fg: #333;
-    --body-bg: #fff;
+    --body-bg: #fff;;
     --body-quiet-color: #666;
     --body-loud-color: #000;
 
@@ -41,7 +41,7 @@ html[data-theme="light"],
     --selected-bg: #e4e4e4; /* E.g. selected table cells */
     --selected-row: #ffc;
 
-    --button-fg: #fff;
+    --button-fg: #fff;;
     --button-bg: var(--secondary);
     --button-hover-bg: #205067;
     --default-button-bg: #205067;

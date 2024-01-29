@@ -4,7 +4,7 @@ background-color: var(--main-clr);
     padding-block: 1em;
     color:var(--main-text-clr);
     display: flex;
-    
+    border-bottom: 1px solid var(--main-clr);
     
 }
 
@@ -46,6 +46,10 @@ input[type='text']:focus + .search-icon {
 
 #profile-pic {
   background: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
   border:none;
   cursor: pointer;
   margin-inline-start: 1.125em;
@@ -107,6 +111,8 @@ header .profile-picture, header .profile-picture.no-picture{
  
 }
 
+
+
 header .no-picture.header-picture {
   width: 60px;
 }
@@ -120,9 +126,9 @@ header .no-picture.header-picture {
 
 
 .logo {
-   color: var(--nav-text-clr);
+   color: #fff;
    font-size: var(--fs-800);
-   font-family: serif;
+   font-family: var(--ff-heading);
 }
 
 .logo::selection {
@@ -156,12 +162,12 @@ nav li a {
 
 nav li a:link,
 nav li a:visited {
-   color: var(--nav-text-clr);
+   color: #fff;;
 
 }
 
 nav li a::selection {
-    background-color: var(--nav-text-clr);
+    background-color: #fff;;
     color: var(--main-clr);
 }
 
@@ -197,7 +203,7 @@ nav ul {
     width: 0%;
     height: 1px;
     bottom: 0;
-    background-color: #fff;
+    background-color: #fff;;
     transition: width 0.3s ease-in-out; /* Transition for the width */
   }
   

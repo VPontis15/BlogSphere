@@ -45,13 +45,13 @@ div.slideshow img {
 	border-color: #333;
 }
 ul.thumbs li.selected a.thumb {
-	background: #fff;
+	background: #fff;;
 }
 div.pagination a:hover {
 	background-color: #111;
 }
 div.pagination span.current {
-	background-color: #fff;
-	border-color: #fff;
+	background-color: #fff;;
+	border-color: #fff;;
 	color: #000;
 }

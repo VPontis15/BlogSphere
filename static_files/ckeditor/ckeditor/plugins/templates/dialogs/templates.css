@@ -6,7 +6,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 .cke_tpl_list
 {
 	border: #dcdcdc 2px solid;
-	background-color: #ffffff;
+	background-color: #fff;fff;
 	overflow-y: auto;
 	overflow-x: hidden;
 	width: 100%;
@@ -51,7 +51,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 .cke_tpl_list a:active .cke_tpl_item
 {
 	border: #ff9933 1px solid;
-	background-color: #fffacd;
+	background-color: #fff;acd;
 }
 
 .cke_tpl_list a:hover *,
