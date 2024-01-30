@@ -17,8 +17,8 @@
 </head>
 <body>
     {% include "./components/header.html" %}
+    {% if logged_user %}
     <div class="main-layout">
-  
         <nav class='aside-nav'>
             <ul>
                 {% for link in nav_links %}
@@ -40,14 +40,17 @@
               
                {% endif %} 
                <div class="nav-user-details">
-                <span class="nav-user-details-name">{{logged_user.first_name}}</span>
-              
+                {% if logged_user.first_name and logged_user.last_name %}
+                <span class="nav-user-details-name">{{logged_user.first_name}}</span>       
                 <span class="nav-user-details-name">{{logged_user.last_name}}</span>
+                {% else %}
+                <span class="nav-user-details-name"> {{logged_user}} </span>
+                {% endif %}
                </div></div></button>
                  
                 
                </ul> 
-        </nav>
+        </nav>{% endif %}
     
     <main class="container main">
     {% block content %}
