@@ -7,16 +7,19 @@ main {
 
 
 .user-profile {
-    margin-block: 4em;
-    display: grid; 
-    grid-template-columns: 16rem 1fr;
+    margin-top: 2em;
+ 
     gap: 0 !important;
-    align-items: start;
+    /* align-items: start; */
    
 }
 
 .user-information {
     min-height: 650px;
+}
+
+.user-settings {
+    height: 100%;
 }
 
 
@@ -30,7 +33,7 @@ main {
     margin-top: 0 !important;
 }
 
-div:has(.settings-list){
+.user-image-container .settings-list{
   min-height: 100%;
   display: flex;
   flex-direction: column;
@@ -39,39 +42,51 @@ div:has(.settings-list){
 }
 
 .settings-list {
-    display: flex;
+    display: grid;
     flex-direction: column;
     flex: 1;
     justify-content: space-between;
     border: 1px solid var(--main-clr);
     border-radius: 2px;
+    height: 100%;
     
 }
 
 
 
 .settings-list li {
-    flex: 1;
     text-align: center;
     list-style: none;
-  
-    display: flex;
+    
+    display: grid;
+    place-items: center;
     height: 100%;
 }
 
-.settings-list li a {
-    width:100% !important;
-    padding-block: 2.25em;
-    transition: all .2s ease-in;
+.settings-list li {
+  
     
-   
+    transition: all .2s ease-in;
+  
 
 }
 
-.settings-list li a:hover{
+ .settings-list li a{
+    width:100% !important;
+    height:100%;
+    padding-inline: .75em;
+    transition: all .2s ease-in;
+   justify-self: center;
+   align-self: center;
+}
+.settings-list li:hover, .settings-list li a:hover{
     background-color: var(--main-clr);
-    color: #fff; !important;
+    color: #fff !important;
 }
+
+ a:hover:has(.settings-list li:hover){
+    color: #fff !important;
+ }
 
 
 
@@ -296,7 +311,7 @@ textarea:focus-visible{
   .col-user-details input, textarea, select {
     color: var(--accent-clr) !important;
     padding: .15em 1em;
-    min-width: 300px;
+    min-width: 400px;
     outline: 1px solid var(--main-clr-light);
     border-radius: 2px;
     min-height: 35px;
@@ -437,7 +452,7 @@ textarea {
 
 textarea:focus-visible {
   outline: 2px solid var(--accent-clr);
-  width: 770px;
+  width: 930px;
 
   }
 
@@ -454,6 +469,9 @@ textarea:focus-visible {
    
 }
 
+.col-user-details#id_bio {
+    text-align: start;
+}
 
 
 .textarea  {
@@ -462,4 +480,36 @@ textarea:focus-visible {
 }
 
 
+.links {
+    text-align: center;
+    margin-inline: auto;
+    line-height: 1;
+    border-bottom: 1px solid var(--main-clr-light);
+    font-size: 1.125rem;
+    width: max-content;
+    display: flex;
+    gap: 0.25em;
+    margin-bottom: 2.75em;
+    margin-top: 2rem;
+  }
+  
+  .slash {
+    color: var(--heading-clr);
+  }
+  
+  .links a.links-user {
+    color: var(--main-clr-light);
+  }
 
+
+  .post-count,
+  .link-active {
+    color: var(--accent-clr) !important;
+    font-weight: 700;
+  }
+  
+  .post-count--active {
+    color: var(--accent-clr) !important;
+    font-weight: 700;
+  }
+  

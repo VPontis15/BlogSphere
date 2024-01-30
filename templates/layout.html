@@ -25,6 +25,7 @@
                   <li > <a class='nav-item' href="{% url link.destination %}">
                     <img src="{% static link.destination|add:'.svg' %}" alt="">
                  <span> {{ link.text | title }}</span></a>
+            
                   </li>
                   {% endfor %} 
                   <div class="nav-user-detais-container">
@@ -54,6 +55,16 @@
 </main>
 {% block comments %}{% endblock comments %}
 </div>
+<ul class="nav-list-hidden hidden ">
+    <li><a href="{% url 'my-informations'%}">Informations</a></li>
+    <li><a href="{% url 'my-posts'%}">Posts</a></li>
+    {% comment %} <li><a href="{% url 'my-settings'%}">Settings</a></li> {% endcomment %}
+</ul>
+
 {% comment %} {% include "./components/footer.html" %} {% endcomment %}
+<script>
+   
+    const myProfileHref = "{% url 'my-informations' %}";
+</script>
 </body>
 </html>

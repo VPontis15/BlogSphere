@@ -25,16 +25,11 @@ closeDeleteModal.forEach((btn, index) => {
   });
 });
 
-profilePic.addEventListener('click', () => {
-  profileList.classList.toggle('hidden');
-});
+// profilePic.addEventListener('click', () => {
+//   profileList.classList.toggle('hidden');
+// });
 
-document.addEventListener('click', (e) => {
-  const isClosest = e.target.closest('.profile-links-nav');
-  if (!isClosest || !profileList.classList.contains('.hidden')) {
-    profileList.classList.add('.hidden');
-  }
-});
+
 
 optionsBtn.forEach((btn, index) => {
   const currentOptionsActionsDiv = optionsActionsDiv[index];
@@ -55,9 +50,11 @@ openDeletePostDialogBtns.forEach((btn, index) => {
   });
 });
 
+if (textAreaComment) 
 textAreaComment.addEventListener(
   'focus',
   () => {
+    
     commentBtn.classList.remove('hidden');
     commentBtn.classList.add('fadeIn');
   },
@@ -71,6 +68,32 @@ commentEditModalBtns.forEach((btn, index) => {
   });
 });
 
-closestButton.addEventListener('mouseover', () => {
-  console.log('hovered');
+
+
+
+const navListPopup = document.querySelector('.nav-list-hidden');
+const navItems = document.querySelectorAll('.nav-item');
+
+navItems.forEach(navItem => {
+  const hrefValue = navItem.getAttribute('href');
+
+  if (hrefValue === myProfileHref) {
+    navItem.style.position = 'relative';
+
+    navItem.addEventListener('mouseover', () => {
+      navListPopup.classList.remove('hidden');
+    });
+
+    navItem.addEventListener('mouseout', () => {
+      navListPopup.classList.add('hidden');
+    });
+
+    navListPopup.addEventListener('mouseover', () => {
+      navListPopup.classList.remove('hidden');
+    });
+
+    navListPopup.addEventListener('mouseout', () => {
+      navListPopup.classList.add('hidden');
+    });
+  }
 });

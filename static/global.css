@@ -5,7 +5,7 @@
   /* #602799; #4e2881  #4fe46f */
 
   --main-clr: #1d3580;
-  --main-hover-clr: #2c489cd0;
+  --main-hover-clr: #2c489cec;
   --main-hover-link-clr: #2c489c4d;
   --body-clr: #e5eaf6;
   --main-clr-light: #1d3680bd;
@@ -433,4 +433,36 @@ main {
 
 .nav-user-details-name {
   color: var(--accent-clr) ;
+}
+
+.nav-list-hidden {
+ 
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-clr);
+  list-style: none;
+  position: absolute;
+  bottom: 180px;
+  left: 190px;
+}
+
+.nav-list-hidden li  {
+
+  color: #fff;
+  text-align: center;
+  
+}
+.nav-list-hidden li a {
+  color: #fff !important;
+  padding: 1em 2em !important;
+
+  text-align: center;
+  min-width: 170px;
+  display: inline-block;
+}
+.nav-list-hidden li a:hover  {
+  
+
+  background-color: var(--accent-clr);
 }
