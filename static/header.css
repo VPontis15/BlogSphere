@@ -187,35 +187,4 @@ nav ul {
 
 
   
-  nav li a {
-    position: relative;
-    text-decoration: none;
-  
-  }
-  
-  nav li a::before,
-  nav li a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 1px;
-    bottom: 0;
-    background-color: #fff;;
-    transition: width 0.3s ease-in-out; /* Transition for the width */
-  }
-  
-  nav li a::before {
-    left: 50%; /* Starts from the middle */
-    transform: translateX(-50%);
-  }
-  
-  nav li a::after {
-    right: 50%; /* Starts from the middle */
-    transform: translateX(50%);
-  }
-  
-  nav li a:hover::before,
-  nav li a:hover::after {
-    width: 50%; /* Change the width on hover to create the effect */
-  }
-  
+ 

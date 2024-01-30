@@ -443,8 +443,8 @@ main {
   background-color: var(--main-clr);
   list-style: none;
   position: absolute;
-  bottom: 180px;
-  left: 190px;
+  bottom: 145px;
+  left: 224px;
 }
 
 .nav-list-hidden li  {
