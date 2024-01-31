@@ -74,3 +74,4 @@ class Notification(models.Model):
     post = models.ForeignKey('Post', on_delete=models.CASCADE, null=True, blank=True)
     is_read = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
+    type = models.CharField(max_length=255)
