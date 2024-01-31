@@ -18,7 +18,7 @@
 <body>
     {% include "./components/header.html" %}
     {% if logged_user %}
-    <div class="main-layout">
+    <section class="main-layout">
         <nav class='aside-nav'>
             <ul>
                 {% for link in nav_links %}
@@ -55,9 +55,9 @@
     <main class="container main">
     {% block content %}
     {% endblock content %}
+    
 </main>
-{% block comments %}{% endblock comments %}
-</div>
+</section>
 <ul class="nav-list-hidden hidden ">
     <li><a href="{% url 'my-informations'%}">Informations</a></li>
     <li><a href="{% url 'my-posts'%}">Posts</a></li>

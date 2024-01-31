@@ -9,7 +9,7 @@ main {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 10% 60% 20%;
+  grid-template-columns: 5% 65% 20%;
   justify-content: space-around;
 }
 
@@ -129,7 +129,7 @@ header.article_header {
   font-size: var(--fs-500);
   background-color: var(--accent-clr);
   text-align: center;
-  color: #fff;;
+  color: #fff;
 }
 .article_header-user_details .article_header-job {
   font-size: var(--fs-350);
@@ -139,13 +139,13 @@ header.article_header {
 
 .article_header-date {
   font-size: var(--fs-450);
-  color: #fff;;
+  color: #fff;
 }
 
 h1.article-title {
   font-size: var(--fs-650);
   background-color: var(--main-clr);
-  color: #fff;;
+  color: #fff;
   padding: 2.25rem;
 
   margin: 0;
@@ -153,13 +153,14 @@ h1.article-title {
 
 .article-header-form {
   display: flex;
+  gap:.5rem;
   flex: 1;
   justify-content: end;
   align-items: center;
 }
 
 p.article_header-posted-by {
-  color: #fff;;
+  color: #fff;
 }
 
 .like-btn {
@@ -364,7 +365,7 @@ fieldset {
 .add-comment {
   font-size: var(--fs-500);
   background-color: var(--main-clr);
-  color: #fff;;
+  color: #fff;
   padding: 0.5em 1em 1.5em 1em;
   position: absolute;
   top: -30px;
@@ -406,7 +407,7 @@ section.post-body {
 }
 
 .bg-white {
-  background-color: #fff;;
+  background-color: #fff;
 
   padding: 1.25em;
 }

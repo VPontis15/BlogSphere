@@ -121,7 +121,7 @@ input[type="text"]:focus + .search-icon {
 
 
 .logo {
-   color: #fff;;
+   color: #fff;
    font-size: var(--fs-800);
    font-family: serif;
 }
@@ -157,12 +157,12 @@ nav li a {
 
 nav li a:link,
 nav li a:visited {
-   color: #fff;;
+   color: #fff;
 
 }
 
 nav li a::selection {
-    background-color: #fff;;
+    background-color: #fff;
     color: var(--main-clr);
 }
 
@@ -198,7 +198,7 @@ nav ul {
     width: 0%;
     height: 1px;
     bottom: 0;
-    background-color: #fff;;
+    background-color: #fff;
     transition: width 0.3s ease-in-out; /* Transition for the width */
   }
   

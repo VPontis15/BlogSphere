@@ -100,7 +100,7 @@ form input {
 .submit:hover, .submit:focus-visible {
     background-color: var(--accent-clr);
     box-shadow: 2px 2px 8px var(--main-clr);
-    color: #fff;;
+    color: #fff;
     transform: scale(1.04);
     outline: none;
     border: none;

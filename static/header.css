@@ -162,12 +162,12 @@ nav li a {
 
 nav li a:link,
 nav li a:visited {
-   color: #fff;;
+   color: #fff;
 
 }
 
 nav li a::selection {
-    background-color: #fff;;
+    background-color: #fff;
     color: var(--main-clr);
 }
 

@@ -10,7 +10,7 @@
   --body-clr: #e5eaf6;
   --main-clr-light: #1d3680bd;
   --heading-clr: #1d3580;
-  --heading2-clr: #fff;;
+  --heading2-clr: #fff;
   --accent-clr: #ba1642;
   --focus-clr: #e4724f13;
   --error-text-clr: rgb(231, 48, 16);
@@ -43,14 +43,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scrollbar-color: var(--main-clr) #fff;;
+  scrollbar-color: var(--main-clr) #fff;
   scroll-behavior: smooth;
 }
 
 *::selection,
 input[type='date']::selection {
   background-color: var(--main-clr);
-  color: #fff;;
+  color: #fff;
 }
 
 .sucess-icon {
@@ -146,7 +146,7 @@ main {
 a:link,
 a:visited {
   text-decoration: none;
-  color: #fff;
+  color: var(--main-text-clr);
 }
 
 .main {
@@ -248,14 +248,14 @@ div.container.header {
 }
 
 .delete-btn {
-  color: #fff;;
+  color: #fff;
 }
 
 .cancel-btn:hover,
 .cancel-btn:focus-visible {
   border: 1px solid var(--main-clr);
   background-color: var(--main-clr) !important;
-  color: #fff; !important;
+  color: #fff !important;
 }
 
 .delete-message {
@@ -263,7 +263,7 @@ div.container.header {
   flex-direction: row-reverse;
   align-items: center;
   gap: 1.5em;
-  background-color: #fff;;
+  background-color: #fff;
   padding: 0.75em 1.5em;
   border-radius: 20px;
   position: absolute;

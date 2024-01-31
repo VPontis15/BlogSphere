@@ -28,7 +28,7 @@ fieldset {
     transform: scale(1.05);
     outline: none;
     background-color: var(--main-clr);
-    color: #fff;;
+    color: #fff;
     box-shadow: .25rem .25rem .5rem var(--main-clr); /* 4px converted to 0.25rem */
 }
 

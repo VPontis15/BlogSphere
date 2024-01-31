@@ -9,7 +9,9 @@
  {% block title %}BlogSphere | {{post.title}}{% endblock title %}
  {% block content %}
  <div class="container grid-container"> 
-  <div class="grid-col-1"> <a class='see-all' href="{% url "posts" %}">See all posts</a></div>
+  <div class="grid-col-1">
+    
+  </div>
   <div class="bg-white">
    
     <article>
@@ -48,7 +50,7 @@
                 <form name='like' class="article-header-form" method='POST' action="">
                   {% csrf_token %}
                  
-              <a href="#comment">
+              <a href="#add-a-comment">
                 <img src="{% static 'comment.svg' %}" alt="">
 
               </a>
@@ -104,23 +106,23 @@
 </section>
 
 
+</div>
 
-  </div>
-   
- 
-    <h2 class="comments-heading">Comments <span class="count">({{post.comments.count}})</span></h2>{% endblock content %}
-    {% block comments %}
-    <hr> 
-    {% if request.user.is_authenticated %}
-    {% include "blog\components\commentForm.html" %}
-    {% endif %}
-    <section class="comments container">
-      {% for comment in post.comments.all %}
-     
-      {% include "blog\components\comment.html" %}
-      {% endfor %}
-     
-      
-    </section>
-    {% endblock comments %}
+
+<h2 class="comments-heading">Comments <span class="count">({{post.comments.count}})</span></h2>
+
+<hr> 
+{% if request.user.is_authenticated %}
+{% include "blog\components\commentForm.html" %}
+{% endif %}
+<section class="comments container">
+  {% for comment in post.comments.all %}
+  
+  {% include "blog\components\comment.html" %}
+  {% endfor %}
+  
+  
+</section>
+{% endblock content %}
+
     

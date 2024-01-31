@@ -78,7 +78,7 @@ div.caption {
 	color: #ccc;
 }
 div.caption a {
-	color: #fff;;
+	color: #fff;
 }
 div.image-title {
 	font-weight: bold;
@@ -143,7 +143,7 @@ div.pagination span.current {
 	font-weight: bold;
 	background-color: #000;
 	border-color: #000;
-	color: #fff;;
+	color: #fff;
 }
 div.pagination span.ellipsis {
 	border: none;

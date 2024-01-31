@@ -20,16 +20,16 @@ a.cke_scayt_toogle:active
 }
 a.cke_scayt_toogle {
 	color : #316ac5;
-	border-color: #fff;;
+	border-color: #fff;
 }
 .scayt_enabled a.cke_scayt_item {
 	color : #316ac5;
-	border-color: #fff;;
+	border-color: #fff;
 	margin : 0px;
 }
 .scayt_disabled a.cke_scayt_item {
 	color : gray;
-	border-color : #fff;;
+	border-color : #fff;
 }
 .scayt_enabled a.cke_scayt_item:hover,
 .scayt_enabled a.cke_scayt_item:focus,
