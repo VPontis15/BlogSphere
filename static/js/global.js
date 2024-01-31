@@ -76,9 +76,13 @@ const navItems = document.querySelectorAll('.nav-item');
 
 navItems.forEach(navItem => {
   const hrefValue = navItem.getAttribute('href');
+  if(hrefValue==notificationsHref){
+    navItem.classList.add('notification-nav')
+  }
 
   if (hrefValue === myProfileHref) {
     navItem.style.position = 'relative';
+    
 
     navItem.addEventListener('mouseover', () => {
       navListPopup.classList.remove('hidden');

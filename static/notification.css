@@ -1,5 +1,7 @@
 section.notifications {
     margin-top: 4rem;
+    display: grid;
+    gap: 1.125rem;
 }
 
 .notification {
@@ -10,6 +12,7 @@ section.notifications {
     background-color: #fff;
     padding:1.5rem 1rem;
     border-radius: 1vmin;
+    position: relative;
 }
 header.notification-user-details {
     display: flex;
@@ -17,8 +20,12 @@ header.notification-user-details {
     gap: .5rem;
 }
 .notification-picture {
-    width: 70px;
+    width: 50px;
     aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: none;
+    object-fit: cover;
+    object-position: center;
 }
 
 .notification-username {
@@ -30,4 +37,9 @@ header.notification-user-details {
     flex:1;
     text-align: end;
     align-self: flex-end;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: var(--fs-350);
+    color: var(--main-clr-light);
 }

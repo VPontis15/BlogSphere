@@ -8,7 +8,7 @@
   --main-hover-clr: #2c489cec;
   --main-hover-link-clr: #2c489c4d;
   --body-clr: #e5eaf6;
-  --main-clr-light: #1d3680bd;
+  --main-clr-light: #1d3680d9;
   --heading-clr: #1d3580;
   --heading2-clr: #fff;
   --accent-clr: #ba1642;
@@ -387,6 +387,8 @@ main {
   width:60px;
   aspect-ratio: 1/1;
   border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
 }
 
 
@@ -467,3 +469,12 @@ main {
   background-color: var(--accent-clr);
 }
 
+
+.notifications-count {
+  color:#fff;
+  border-radius: 1000vmin;
+  padding-block: .1em;
+  font-weight: 700;
+  background-color: var(--accent-clr);
+
+}
