@@ -1,0 +1,33 @@
+section.notifications {
+    margin-top: 4rem;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    max-width: 75%;
+    background-color: #fff;
+    padding:1.5rem 1rem;
+    border-radius: 1vmin;
+}
+header.notification-user-details {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+.notification-picture {
+    width: 70px;
+    aspect-ratio: 1/1;
+}
+
+.notification-username {
+    color: var(--accent-clr);
+}
+
+
+.created_at {
+    flex:1;
+    text-align: end;
+    align-self: flex-end;
+}

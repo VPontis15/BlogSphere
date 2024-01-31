@@ -1,0 +1,13 @@
+{% load static %}
+
+<div class="notification">
+    <header class="notification-user-details">
+    <img class='no-picture notification-picture' src="{% static 'no-profile-picture.svg'%}" alt="">
+    <a href="#">
+    <span class="notification-username">%USERNAME</span></a>
+</header>
+    <p class="notification-body">%ACTION MESSAGE%
+       <span class="notification-about accent-clr">%POST TITLE%</span> 
+    </p>
+    <span class="created_at">%DATE%</span>
+</div>
