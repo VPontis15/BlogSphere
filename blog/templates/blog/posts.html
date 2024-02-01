@@ -12,10 +12,7 @@
 
 
 {% block content %}
-{% if filtered_posts%}
-<a class="go-back-btn" href="{% url 'posts' %}">All posts</a>
 
-{% endif %}
 
 <div class="heading-row" >
   {% if filtered_posts %}
@@ -26,7 +23,7 @@
 {% if filtered_posts.count %}
 <h4>Filter by:</h4>
 <div class="filter-links"> 
-<a class=" {% if filter == 'author' %} filter-active {% endif %}  filter-by--author filter-link" href="{% url 'posts'%}?filter=author&q={{search}}"> Author <span >{{filtered_posts_by_author.count}}</span> </a>
+<a class=" {% if filter == 'author' %} filter-active {% endif %}  filter-by--author filter-link" href="{% url 'posts'%}?filter=author&q={{search}}"> Authors <span >{{filtered_posts_by_author.count}}</span> </a>
 <a class=" {% if filter == 'title' %} filter-active {% endif %} filter-by--title filter-link" href="{% url 'posts'%}?filter=title&q={{search}}"> Posts <span >{{filtered_posts_by_title.count}}</span></a>
 <a class="{% if filter == 'tag' %} filter-active {% endif %} filter-by--tag filter-link" href="{% url 'posts'%}?filter=tag&q={{search}}"> Tags <span >{{filtered_posts_by_tag.count}}</span></a>
 <a class="filter-reset filter-link" href="{% url 'posts'%}?q={{search}}"> Reset filter</a>

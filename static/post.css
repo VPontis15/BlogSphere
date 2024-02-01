@@ -324,6 +324,25 @@ form:has(.comment-body) {
   transition: width 0.75s ease-in;
 }
 
+.comment .action-button {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25em 3.125em;
+  gap: 1.25em;
+  color: var(--accent-clr) !important;
+  font-size: var(--fs-450);
+}
+.comment .action-button img {
+width:30px;
+}
+
+.comment .edit {
+  width: 40px !important;
+  margin-right: 0.625rem;
+}
+
 .comment-form--modal .comment-textarea > textarea:focus-visible {
   width: 1000px;
   outline: 1px solid var(--accent-clr);
@@ -360,6 +379,10 @@ fieldset {
 
 .comment-btn {
   backface-visibility: hidden !important;
+}
+
+.comment .link-actions {
+  padding: 4em;
 }
 
 .add-comment {

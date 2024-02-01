@@ -67,11 +67,15 @@ textAreaComment.addEventListener(
   true
 );
 
+
 commentEditModalBtns.forEach((btn, index) => {
+  
   currentEditModalBtn = commentEditModalBtns[index];
+  if (currentEditModalBtn){
   currentEditModalBtn.addEventListener('click', () => {
     commentEditModal.showModal();
   });
+}
 });
 
 

@@ -1,8 +1,9 @@
 .edit-comment {
-    background-color: #fff;fff81;
- 
+    background-color: #fff;
+    max-width: 85%;
     border: none;
     margin-top: 2em;
+    margin-inline: auto;
    
     
 }
@@ -29,7 +30,7 @@
     min-height: 100px;
     height: 40px;
     padding-block: 0.75rem;
-    padding-left: 1em;
+    padding-inline: 1em .25em;
     border-radius: 8px;
     border: none;
     outline: 1px solid var(--main-clr);
@@ -37,4 +38,5 @@
     transition: width 0.75s ease-in;
     width:100%;
     border: none;
+    line-height: inherit;
 }
