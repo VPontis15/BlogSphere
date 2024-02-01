@@ -11,19 +11,20 @@
 {% block content %}
 
 
-<section >
+
     <fieldset class="user-profile" >
-<div class="user-image-container">
-    {% if is_users_profile %}
-    <p type="file" name="avatar" id="avatar"></form>{% endif %}
+      <div class="flex-row">
+<article class="user-image-container">
+
 {% if user_profile.profile_pic  %}
 
 <img class="user-image user-profile" src="{{user_profile.profile_pic.url}}" alt="User's profile picture">
 {% else %}
 <img class="no-picture no-picture-othersUser-profile" src="{% static 'images/no-profile-picture.svg' %}" alt="">
 {% endif %}
-
-<div class="row user-details">
+</article>
+<section class="row-user-details-container">
+<div class=" user-details">
   <span class="user-fullname">
 {% if user_profile.first_name and user_profile.last_name %}
    {{user_profile.first_name}} {{user_profile.last_name}} 
@@ -34,7 +35,7 @@
      {% endif %}
     </span>
     
-      
+ 
       <form method='POST' >
         {% csrf_token %}
         {% if user_profile not in request.user.profile.following.all %}
@@ -71,8 +72,8 @@
     </div>
   </div>
 
+</section>
 </div>
-
 
 <form action="">
 <fieldset class="border-fieldset">

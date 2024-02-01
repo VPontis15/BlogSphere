@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from .models import Post, Tag, Comment, Like
+from .models import Post, Tag, Comment, Like,Notification
 from .forms import PostForm, CommentForm
 from accounts.models import Profile
 from django.contrib import messages
@@ -93,6 +93,14 @@ def detail_post(request, slug):
             comment.save()
             post.comments.add(comment)
             user.profile.comments.add(comment)
+            Notification.objects.create(recipient=post.author,
+                                        actor = user,
+                                        action= 'commented on your post: ',
+                                        post =post,
+                                        is_read = False,
+                                        type='comment'
+                                    
+                                        )
 
             return redirect('post', slug=slug)
 
@@ -105,6 +113,14 @@ def detail_post(request, slug):
                 like = Like.objects.create(
                     user=user, liked_post=post)
                 post.likes.add(like)
+                Notification.objects.create(recipient=post.author,
+                                        actor = user,
+                                        action= 'liked your post: ',
+                                        post =post,
+                                        is_read = False,
+                                        type='like'
+                                    
+                                        )
                 is_it_liked = True
             else:
                 like = Like.objects.get(

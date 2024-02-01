@@ -13,7 +13,7 @@
   {% endif %}
 
 
-  <form action="{% url 'post' slug=post.slug %}" method="POST">
+  <form  id='add-a-comment' action="{% url 'post' slug=post.slug %}" method="POST">
     {% csrf_token %}
     {% for field in form %}
     <fieldset class="comment-textarea ">

@@ -1,0 +1,21 @@
+{% load static %}
+
+
+<div class="notification">
+    <header class="notification-user-details">
+        <a href="{% url 'user-profile' username=notification.actor.username tab='informations' %}">
+        {% if notification.actor.profile.profile_pic %}
+        <img class=' notification-picture' src="{{notification.actor.profile.profile_pic.url}}" alt="">
+        {% else %}
+    <img class='no-picture notification-picture' src="{% static 'no-profile-picture.svg'%}" alt="">
+    {% endif %}</a>
+    <a href="{% url 'user-profile' username=notification.actor.username tab='informations' %}">
+    <span class="notification-username">{{notification.actor}}</span></a>
+</header>
+    <p class="notification-body">{{notification.action}}
+        {% if notification.post %}
+        <a href="{% url 'post' slug=notification.post.slug %}">
+       <span class="notification-about accent-clr">{{notification.post.title}}</span> 
+    </p></a>{% endif %}
+    <span class="created_at">{{notification.created_at}}</span>
+</div>

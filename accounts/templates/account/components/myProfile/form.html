@@ -7,7 +7,15 @@
 
 {% endblock style %}
 {% block myProfile-content %}
-<h1 class="tab-heading"> {{user_profile}} </h1> 
+<h1 class="tab-heading"> {{user_profile}} </h1>
+{% comment %} <div class=" links">
+   <a class="links-user "  href="{% url 'my-informations' %}">Informations</a>
+   <span class="slash">|</span>
+   <a class="links-user " href="{% url 'my-posts' %}">
+     Posts <span class="post-count ">({{ user_profile.user.post_set.all.count}})</span>
+ </a>
+ 
+ </div>  {% endcomment %}
 <form class="user-settings" method="POST" enctype="multipart/form-data" action="">
     {% csrf_token %}
   
@@ -41,28 +49,28 @@
 </div>
  <div class="row tab-form">
  <fieldset class="col-user-details">
-    <label for="id_last_name">Birthday:</label>
+    <label for="id_birthday">Birthday:</label>
     {{ form.birthday }}
  </fieldset>
  <fieldset class="col-user-details">
-    <label for="id_gender">Country:</label>
+    <label for="id_country">Country:</label>
     {{ form.country }}  
  </fieldset>
 
  </div>
  <div class="row tab-form">
     <fieldset class="col-user-details">
-       <label for="id_last_name">Job:</label>
+       <label for="id_job">Job:</label>
        {{ form.job }}
     </fieldset>
     <fieldset class="col-user-details">
-       <label for="id_gender">City:</label>
+       <label for="id_city">City:</label>
        {{ form.city }}  
       </fieldset>
    </div>
     <div class="row textarea tab-form">
         <fieldset class="col-user-details">
-           <label for="id_last_name">About:</label>
+           <label style='text-align: start ' for="id_bio">About:</label>
            {{ form.bio }}
         </fieldset>
         <fieldset></fieldset>

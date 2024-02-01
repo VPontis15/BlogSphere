@@ -101,7 +101,7 @@ fieldset legend {
   
     display: block;
     background: var(--accent-clr);
-    color: var(--nav-text-clr);
+    color: #fff;
     font-weight:600;
     padding: .1em 1em ;
    margin-inline: auto;

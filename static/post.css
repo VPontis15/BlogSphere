@@ -9,7 +9,7 @@ main {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 10% 60% 20%;
+  grid-template-columns: 5% 65% 20%;
   justify-content: space-around;
 }
 
@@ -27,7 +27,7 @@ main {
   margin-bottom: 0.75em;
   font-size: var(--fs-600);
   color: var(--main-clr);
-}
+} 
 
 .tag_posts,
 .post_by_author {
@@ -153,6 +153,7 @@ h1.article-title {
 
 .article-header-form {
   display: flex;
+  gap:.5rem;
   flex: 1;
   justify-content: end;
   align-items: center;
@@ -188,7 +189,7 @@ p.article_header-posted-by {
 }
 
 .comments {
-  min-height: 450px;
+  min-height: 200px;
 }
 
 .comments.container {
@@ -208,7 +209,7 @@ hr {
 
 .comment,
 .comment-form {
-  background-color: #ffffff81;
+  background-color: #fff;fff81;
   padding-block: 1em;
   padding-inline: 1.5em;
   margin-block: 2em;
@@ -301,7 +302,7 @@ form:has(.comment-body) {
   margin-top: auto;
   max-width: 100%;
   width: 1200px;
-  background-color: #ffffff81;
+  background-color: #fff;fff81;
   padding-block: 1em;
   padding-inline: 1.5em;
 

@@ -1,8 +1,6 @@
 .user-profile {
-  display: grid;
-  grid-template-columns: 23.5rem 1fr;
-  gap: 3rem;
-  align-items: start;
+  width:100%;
+  background-color: ;
 }
 
 .links {
@@ -80,16 +78,19 @@ p.about {
 
 fieldset {
   border: none;
+  
+ 
 }
 
 .user-image-container {
-  max-width: 350px;
+  max-width: 225px;
   margin-top: var(--gutter-y-600);
+  margin-inline: auto;
 }
 
 .user-image,
 .no-picture-othersUser-profile {
-  max-width: 350px !important;
+  max-width: 225px !important;
   width: 100%;
   outline: 2px solid var(--heading-clr);
   outline-offset: 5px;
@@ -98,14 +99,39 @@ fieldset {
   object-fit: cover;
   object-position: center;
   margin-inline: auto;
+ 
+}
+
+.row-user-details-container .user-details {
+  margin-bottom: .5rem;
+}
+
+.flex-row {
+  display: grid;
+  grid-template-columns: 250px 500px;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.row-user-details-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+  flex-direction: column;
 }
 
 .user-profile .user-details {
   margin-top: 1rem;
+  display: flex;
   align-items: center;
   justify-content: space-around;
   padding-inline: 1rem;
   margin-inline: auto;
+}
+
+.row-user-details-container {
+ 
 }
 
 .about-default {
@@ -122,6 +148,7 @@ fieldset {
 
 .user-information {
   display: grid;
+  justify-content: center;
 }
 
 fieldset {
@@ -133,7 +160,7 @@ fieldset legend {
 
   display: block;
   background: var(--accent-clr);
-  color: var(--nav-text-clr);
+  color: #fff;
   font-weight: 600;
   padding: 0.1em 1em;
   margin-inline: auto;
@@ -227,7 +254,9 @@ input:disabled {
   gap: 1rem;
   justify-content: center;
   font-weight: 100;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--ff-body);
+  margin-bottom: 1.75rem;
+  
 }
 
 .th {

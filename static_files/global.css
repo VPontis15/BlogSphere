@@ -44,7 +44,7 @@
     
     *::selection, input[type='date']::selection {
         background-color: var(--main-clr);
-        color: var(--nav-text-clr);
+        color: #fff;
     }
     
     .sucess-icon {
@@ -89,7 +89,7 @@
 
     .brand {
         background-color: var(--main-clr);
-        color: var(--nav-text-clr);
+        color: #fff;
         padding-inline:  1rem;
         padding-bottom: .2rem;
         font-family: serif;
@@ -218,7 +218,7 @@
 .delete-btn:hover, .delete-btn:focus-visible {
     border: 1px solid var(--accent-clr);
     background-color: var(--accent-clr);
-    color: var(--nav-text-clr);
+    color: #fff;
     
   
 }
@@ -230,13 +230,13 @@
 }
 
 .delete-btn {
-    color: var(--nav-text-clr);
+    color: #fff;
 }
 
 .cancel-btn:hover, .cancel-btn:focus-visible{
     border: 1px solid var(--main-clr);
     background-color: var(--main-clr) !important;
-    color: #fff !important;
+    color: #fff; !important;
 }
 
 .delete-message {

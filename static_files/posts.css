@@ -87,7 +87,7 @@
 
 .filter-link {
     padding: .5em 1em;
-    color: #fff !important;
+    color: #fff; !important;
     font-weight: 700;
     border-radius: 5px;
     transition: all .25s ease-in-out;

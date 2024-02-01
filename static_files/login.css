@@ -100,7 +100,7 @@ form input {
 .submit:hover, .submit:focus-visible {
     background-color: var(--accent-clr);
     box-shadow: 2px 2px 8px var(--main-clr);
-    color: var(--nav-text-clr);
+    color: #fff;
     transform: scale(1.04);
     outline: none;
     border: none;
@@ -124,7 +124,7 @@ form input {
  
     padding: 1.1em 2.1em;
     border-radius: 20px;
-    color: var(--nav-text-clr) !important;
+    color: #fff; !important;
     font-size: var(--fs-500);
     font-size: var(--fs-400);  
     display: inline-block;
@@ -139,7 +139,7 @@ form input {
     border:none;
     outline: none;
    transform: translateY(-5px);
-    color: var(--nav-text-clr) !important;
+    color: #fff; !important;
     box-shadow: 2px 2px 8px var(--main-clr);
 }
 

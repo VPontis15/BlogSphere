@@ -65,3 +65,13 @@ class Like(models.Model):
 
 def __str__(self):
     return f'{self.user.username} liked {self.content_object}'
+
+
+class Notification(models.Model):
+    recipient = models.ForeignKey(User, related_name='notifications', on_delete=models.CASCADE)
+    actor = models.ForeignKey(User, on_delete=models.CASCADE)
+    action = models.CharField(max_length=255)
+    post = models.ForeignKey('Post', on_delete=models.CASCADE, null=True, blank=True)
+    is_read = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    type = models.CharField(max_length=255)

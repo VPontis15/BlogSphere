@@ -11,17 +11,86 @@
     <link rel="stylesheet" href="{% static "global.css"%}">
     <script defer src="{% static 'js/global.js'%}"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
  
     {% block style%} {% endblock %}
 </head>
 <body>
     {% include "./components/header.html" %}
+    {% if logged_user %}
+    <section class="main-layout">
+        <nav class='aside-nav'>
+            <ul>
+                {% for link in nav_links %}
+                  <li > <a class='nav-item' href="{% url link.destination %}">
+                    {% if link.destination == 'notifications' %}
+                    {% if notifications.count %}
+                    <img src="{% static 'notifications-alarm.svg' %}" alt="">
+                    {% else %}
+                    <img src="{% static link.destination|add:'.svg' %}" alt=""> {% endif%}
+                    {% else %}
+                    <img src="{% static link.destination|add:'.svg' %}" alt="">
+                    {% endif %}
+                 <span> {{ link.text | title }}</span>
+                 {% if link.destination == 'notifications' %}
+                 {% if notifications.count %}
+                    <span class="notifications-count "> {{notifications.count}} </span>{% endif %}
+                 {% endif %}</a>
+            
+                  </li>
+                  {% endfor %} 
+                  <div class="nav-user-detais-container">
+                    <div class='logout-modal hidden' >
+                        <a href="{% url 'logout' %}">Logout</a>    
+                        <a href="{{request.path}}">Cancel</a>    
+                    </div>
+                  {% if request.user.profile %}
+                  <button id="profile-pic" >
+                   {% if request.user.profile.profile_pic %} 
+                   <img class="profile-picture header-picture" src="{{ request.user.profile.profile_pic.url }}" alt="Profile Picture">
+                {% endif %} 
+                {% if  not request.user.profile.profile_pic  %}
+                <img class="no-picture header-picture" src="{% static 'images/no-profile-picture.svg' %}" alt="">
+               {% endif %}
+              
+               {% endif %} 
+               <div class="nav-user-details">
+                {% if logged_user.first_name and logged_user.last_name %}
+                <div>
+                <span class="nav-user-details-name">{{logged_user.first_name}}</span>       
+                <span class="nav-user-details-name">{{logged_user.last_name}}</span>
+            </div>
+                {% else %}
+                <span class="nav-user-details-name"> {{logged_user}} </span>
+                {% endif %}
+            </div>
+            <img class='options-nav' src="{% static 'options-nav.svg'%}" alt="">
+            </div>
+        </button>
+                 
+                
+               </ul> 
+        </nav>{% endif %}
+    
     <main class="container main">
     {% block content %}
     {% endblock content %}
+    
 </main>
+</section>
+<ul class="nav-list-hidden hidden ">
+    <li><a href="{% url 'my-informations'%}">Informations</a></li>
+    <li><a href="{% url 'my-posts'%}">Posts</a></li>
+    {% comment %} <li><a href="{% url 'my-settings'%}">Settings</a></li> {% endcomment %}
+</ul>
 
-{% block comments %}{% endblock comments %}
-{% include "./components/footer.html" %}
+
+
+{% comment %} {% include "./components/footer.html" %} {% endcomment %}
+<script>
+   
+    const myProfileHref = "{% url 'my-informations' %}";
+    const notificationsHref = "{% url 'notifications' %}"
+</script>
 </body>
 </html>

@@ -4,12 +4,52 @@ background-color: var(--main-clr);
     padding-block: 1em;
     color:var(--main-text-clr);
     display: flex;
+    border-bottom: 1px solid var(--main-clr);
     
-    
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-input {
+  padding: 1em 0.25em;
+  padding-left: 1em;
+  width: 350px;
+  transition: width 0.5s ease-in, outline 0.25s ease-in;
+  border-radius: 10px;
+  border: none;
+  outline: 2px solid var(--main-clr);
+  cursor: pointer;
+}
+
+.search-input:focus-visible {
+  outline: 2px solid var(--accent-clr);
+  width: 500px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 25px;
+  height: 25px;
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+input[type='text']:focus + .search-icon {
+  opacity: 1;
+  fill: var(--heading-clr) !important;
 }
 
 #profile-pic {
   background: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
   border:none;
   cursor: pointer;
   margin-inline-start: 1.125em;
@@ -71,6 +111,8 @@ header .profile-picture, header .profile-picture.no-picture{
  
 }
 
+
+
 header .no-picture.header-picture {
   width: 60px;
 }
@@ -84,9 +126,9 @@ header .no-picture.header-picture {
 
 
 .logo {
-   color: var(--nav-text-clr);
+   color: #fff;
    font-size: var(--fs-800);
-   font-family: serif;
+   font-family: var(--ff-heading);
 }
 
 .logo::selection {
@@ -120,12 +162,12 @@ nav li a {
 
 nav li a:link,
 nav li a:visited {
-   color: var(--nav-text-clr);
+   color: #fff;
 
 }
 
 nav li a::selection {
-    background-color: var(--nav-text-clr);
+    background-color: #fff;
     color: var(--main-clr);
 }
 
@@ -141,42 +183,8 @@ nav ul {
  
   }
   
-  nav li {
-    display: inline-block;
-    margin: 0 10px;
-  }
+
 
 
   
-  nav li a {
-    position: relative;
-    text-decoration: none;
-  
-  }
-  
-  nav li a::before,
-  nav li a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 1px;
-    bottom: 0;
-    background-color: #fff;
-    transition: width 0.3s ease-in-out; /* Transition for the width */
-  }
-  
-  nav li a::before {
-    left: 50%; /* Starts from the middle */
-    transform: translateX(-50%);
-  }
-  
-  nav li a::after {
-    right: 50%; /* Starts from the middle */
-    transform: translateX(50%);
-  }
-  
-  nav li a:hover::before,
-  nav li a:hover::after {
-    width: 50%; /* Change the width on hover to create the effect */
-  }
-  
+ 
