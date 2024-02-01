@@ -40,6 +40,10 @@
                   </li>
                   {% endfor %} 
                   <div class="nav-user-detais-container">
+                    <div class='logout-modal hidden' >
+                        <a href="{% url 'logout' %}">Logout</a>    
+                        <a href="{{request.path}}">Cancel</a>    
+                    </div>
                   {% if request.user.profile %}
                   <button id="profile-pic" >
                    {% if request.user.profile.profile_pic %} 
@@ -52,12 +56,17 @@
                {% endif %} 
                <div class="nav-user-details">
                 {% if logged_user.first_name and logged_user.last_name %}
+                <div>
                 <span class="nav-user-details-name">{{logged_user.first_name}}</span>       
                 <span class="nav-user-details-name">{{logged_user.last_name}}</span>
+            </div>
                 {% else %}
                 <span class="nav-user-details-name"> {{logged_user}} </span>
                 {% endif %}
-               </div></div></button>
+            </div>
+            <img class='options-nav' src="{% static 'options-nav.svg'%}" alt="">
+            </div>
+        </button>
                  
                 
                </ul> 
@@ -74,6 +83,8 @@
     <li><a href="{% url 'my-posts'%}">Posts</a></li>
     {% comment %} <li><a href="{% url 'my-settings'%}">Settings</a></li> {% endcomment %}
 </ul>
+
+
 
 {% comment %} {% include "./components/footer.html" %} {% endcomment %}
 <script>

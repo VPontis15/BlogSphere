@@ -8,8 +8,7 @@ const deletePostMssg = document.querySelector('.delete-message');
 const optionsBtn = document.querySelectorAll('.options-button');
 const commentEditModalBtns = document.querySelectorAll('.editComment');
 const commentEditModal = document.querySelector('.comment-form--modal');
-// const profilePic = document.getElementById('profile-pic');
-// const profileList = document.querySelector('.profile-links-nav');
+
 const dialogDeletePost = document.querySelectorAll('.delete-dialog');
 const closeDeleteModal = document.querySelectorAll('.cancel-delete-post');
 const textAreaComment = document.querySelector('.comment-textarea');
@@ -19,26 +18,33 @@ closeDeleteModal.forEach((btn, index) => {
   btn.style.color = 'purple';
   const currentCloseModalBtn = closeDeleteModal[index];
   const currentDialog = dialogDeletePost[index];
-  console.log(index);
+
   currentCloseModalBtn.addEventListener('click', () => {
     currentDialog.close();
   });
 });
 
-// profilePic.addEventListener('click', () => {
-//   profileList.classList.toggle('hidden');
-// });
 
 
 
 optionsBtn.forEach((btn, index) => {
   const currentOptionsActionsDiv = optionsActionsDiv[index];
   currentOptionsActionsDiv.classList.add('hidden');
-  btn.addEventListener('click', () => {
-    optionsActionsDiv.forEach((option) => {
-      option.classList.add('hidden');
-    });
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation(); 
     currentOptionsActionsDiv.classList.toggle('hidden');
+    optionsActionsDiv.forEach((option, i) => {
+      if (i !== index) {
+        option.classList.add('hidden');
+      }
+    });
+  });
+});
+
+
+document.body.addEventListener('click', () => {
+  optionsActionsDiv.forEach((option) => {
+    option.classList.add('hidden');
   });
 });
 
@@ -99,5 +105,25 @@ navItems.forEach(navItem => {
     navListPopup.addEventListener('mouseout', () => {
       navListPopup.classList.add('hidden');
     });
+  }
+});
+
+
+const userDetailsContainer = document.querySelector('.nav-user-detais-container')
+const logoutModal = document.querySelector('.logout-modal')
+
+if (userDetailsContainer) {
+userDetailsContainer.addEventListener('click', (e)=> {
+logoutModal.classList.toggle('hidden')
+
+})}
+
+
+document.body.addEventListener('click', (e) => {
+  const isClickedInsideModal = logoutModal.contains(e.target);
+  const isClickedInsideUserDetails = userDetailsContainer.contains(e.target);
+
+  if (!isClickedInsideModal && !isClickedInsideUserDetails) {
+      logoutModal.classList.add('hidden');
   }
 });

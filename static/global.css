@@ -430,11 +430,23 @@ main {
 
 .nav-user-detais-container {
   margin-block: auto;
+  position: relative;
+ 
 }
 
+.nav-user-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
 
 .nav-user-details-name {
   color: var(--accent-clr) ;
+  text-align: left;
+  font-size: var(--fs-350);
+  display: block;
+
 }
 
 .nav-list-hidden {
@@ -477,4 +489,28 @@ main {
   font-weight: 700;
   background-color: var(--accent-clr);
 
+}
+
+
+.logout-modal {
+  padding: 1.5em 1em;
+  position: absolute;
+  bottom:10px;
+  right:-177px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  gap:2rem;
+  background-color: var(--main-clr);
+  color:var(--main-clr);
+  border-radius: 1vmin;
+}
+
+.logout-modal > a{
+  color: #fff;
+}
+
+.options-nav {
+  width:30px !important;
+  margin-left: auto;
 }
