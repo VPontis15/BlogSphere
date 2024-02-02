@@ -495,16 +495,18 @@ main {
 .logout-modal {
   padding: 1.5em 1em;
   position: absolute;
-  bottom:10px;
-  right:-177px;
+  bottom: -21px;
+  right: -90px;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
-  gap:2rem;
+  gap: 2rem;
   background-color: var(--main-clr);
-  color:var(--main-clr);
+  color: var(--main-clr);
   border-radius: 1vmin;
+  flex-direction: column;
 }
+
 
 .logout-modal > a{
   color: #fff;
