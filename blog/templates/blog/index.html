@@ -26,49 +26,14 @@
 
     
    
-   <section  id="welcome">
+
  
    <div class="home-links">
     <a href="">For you</a>
     <a href="">Following</a>
    </div>
-    {% if users_posts %}
-    <h2>These are your latest blogs</h2>
-    <ul class="latest_blogs blogs">
-        {% for post in users_posts %}
-        {% include "components/article.html" %}
-        {% endfor %}
-    </ul>
-   
-    {% else %}
-        <p>You have no posts yet </p>
-        {% comment %} <a class="link" href="{% url 'new'%}">Write a new posts</a> {% endcomment %}
-    
-   </section>{% endif %}
-  {% if following_posts %} <section>
-   
-    <h2>Recent posts from people you follow for you to see:</h2>
-    <ul class=" blogs">
-        {% for post in following_posts %}
-        {% include "components/article.html" %}
-        {% endfor %}
-    </ul>
-   </section>
-{% endif %}
-   <section>
-    {% if user.username %}  
-        <h2>Recent posts for you to read:</h2>
-    {% else %}
-        <h2>Recent posts:</h2>
-    {% endif %}
-    
+
   
-    <ul class="latest_blogs blogs">
-        {% for post in not_users_posts  %}
-        {% include "components/article.html" %}
-        {% endfor %}
-    </ul>
-   </section>
 
    
 
