@@ -36,3 +36,47 @@ h2 {
   font-size: var(--fs-650);
   margin-block-end: 0.5em;
 }
+
+
+.article-header, .article-details {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 3.75rem 1fr;
+  gap: 1rem;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+}
+
+.home-links{
+  font-size: var(--fs-600);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.home-links > a {
+  color: var(--main-clr) !important;
+}
+.home-links > a.active {
+  
+  font-weight: 800;
+}
+
+
+.feed-posts {
+  display: grid;
+  gap: 2.5rem;
+  margin-left: 1.125rem;
+
+
+}
+
+.col-2 {
+  max-height: 100%;
+  background-color: azure;
+}

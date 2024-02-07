@@ -15,6 +15,19 @@ def home(request):
     user_profile = None
     users_posts = not_users_posts = following_posts = all_posts = None
 
+
+
+    all_posts = Post.objects.all().distinct().order_by('-created_at')
+
+    context = {
+        'posts': all_posts,
+        'user_profile': user_profile,
+    }
+
+    return render(request, 'blog/index.html', context)
+
+@login_required(login_url='login')
+def following_view(request):
     if request.user.is_authenticated:
         try:
             user_profile = Profile.objects.get(user=request.user)
@@ -25,21 +38,15 @@ def home(request):
             user = request.user.username
             following_posts = Post.objects.filter(
                 author__profile__in=user_profile.following.all()).exclude(author=request.user)
-            users_posts = Post.objects.filter(author__username=user)
-            not_users_posts = Post.objects.exclude(author__username=user)
-
-    all_posts = Post.objects.all()
+           
 
     context = {
-        'posts': all_posts,
-        'all_posts': all_posts,
-        'users_posts': users_posts,
-        'not_users_posts': not_users_posts,
+       
         'user_profile': user_profile,
         'following_posts': following_posts,
     }
 
-    return render(request, 'blog/index.html', context)
+    return render(request, 'blog/following.html', context)
 
 
 def all_posts(request):

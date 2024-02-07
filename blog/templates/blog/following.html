@@ -28,11 +28,11 @@
     <section class="feed">
 {% if  logged_user %}
 
-
 <div class="home-links">
- <a class=" {% if request.path == '/' %} active {% endif %}" href="{% url 'home' %}">For you</a>
+ <a href="{% url 'home' %}">For you</a>
+
  <span>  |  </span>
- <a href="{% url 'following' %}">Following</a>
+ <a class=" {% if request.path == '/following' %} active {% endif %}" href="{% url 'following' %}">Following</a>
 </div>
 {% endif %}
 
@@ -40,7 +40,7 @@
    <section class="feed-posts">
 
 
-  {% for post in posts %}
+  {% for post in following_posts %}
 
 {% include "blog/components/post.html" %}
   
