@@ -1,3 +1,5 @@
+'use strict'
+
 const overlay = document.querySelector('.overlay');
 const openDeletePostDialogBtns = document.querySelectorAll(
   '.openDeletePostDialogBtns'

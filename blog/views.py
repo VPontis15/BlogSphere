@@ -5,6 +5,7 @@ from .models import Post, Tag, Comment, Like,Notification
 from .forms import PostForm, CommentForm
 from accounts.models import Profile
 from django.contrib import messages
+from django.db.models import Count
 # Create your views here.
 
 posts = Post.objects
@@ -13,15 +14,16 @@ posts = Post.objects
 @login_required(login_url='login')
 def home(request):
     user_profile = None
-    users_posts = not_users_posts = following_posts = all_posts = None
-
+    tags = Tag.objects.all()
 
 
     all_posts = Post.objects.all().distinct().order_by('-created_at')
-
+    popular_posts = Post.objects.annotate(num_likes=Count('likes')).order_by('-num_likes')[:3]
     context = {
         'posts': all_posts,
         'user_profile': user_profile,
+        'tags': tags,
+        'popular_posts': popular_posts
     }
 
     return render(request, 'blog/index.html', context)
@@ -39,11 +41,14 @@ def following_view(request):
             following_posts = Post.objects.filter(
                 author__profile__in=user_profile.following.all()).exclude(author=request.user)
            
-
+    tags = Tag.objects.all()
+    popular_posts = Post.objects.annotate(num_likes=Count('likes')).order_by('-num_likes')[:3]
     context = {
        
         'user_profile': user_profile,
         'following_posts': following_posts,
+        'tags': tags,
+        'popular_posts': popular_posts
     }
 
     return render(request, 'blog/following.html', context)

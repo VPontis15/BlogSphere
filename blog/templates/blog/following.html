@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{% static 'index.css' %}">
 <link rel="stylesheet" href="{% static 'article.css' %}">
 <link rel="stylesheet" href="{% static 'home-post.css' %}">
-
+<script defer src="{% static 'js/index.js' %}"></script>
 {% endblock  %}
 
 {% block title  %}Homepage{% endblock  %}
@@ -45,7 +45,7 @@
 {% include "blog/components/post.html" %}
   
   {% endfor %}</section></section>
-<div class='col-2'></div>
+<div class='col-2'> {% include "blog/home-popular.html" %}</div>
 </div>
 
     {% endblock %}

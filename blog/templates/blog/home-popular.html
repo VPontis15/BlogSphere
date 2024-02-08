@@ -1,0 +1,32 @@
+
+<div>
+    <h3>Latest popular posts  </h3>
+<ul class="latest-popular-posts">
+    {% for post in popular_posts %}
+    <li>
+        <span class="accent-clr">{{post.author}}</span>
+        <a class='latest-popular-posts--heading' href="{% url 'post' slug=post.slug %}">
+          
+          {{post.title}}
+        </a></li>
+    {% endfor %}
+
+</ul></div>
+
+
+
+
+<div>
+<h3>Posts based on tags</h3>
+<ul class="tags_posts"> 
+    {% for tag in tags %}
+    {% if tag.post_set.count %}
+    <li>
+       <a class='tag-posts-item' href="{% url 'posts'%}?tag={{tag.name}}">
+        
+      <span class="tag-title">  {{tag}}</span>
+       <span class="tag-count">{{tag.post_set.count}} posts</span> 
+    </a> </li>{% endif %}
+    {% endfor %}
+
+</ul></div>
