@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.urls import reverse
 from .forms import UserForm, ChangingPasswordForm
 from .models import Profile
-from blog.models import Post,Notification
+from blog.models import Post, Notification
 from accounts.helper import displayGreeting
 from django.contrib.auth.forms import PasswordChangeForm, PasswordResetForm
 from django.contrib.auth import update_session_auth_hash
@@ -66,7 +66,7 @@ def register(request):
 
 
 def viewProfile(request, username, tab):
-    user = get_object_or_404(User,username=username)
+    user = get_object_or_404(User, username=username)
     user_profile = get_object_or_404(Profile, user__username=username)
     is_users_profile = user_profile.user == request.user
     user_posts = Post.objects.filter(author=user_profile.user)
@@ -84,13 +84,13 @@ def viewProfile(request, username, tab):
                     logged_user.following.add(user_profile)
                     user_profile.followers.add(logged_user)
                     Notification.objects.create(recipient=user,
-                                        actor = request.user,
-                                        action= 'followed you ',
-                                        
-                                        is_read = False,
-                                        type='like'
-                                    
-                                        )
+                                                actor=request.user,
+                                                action='followed you ',
+
+                                                is_read=False,
+                                                type='like'
+
+                                                )
                 else:
                     logged_user.following.remove(user_profile)
                     user_profile.followers.remove(logged_user)
@@ -158,18 +158,17 @@ def myPosts(request):
     return render(request, 'account/components/myProfile/posts.html', context)
 
 
-
 def myNotifications(request):
     if request.user.is_authenticated:
-     notifications_before_update = Notification.objects.filter(recipient=request.user)
-
+        notifications_before_update = Notification.objects.filter(
+            recipient=request.user)
 
     Notification.objects.filter(recipient=request.user).update(is_read=True)
 
-# Get the updated notifications
-    seen_notifications = Notification.objects.filter(recipient=request.user, is_read=True).order_by('-created_at')
+    seen_notifications = Notification.objects.filter(
+        recipient=request.user, is_read=True).order_by('-created_at')
 
     context = {
         'seen_notifications': seen_notifications,
     }
-    return render(request, 'account\myNotifications.html',context)
+    return render(request, 'account\myNotifications.html', context)
